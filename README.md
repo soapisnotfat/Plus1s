@@ -1,8 +1,6 @@
 # cs2340 Team +1s (PlusOneSecond)
- Collaborator:
+# Collaborator:
  Siyu Li;
  Zijin Luo;
  Zhu Zhuang;
  Jinghua Zhang
-
-# Literally, we hold tremendous respect to a fame.
