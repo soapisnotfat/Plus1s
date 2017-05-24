@@ -1,3 +1,0 @@
-Hi everyone,
-
-Here is the basic introduction for our cs2340 project.
