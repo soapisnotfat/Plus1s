@@ -1,7 +1,6 @@
-# cs2340 Team +1s (PlusOneSecond)
+# cs2340
 Collaborator:
-Siyu Li
-Zijin Luo
-Zhu Zhuang
-Jinghua Zhang
-
+Siyu Li sli602@gatech.edu
+Zijin Luo zluo68@gatech.edu
+Zhu Zhuang zzhuang38@gatech.edu
+Jinghua Zhang jzhang866@gatech.edu
