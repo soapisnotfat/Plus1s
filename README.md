@@ -1,4 +1,5 @@
-# cs2340 Team +1s (PlusOneSecond)
+# cs2340 Team
+# +1s (PlusOneSecond)
 # Collaborators:
  Siyu Li;
  Zijin Luo;
