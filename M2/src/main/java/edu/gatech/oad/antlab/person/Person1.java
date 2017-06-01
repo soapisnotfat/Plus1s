@@ -33,10 +33,10 @@ public class Person1 {
 	  //Person 1 put your implementation here
         char[] stringchar = input.toCharArray();
         String returnresult = "";
-        for (int i = 0; i < input.length - 2; i++) {
+        for (int i = 0; i < input.length() - 2; i++) {
             returnresult = returnresult + stringchar[i+2];
         }
-        returnresult = result + stringchar[0] + stringchar[1];
+        returnresult = returnresult + stringchar[0] + stringchar[1];
         return returnresult;
 	}
 	
