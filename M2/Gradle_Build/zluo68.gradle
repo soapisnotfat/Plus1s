@@ -1,4 +1,4 @@
-/apply plugin: 'java'
+apply plugin: 'java'
 
 version '1.0'
 
@@ -7,7 +7,7 @@ jar {
         attributes 'Implement-Title' : 'Gradle Quickstart',
         'Implement-Verson': version,
         'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain',
-        'Class-Path' : 'lib/resource.jar'
+        'Class-Path' : '../../lib/resource.jar'
     }
 }
 
