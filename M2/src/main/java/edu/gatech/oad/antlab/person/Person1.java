@@ -38,7 +38,6 @@ public class Person1 {
         }
         returnresult = result + stringchar[0] + stringchar[1];
         return returnresult;
-        }
 	}
 	
 	/**
