@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="instant-run1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Lab32/app/build/intermediates/instant-run-support/debug/instant-run.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
