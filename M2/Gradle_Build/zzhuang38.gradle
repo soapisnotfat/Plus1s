@@ -2,6 +2,8 @@ apply plugin: 'java'
 
 version '1.0'
 
+defaultTasks 'jar'
+
 jar {
     manifest {
         attributes 'Implement-Title' : 'Gradle Quickstart',
