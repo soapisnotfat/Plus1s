@@ -35,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
                 User user = new User(null, null, null, null);
                 userDataStore.storeUserData(user);
                 userDataStore.setUserLoggedIn(true);
+
+                Intent toMainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                LoginActivity.this.startActivity(toMainIntent);
             }
         });
 
