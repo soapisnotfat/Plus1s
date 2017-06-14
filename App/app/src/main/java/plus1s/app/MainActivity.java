@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean authenticate() {
-        return userDataStore.getUserLogingStatus();
+        return userDataStore.getUserLoggingStatus();
     }
 
 }

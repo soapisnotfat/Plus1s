@@ -20,6 +20,7 @@ public class UserDataStore {
         spEditor.putString("name", user.getName());
         spEditor.putString("username", user.getUsername());
         spEditor.putString("password", user.getPassword());
+        spEditor.putString("email", user.getEmail());
         spEditor.commit();
     }
 
@@ -27,8 +28,9 @@ public class UserDataStore {
         String currentName = UserDataBase.getString("name", "");
         String currentUsername = UserDataBase.getString("username", "");
         String currentPassword = UserDataBase.getString("password", "");
+        String currentEmail = UserDataBase.getString("email","");
 
-        User currentUser = new User(currentName, currentUsername, currentPassword);
+        User currentUser = new User(currentName, currentUsername, currentPassword,currentEmail);
 
         return currentUser;
     }
@@ -39,7 +41,7 @@ public class UserDataStore {
         spEditor.commit();
     }
 
-    public boolean getUserLogingStatus() {
+    public boolean getUserLoggingStatus() {
         return UserDataBase.getBoolean("LoggedIn", false);
     }
 

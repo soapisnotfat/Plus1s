@@ -5,30 +5,39 @@ package plus1s.app;
  */
 
 public class User {
-    private String name, username, password;
+    private String name, username, password, email;
+    private boolean isLocked;
 
     /**
-     * three param constructor
+     * five param constructor
      * @param name user's name
      * @param username user's username
      * @param password user's password
+     * @param email user's email
+     * @param isLocked user's lock status
      */
-    public User (String name, String username, String password) {
+    public User (String name, String username, String password, String email, boolean isLocked) {
         this.name = name;
         this.username = username;
         this.password = password;
+        this.email = email;
+        this.isLocked = isLocked;
     }
 
     /**
-     * two param constructor
+     * four param constructor
+     * @param name user's name
      * @param username user's username
      * @param password user's password
+     * @param email user's email
      */
-    public User (String username, String password) {
-        this.name = "Unknown";
+    public User (String name, String username, String password, String email) {
+        this.name = name;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -49,6 +58,20 @@ public class User {
     }
     public String getPassword() {
         return this.password;
+    }
+
+    public void setEmail(String password) {
+        this.email = email;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setIsLocked(String password) {
+        this.isLocked = isLocked;
+    }
+    public boolean getIslocked() {
+        return this.isLocked;
     }
 
 

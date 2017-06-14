@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         login_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User user = new User(null, null);
+                User user = new User(null, null, null, null);
                 userDataStore.storeUserData(user);
                 userDataStore.setUserLoggedIn(true);
             }

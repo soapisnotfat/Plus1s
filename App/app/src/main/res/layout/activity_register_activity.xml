@@ -10,48 +10,91 @@
         android:id="@+id/reg_name"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="text"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="6dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/reg_user"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Username"
         android:inputType="text"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="62dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/reg_name"
+        android:layout_marginTop="13dp"
+        app:layout_constraintTop_toBottomOf="@+id/reg_name"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/reg_name" />
+
+    <EditText
+        android:id="@+id/reg_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/reg_name"
+        app:layout_constraintRight_toRightOf="@+id/reg_name"
+        app:layout_constraintTop_toBottomOf="@+id/reg_name"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/reg_register"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Register"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="243dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/reg_pass_confirm"
+        android:layout_marginTop="36dp"
+        app:layout_constraintTop_toBottomOf="@+id/reg_pass_confirm"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/reg_pass_confirm"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <EditText
         android:id="@+id/reg_password"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="119dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/reg_user"
+        android:layout_marginTop="64dp"
+        app:layout_constraintTop_toBottomOf="@+id/reg_user"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/reg_user"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <EditText
         android:id="@+id/reg_pass_confirm"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="181dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/reg_password"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/reg_password"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/reg_password"
+        app:layout_constraintHorizontal_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

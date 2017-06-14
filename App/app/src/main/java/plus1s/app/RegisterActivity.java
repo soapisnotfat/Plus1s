@@ -1,5 +1,6 @@
 package plus1s.app;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         final EditText reg_name = (EditText) findViewById(R.id.reg_name);
         final EditText reg_username = (EditText) findViewById(R.id.reg_user);
+        final EditText reg_email = (EditText) findViewById(R.id.reg_email);
         final EditText reg_password = (EditText) findViewById(R.id.reg_password);
         final EditText reg_password_confirm = (EditText) findViewById(R.id.reg_pass_confirm);
         final Button reg_register = (Button) findViewById(R.id.reg_register);
@@ -27,12 +29,77 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String name = reg_name.getText().toString();
                 String username = reg_username.getText().toString();
+                String email = reg_email.getText().toString();
                 String password_1 = reg_password_confirm.getText().toString();
                 String password_2 = reg_password.getText().toString();
+                if (!name.trim().equals("")) {
+                    if (!username.trim().equals("")) {
+                        if (email.contains("@")) {
+                            if ((password_2.length() >= 8)) {
+                                if ((password_2.equals(password_1))) {
+                                    //TODO put all recorded info to SharedPreferences and save to local files
+                                    //要死啦！
+                                    //要死要死啦！
+                                } else {
+                                    //try to display an alert
+                                    AlertDialog.Builder dialog3 = new AlertDialog.Builder(RegisterActivity.this);
+                                    dialog3.setTitle("Password not confirmed");
+                                    dialog3.setMessage("Your passwords don't match")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
+                                    reg_password_confirm.setText("");
+                                }
+                            } else {
+                                //try to display an alert
+                                AlertDialog.Builder dialog3 = new AlertDialog.Builder(RegisterActivity.this);
+                                dialog3.setTitle("Invalid Password");
+                                dialog3.setMessage("Your password should be longer than 8 ")
+                                        .setNegativeButton("Retry", null)
+                                        .create()
+                                        .show();
+                                reg_password.setText("");
+                                reg_password_confirm.setText("");
+                            }
+                        } else {
+                            //try to display an alert
+                            AlertDialog.Builder dialog2 = new AlertDialog.Builder(RegisterActivity.this);
+                            dialog2.setTitle("Invalid Email");
+                            dialog2.setMessage("Your email should contain '@'")
+                                    .setNegativeButton("Retry", null)
+                                    .create()
+                                    .show();
+                            reg_email.setText("");
+                        }
+                    } else {
+                        //try to display an alert
+                        AlertDialog.Builder dialog1 = new AlertDialog.Builder(RegisterActivity.this);
+                        dialog1.setTitle("Invalid Username");
+                        dialog1.setMessage("Please enter valid Username")
+                                .setNegativeButton("Retry", null)
+                                .create()
+                                .show();
+                        reg_username.setText("");
+                    }
+                } else {
+                    //try to display an alert
+                    AlertDialog.Builder dialog0 = new AlertDialog.Builder(RegisterActivity.this);
+                    dialog0.setTitle("Invalid Name");
+                    dialog0.setMessage("Please enter valid name")
+                            .setNegativeButton("Retry", null)
+                            .create()
+                            .show();
+                    reg_name.setText("");
+                }
+                /*
+                   random code
+                   save for future use
+                 */
                 if (password_1.equals(password_2)) {
-                    User RegisteredUser = new User(name, username, password_1);
+                    User RegisteredUser = new User(name, username, password_1, email);
                     try {
                         FileOutputStream fileOutputStream = openFileOutput(username, MODE_PRIVATE);
+
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
