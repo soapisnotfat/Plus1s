@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class UserDetails {
     private static final HashMap<String, User> localDetails = new HashMap<>();
     public static User currentUser;
-    //private static final ArrayList<Reprot> localReportList = new ArrayList<>();
+    //private static final ArrayList<Report> localReportList = new ArrayList<>();
 
     public static User getCurrentUser() {
         return currentUser;
@@ -25,14 +25,23 @@ public class UserDetails {
         localDetails.put(newUser.getUsername(), newUser);
     }
 
+    /**
+     * logging action
+     * checking 
+     * @param username
+     * @param password
+     * @return
+     */
     public static boolean login(String username, String password) {
         if (localDetails.containsKey(username)) {
             if (localDetails.get(username).getPassword().equals(password)) {
                 currentUser = localDetails.get(username);
+                return true;
             }
         }
-        return true;
+        return false;
     }
+
 
     public static void logout() {
         currentUser = null;
