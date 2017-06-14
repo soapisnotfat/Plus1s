@@ -13,6 +13,9 @@ import java.io.FileOutputStream;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    // controls the minimum length of password
+    int password_minimum_length = 3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!name.trim().equals("")) {
                     if (!username.trim().equals("")) {
                         if (email.contains("@")) {
-                            if ((password_2.length() >= 8)) {
+                            if ((password_2.length() >= password_minimum_length)) {
                                 if ((password_2.equals(password_1))) {
                                     //TODO put all recorded info to SharedPreferences and save to local files
                                     //要死啦！
