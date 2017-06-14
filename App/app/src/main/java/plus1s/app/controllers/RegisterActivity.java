@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import plus1s.app.R;
 import plus1s.app.model.User;
+import plus1s.app.model.UserDetails;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -42,14 +43,8 @@ public class RegisterActivity extends AppCompatActivity {
                         if (email.contains("@")) {
                             if ((password_2.length() >= password_minimum_length)) {
                                 if ((password_2.equals(password_1))) {
-                                    //TODO put all recorded info to SharedPreferences and save to local files
-                                    //要死啦！
-                                    //要死要死啦！
-
-                                    //store inputs to a user
                                     User RegisteredUser = new User(name, username, password_1, email);
-
-
+                                    UserDetails.register(RegisteredUser);
                                     //come back to login page after register successfully
                                     Intent backLoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                                     RegisterActivity.this.startActivity(backLoginIntent);
