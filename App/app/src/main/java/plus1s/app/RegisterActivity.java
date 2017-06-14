@@ -47,12 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                     //store inputs to a user
                                     User RegisteredUser = new User(name, username, password_1, email);
-                                    try {
-                                        FileOutputStream fileOutputStream = openFileOutput(username, MODE_PRIVATE);
 
-                                    } catch (FileNotFoundException e) {
-                                        e.printStackTrace();
-                                    }
 
                                     //come back to login page after register successfully
                                     Intent backLoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);

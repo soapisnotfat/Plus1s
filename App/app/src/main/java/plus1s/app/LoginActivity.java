@@ -19,27 +19,31 @@ public class LoginActivity extends AppCompatActivity {
         final EditText login_password = (EditText) findViewById(R.id.login_password);
         final Button login_login = (Button) findViewById(R.id.login_login);
         final TextView login_reg = (TextView) findViewById(R.id.login_register);
-        final UserDataStore userDataStore = new UserDataStore(this);
 
         login_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                LoginActivity.this.startActivity(registerIntent);
+                goToRegster();
             }
         });
 
         login_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User user = new User(null, null, null, null);
-                userDataStore.storeUserData(user);
-                userDataStore.setUserLoggedIn(true);
 
-                Intent toMainIntent = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(toMainIntent);
+                goToMain();
             }
         });
 
+    }
+
+    private void goToMain() {
+        Intent toMainIntent = new Intent(LoginActivity.this, MainActivity.class);
+        LoginActivity.this.startActivity(toMainIntent);
+    }
+
+    private void goToRegster() {
+        Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+        LoginActivity.this.startActivity(registerIntent);
     }
 }
