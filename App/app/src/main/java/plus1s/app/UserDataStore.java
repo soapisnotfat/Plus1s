@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
  */
 
 public class UserDataStore {
-    public static final String SP_NAME = "userDetals";
+    public static final String SP_NAME = "userDetails";
     SharedPreferences UserDataBase;
 
     public UserDataStore(Context context) {

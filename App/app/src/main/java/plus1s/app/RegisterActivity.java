@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 public class RegisterActivity extends AppCompatActivity {
 
     @Override
@@ -28,6 +31,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String password_2 = reg_password.getText().toString();
                 if (password_1.equals(password_2)) {
                     User RegisteredUser = new User(name, username, password_1);
+                    try {
+                        FileOutputStream fileOutputStream = openFileOutput(username, MODE_PRIVATE);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
                 //TODO: implement the beep while passwords don't match
             }

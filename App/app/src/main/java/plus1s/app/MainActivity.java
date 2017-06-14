@@ -31,11 +31,4 @@ public class MainActivity extends AppCompatActivity {
         return userDataStore.getUserLogingStatus();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (authenticate()) {
-
-        }
-    }
 }
