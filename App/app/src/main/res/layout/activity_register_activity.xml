@@ -30,7 +30,7 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="@+id/reg_name"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@+id/reg_name"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/reg_name" />
@@ -75,7 +75,7 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="@+id/reg_user"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="63dp"
         app:layout_constraintTop_toBottomOf="@+id/reg_user"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/reg_user"
@@ -85,16 +85,15 @@
         android:id="@+id/reg_pass_confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/reg_password"
         app:layout_constraintRight_toRightOf="@+id/reg_password"
-        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/reg_password"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/reg_password"
-        app:layout_constraintHorizontal_bias="0.0" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
 </android.support.constraint.ConstraintLayout>
