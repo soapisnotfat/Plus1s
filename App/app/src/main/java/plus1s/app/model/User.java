@@ -1,4 +1,4 @@
-package plus1s.app;
+package plus1s.app.model;
 
 /**
  * Created by ivorycandy on 6/13/17.
@@ -75,5 +75,8 @@ public class User {
         return this.isLocked;
     }
 
+    public boolean hasPermission() {
+        return !getIslocked();
+    }
 
 }

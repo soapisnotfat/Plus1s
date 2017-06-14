@@ -1,12 +1,12 @@
-package plus1s.app;
+package plus1s.app.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import plus1s.app.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
