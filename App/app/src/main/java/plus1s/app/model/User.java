@@ -39,7 +39,9 @@ public class User {
         this.isLocked = false;
     }
 
-
+    /*
+        setters and getters of each element
+     */
     public void setName(String name) {
         this.name = name;
     }

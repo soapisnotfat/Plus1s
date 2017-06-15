@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         .show();
 
                 // go to login page after successfully logout
-                goTologging();
+                goToLogin();
             }
         });
     }
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * go to logging page
      */
-    private void goTologging() {
+    private void goToLogin() {
         Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
         MainActivity.this.startActivity(loginIntent);
     }

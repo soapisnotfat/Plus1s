@@ -27,10 +27,10 @@ public class UserDetails {
 
     /**
      * logging action
-     * checking
-     * @param username
-     * @param password
-     * @return
+     * checking if login is successful
+     * @param username the username used to login
+     * @param password the corresponding password to login
+     * @return the status of lojin
      */
     public static boolean login(String username, String password) {
         if (localDetails.containsKey(username)) {
@@ -42,7 +42,9 @@ public class UserDetails {
         return false;
     }
 
-
+    /**
+     * logout the current user
+     */
     public static void logout() {
         currentUser = null;
     }
