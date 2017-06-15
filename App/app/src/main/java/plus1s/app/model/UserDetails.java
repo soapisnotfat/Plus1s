@@ -27,7 +27,7 @@ public class UserDetails {
 
     /**
      * logging action
-     * checking 
+     * checking
      * @param username
      * @param password
      * @return
