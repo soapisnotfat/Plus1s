@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
         //random variable instantiations
         Button main_logout = (Button)findViewById(R.id.main_logout);
         TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
+        TextView main_email = (TextView) findViewById(R.id.main_email);
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
+        main_email.setText("Your email is" + UserDetails.getCurrentUser().getEmail());
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {

@@ -25,8 +25,17 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:textSize="24sp"
+        android:textSize="30sp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="8dp" />
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/main_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="79dp" />
 
 </android.support.constraint.ConstraintLayout>
