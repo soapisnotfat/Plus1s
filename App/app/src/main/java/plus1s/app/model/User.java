@@ -2,6 +2,7 @@ package plus1s.app.model;
 
 /**
  * Created by ivorycandy on 6/13/17.
+ * class of user
  */
 
 public class User implements Account{
@@ -32,11 +33,7 @@ public class User implements Account{
      * @param email user's email
      */
     public User (String name, String username, String password, String email) {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.isLocked = false;
+        this(name, username, password, email, false);
     }
 
     @Override
@@ -47,6 +44,7 @@ public class User implements Account{
     public String getName() {
         return this.name;
     }
+
     @Override
     public void setUsername(String username) {
         this.username = username;
@@ -55,6 +53,7 @@ public class User implements Account{
     public String getUsername() {
         return this.username;
     }
+
     @Override
     public void setPassword(String password) {
         this.password = password;
@@ -63,6 +62,7 @@ public class User implements Account{
     public String getPassword() {
         return this.password;
     }
+
     @Override
     public void setEmail(String email) {
         this.email = email;
@@ -71,6 +71,7 @@ public class User implements Account{
     public String getEmail() {
         return this.email;
     }
+
     @Override
     public void setIsLocked(boolean isLocked) {
         this.isLocked = isLocked;
@@ -79,6 +80,7 @@ public class User implements Account{
     public boolean getIslocked() {
         return this.isLocked;
     }
+
     @Override
     public boolean hasPermission() {
         return !getIslocked();

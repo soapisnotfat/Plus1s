@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 /**
  * Created by zijinluo on 6/14/17.
+ * provides info to register and login user locally
  */
 
 public class UserDetails {

@@ -15,7 +15,6 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        ImageView to_be = (ImageView) findViewById(R.id.imageView2);
         Button welcome_login = (Button) findViewById(R.id.welcome_login);
         Button welcome_register = (Button) findViewById(R.id.welcome_register);
 

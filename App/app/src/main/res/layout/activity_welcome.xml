@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="plus1s.app.WelcomeActivity">
+    android:background="@drawable/bg_welcome"
+    android:layout_height="match_parent" tools:context="plus1s.app.controllers.WelcomeActivity">
 
     <Button
         android:id="@+id/welcome_login"
@@ -28,20 +29,5 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="37dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="384dp"
-        android:layout_height="417dp"
-        app:srcCompat="@drawable/thumb_1920_800487"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintHorizontal_bias="0.75"
-        tools:layout_editor_absoluteX="1dp" />
 
 </android.support.constraint.ConstraintLayout>

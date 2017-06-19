@@ -2,9 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_reg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="plus1s.app.RegisterAvticity">
+    tools:context="plus1s.app.controllers.RegisterActivity">
 
     <EditText
         android:id="@+id/reg_name"

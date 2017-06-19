@@ -2,7 +2,7 @@ package plus1s.app.model;
 
 /**
  * Created by zijinluo on 6/19/17.
- *
+ * provides User APIs
  */
 
 public interface Account {
