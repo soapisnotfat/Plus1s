@@ -4,7 +4,7 @@ package plus1s.app.model;
  * Created by ivorycandy on 6/13/17.
  */
 
-public class User {
+public class User implements Account{
     private String name, username, password, email;
     private boolean isLocked;
 
@@ -39,44 +39,47 @@ public class User {
         this.isLocked = false;
     }
 
-    /*
-        setters and getters of each element
-     */
+    @Override
     public void setName(String name) {
         this.name = name;
     }
+    @Override
     public String getName() {
         return this.name;
     }
-
+    @Override
     public void setUsername(String username) {
         this.username = username;
     }
+    @Override
     public String getUsername() {
         return this.username;
     }
-
+    @Override
     public void setPassword(String password) {
         this.password = password;
     }
+    @Override
     public String getPassword() {
         return this.password;
     }
-
-    public void setEmail(String password) {
+    @Override
+    public void setEmail(String email) {
         this.email = email;
     }
+    @Override
     public String getEmail() {
         return this.email;
     }
-
-    public void setIsLocked(String password) {
+    @Override
+    public void setIsLocked(boolean isLocked) {
         this.isLocked = isLocked;
     }
+    @Override
     public boolean getIslocked() {
         return this.isLocked;
     }
-
+    @Override
     public boolean hasPermission() {
         return !getIslocked();
     }
