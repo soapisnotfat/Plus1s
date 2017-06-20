@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(loginIntent);
     }
 
+    /**
+     * go to lost item page
+     */
     private void goToLostItem() {
         Intent LostItemIntent = new Intent(MainActivity.this, LostItemActivity.class);
         MainActivity.this.startActivity(LostItemIntent);
