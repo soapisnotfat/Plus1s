@@ -69,8 +69,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private String displayLostItem() {
         String output = "";
-        for (String i : UserDetails.getCurrentUser().getLostItem()) {
-            output += i + "," +'\n';
+        if (UserDetails.getCurrentUser().getLostItem() != null) {
+            for (String i : UserDetails.getCurrentUser().getLostItem()) {
+                output += i + "," + '\n';
+            }
         }
         return output;
     }
