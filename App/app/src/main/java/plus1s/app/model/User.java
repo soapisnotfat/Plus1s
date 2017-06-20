@@ -1,5 +1,7 @@
 package plus1s.app.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by ivorycandy on 6/13/17.
  * class of user
@@ -8,6 +10,8 @@ package plus1s.app.model;
 public class User implements Account{
     private String name, username, password, email;
     private boolean isLocked;
+    private ArrayList<String> lostItem = new ArrayList<>();
+
 
     /**
      * five param constructor
@@ -23,6 +27,7 @@ public class User implements Account{
         this.password = password;
         this.email = email;
         this.isLocked = isLocked;
+        this.lostItem = null;
     }
 
     /**
@@ -79,6 +84,15 @@ public class User implements Account{
     @Override
     public boolean getIslocked() {
         return this.isLocked;
+    }
+
+    @Override
+    public void addLostItem(String item) {
+        lostItem.add(item);
+    }
+    @Override
+    public ArrayList<String> getLostItem() {
+        return lostItem;
     }
 
     @Override

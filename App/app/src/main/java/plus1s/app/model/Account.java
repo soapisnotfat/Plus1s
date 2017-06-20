@@ -1,5 +1,7 @@
 package plus1s.app.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by zijinluo on 6/19/17.
  * provides User APIs
@@ -71,5 +73,17 @@ public interface Account {
      * @return permissions
      */
     boolean hasPermission();
+
+    /**
+     * getter of user's lost items
+     * @return user's lost items
+     */
+    ArrayList<String> getLostItem();
+
+    /**
+     * add an item to user's lostItem array
+     * @param item the lost item parsing in
+     */
+    void addLostItem(String item);
 
 }

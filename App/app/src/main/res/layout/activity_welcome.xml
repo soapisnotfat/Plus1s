@@ -8,26 +8,28 @@
 
     <Button
         android:id="@+id/welcome_login"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
-        android:text="Login"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="37dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_marginStart="16dp"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <Button
         android:id="@+id/welcome_register"
+        style="@android:style/Widget.DeviceDefault.Light.Button.Borderless.Small"
         android:layout_width="131dp"
         android:layout_height="wrap_content"
-        android:text="Register"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="37dp"
         android:layout_marginEnd="16dp"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="37dp" />
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
 </android.support.constraint.ConstraintLayout>

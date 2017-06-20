@@ -18,7 +18,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginEnd="6dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp" />
 
     <TextView
         android:id="@+id/main_welcome"
@@ -35,16 +36,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/main_email"
+        android:id="@+id/main_lost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="30sp"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginStart="16dp"
         android:layout_marginTop="79dp"
-        tools:layout_constraintLeft_creator="1"
+        android:text="TextView"
+        android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/main_add_lost_item"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="report new lost item"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="447dp" />
 
 </android.support.constraint.ConstraintLayout>

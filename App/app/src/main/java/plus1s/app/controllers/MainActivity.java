@@ -18,10 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
         //random variable instantiations
         Button main_logout = (Button)findViewById(R.id.main_logout);
+        Button main_add_lost_item = (Button) findViewById(R.id.main_add_lost_item);
         TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
-        TextView main_email = (TextView) findViewById(R.id.main_email);
+        TextView main_lost = (TextView) findViewById(R.id.main_lost);
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
-        main_email.setText("Your email is" + UserDetails.getCurrentUser().getEmail());
+        main_lost.setText("Your lost item(s) are" + displayLostItem());
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {
@@ -32,13 +33,20 @@ public class MainActivity extends AppCompatActivity {
                 //display if successfully logout
                 AlertDialog.Builder dialog3 = new AlertDialog.Builder(MainActivity.this);
                 dialog3.setTitle("You have logged out");
-                dialog3.setMessage("滚吧 ")
+                dialog3.setMessage(".. ")
                         .setNegativeButton("OK", null)
                         .create()
                         .show();
 
                 // go to login page after successfully logout
                 goToLogin();
+            }
+        });
+
+        main_add_lost_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToLostItem();
             }
         });
     }
@@ -51,4 +59,19 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(loginIntent);
     }
 
+    private void goToLostItem() {
+        Intent LostItemIntent = new Intent(MainActivity.this, LostItemActivity.class);
+        MainActivity.this.startActivity(LostItemIntent);
+    }
+    /**
+     * display current user's lot items
+     * @return string of lost item
+     */
+    private String displayLostItem() {
+        String output = "";
+        for (String i : UserDetails.getCurrentUser().getLostItem()) {
+            output += i + "," +'\n';
+        }
+        return output;
+    }
 }

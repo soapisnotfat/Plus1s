@@ -31,7 +31,7 @@ public class UserDetails {
      * checking if login is successful
      * @param username the username used to login
      * @param password the corresponding password to login
-     * @return the status of lojin
+     * @return the status of login
      */
     public static boolean login(String username, String password) {
         if (localDetails.containsKey(username)) {
