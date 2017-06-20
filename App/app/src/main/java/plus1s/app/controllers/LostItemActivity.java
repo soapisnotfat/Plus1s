@@ -12,7 +12,6 @@ import plus1s.app.model.UserDetails;
 
 public class LostItemActivity extends AppCompatActivity {
 
-    final EditText lost_lost_item = (EditText) findViewById(R.id.lost_lost_item);;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +20,7 @@ public class LostItemActivity extends AppCompatActivity {
 
         final Button lost_cancel = (Button)findViewById(R.id.lost_cancel);
         final Button lost_add = (Button)findViewById(R.id.lost_add);
+        final EditText lost_lost_item = (EditText) findViewById(R.id.lost_lost_item);;
 
         lost_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +32,9 @@ public class LostItemActivity extends AppCompatActivity {
         lost_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addLostItem();
+                if (!lost_lost_item.getText().toString().trim().equals("")) {
+                    UserDetails.getCurrentUser().addLostItem(lost_lost_item.getText().toString());
+                }
             }
         });
     }
@@ -45,9 +47,5 @@ public class LostItemActivity extends AppCompatActivity {
         LostItemActivity.this.startActivity(MainIntent);
     }
 
-    private void addLostItem() {
-        if (!lost_lost_item.getText().toString().trim().equals("")) {
-            UserDetails.getCurrentUser().addLostItem(lost_lost_item.getText().toString());
-        }
-    }
+
 }
