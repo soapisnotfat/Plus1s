@@ -42,9 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 String log_password = login_password.getText().toString();
 
                 if (UserDetails.login(log_username, log_password)) {
-                    /*
-                     * if login successfully, go to main page
-                     */
+                    //if login successfully, go to main page
                     goToMain();
 
                 } else {

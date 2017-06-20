@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class User implements Account{
     private String name, username, password, email;
     private boolean isLocked;
-    private ArrayList<String> lostItem = new ArrayList<>();
+    private ArrayList<String> lostItem;
+
 
 
     /**
@@ -27,7 +28,7 @@ public class User implements Account{
         this.password = password;
         this.email = email;
         this.isLocked = isLocked;
-        this.lostItem = null;
+        this.lostItem = new ArrayList<>();
     }
 
     /**
@@ -87,8 +88,8 @@ public class User implements Account{
     }
 
     @Override
-    public void addLostItem(String item) {
-        lostItem.add(item);
+    public void addLostItem(String e) {
+        lostItem.add(e);
     }
     @Override
     public ArrayList<String> getLostItem() {

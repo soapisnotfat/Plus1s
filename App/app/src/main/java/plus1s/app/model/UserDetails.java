@@ -10,11 +10,11 @@ import java.util.HashMap;
  */
 
 public class UserDetails {
-    private static final HashMap<String, User> localDetails = new HashMap<>();
-    public static User currentUser;
+    private static final HashMap<String, Account> localDetails = new HashMap<>();
+    public static Account currentUser;
     //private static final ArrayList<Report> localReportList = new ArrayList<>();
 
-    public static User getCurrentUser() {
+    public static Account getCurrentUser() {
         return currentUser;
     }
 
@@ -22,7 +22,7 @@ public class UserDetails {
      * register new user to local storage
      * @param newUser user to be registered
      */
-    public static void register(User newUser) {
+    public static void register(Account newUser) {
         localDetails.put(newUser.getUsername(), newUser);
     }
 

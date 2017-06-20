@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         TextView main_lost = (TextView) findViewById(R.id.main_lost);
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
-        main_lost.setText("Your lost item(s) are" + displayLostItem());
+        main_lost.setText("Your lost item(s) are " + displayLostItem());
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
             for (String i : UserDetails.getCurrentUser().getLostItem()) {
                 output += i + "," + '\n';
             }
+        } else {
+            output += "nothing";
         }
         return output;
     }

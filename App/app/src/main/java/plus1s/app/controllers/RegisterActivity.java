@@ -46,8 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     User RegisteredUser = new User(name, username, password_1, email);
                                     UserDetails.register(RegisteredUser);
                                     //come back to login page after register successfully
-                                    Intent backLoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                    RegisterActivity.this.startActivity(backLoginIntent);
+                                    goToLogin();
 
                                 } else {
                                     //display an alert when passwords don't match
@@ -102,5 +101,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    /**
+     * go to login page
+     */
+    private void goToLogin() {
+        Intent backLoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+        RegisterActivity.this.startActivity(backLoginIntent);
     }
 }

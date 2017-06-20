@@ -1,5 +1,6 @@
 package plus1s.app.controllers;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,8 +33,18 @@ public class LostItemActivity extends AppCompatActivity {
         lost_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!lost_lost_item.getText().toString().trim().equals("")) {
-                    UserDetails.getCurrentUser().addLostItem(lost_lost_item.getText().toString());
+                String lost_item = lost_lost_item.getText().toString().trim();
+                if (!lost_item.equals("")) {
+                    UserDetails.getCurrentUser().addLostItem(lost_item);
+                } else {
+                    //display an alert while user's Name is invalid
+                    AlertDialog.Builder dialog0 = new AlertDialog.Builder(LostItemActivity.this);
+                    dialog0.setTitle("Invalid input");
+                    dialog0.setMessage("Please enter valid input")
+                            .setNegativeButton("Retry", null)
+                            .create()
+                            .show();
+                    lost_lost_item.setText("");
                 }
             }
         });
