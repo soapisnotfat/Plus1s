@@ -10,16 +10,26 @@
         android:id="@+id/lost_cancel"
         style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
         android:layout_width="79dp"
+<<<<<<< HEAD
         android:layout_height="48dp"
-        android:text="Cancel"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
+=======
+        android:layout_height="46dp"
         android:layout_marginTop="64dp"
+>>>>>>> 9b6db82beadf0ea085c4312890ebb0000552cbb8
+        android:text="Cancel"
+        android:textAlignment="center"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lost_lost_item"
         tools:layout_constraintLeft_creator="1"
+<<<<<<< HEAD
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintHorizontal_bias="0.501" />
+=======
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+>>>>>>> 9b6db82beadf0ea085c4312890ebb0000552cbb8
 
     <EditText
         android:id="@+id/lost_lost_item"
