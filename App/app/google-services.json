@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "843160428639-p2vn6va0dd6pdvcl64uuadt5kabk7p5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "plus1s.app",
+            "certificate_hash": "2f36f3bdb26a87c5872167581b0429b0a10aa2f1"
+          }
+        },
+        {
           "client_id": "843160428639-unckjbsblirgqdnan9hoskc2qodi34j5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -30,6 +38,9 @@
       "api_key": [
         {
           "current_key": "AIzaSyDYbYmUmbWz6JZ-DkqHlgy0ZOb4bVxPUUQ"
+        },
+        {
+          "current_key": "AIzaSyDHbj8iuCXNOKVPYWpkx1FpRLxwNYQPSyg"
         }
       ],
       "services": {
