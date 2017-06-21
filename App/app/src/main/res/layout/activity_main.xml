@@ -11,7 +11,7 @@
         android:id="@+id/main_logout"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="@string/logout"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
@@ -19,7 +19,8 @@
         android:layout_marginEnd="6dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="16dp"
-        android:layout_marginRight="6dp" />
+        android:layout_marginRight="6dp"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/main_welcome"
@@ -33,7 +34,8 @@
         android:layout_marginTop="16dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/main_lost"
@@ -46,7 +48,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/main_add_lost_item"
@@ -60,6 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="HardcodedText" />
 
 </android.support.constraint.ConstraintLayout>

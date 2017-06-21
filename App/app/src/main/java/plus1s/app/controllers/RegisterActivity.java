@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import plus1s.app.R;
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText reg_password = (EditText) findViewById(R.id.reg_password);
         final EditText reg_password_confirm = (EditText) findViewById(R.id.reg_pass_confirm);
         final Button reg_register = (Button) findViewById(R.id.reg_register);
+        final Button reg_cancel = (Button) findViewById(R.id.reg_cancel);;
 
         reg_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 if ((password_2.equals(password_1))) {
                                     User RegisteredUser = new User(name, username, password_1, email);
                                     UserDetails.register(RegisteredUser);
+                                    Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
                                     //come back to login page after register successfully
                                     goToLogin();
 
@@ -101,6 +104,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
+        reg_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToWelcome();
+            }
+        });
     }
 
     /**
@@ -108,5 +118,12 @@ public class RegisterActivity extends AppCompatActivity {
      */
     private void goToLogin() {
         RegisterActivity.this.startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+    }
+
+    /**
+     * go to welcome page
+     */
+    private void goToWelcome() {
+        RegisterActivity.this.startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
     }
 }

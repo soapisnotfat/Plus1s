@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/reg_name"
-        android:layout_width="368dp"
+        android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
@@ -84,15 +84,32 @@
 
     <EditText
         android:id="@+id/reg_pass_confirm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_width="395dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="@+id/reg_password"
         app:layout_constraintRight_toRightOf="@+id/reg_password"
         app:layout_constraintTop_toBottomOf="@+id/reg_password"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <Button
+        android:id="@+id/reg_cancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:text="Cancel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/reg_register"
+        app:layout_constraintRight_toRightOf="@+id/reg_register"
+        app:layout_constraintTop_toBottomOf="@+id/reg_register"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
