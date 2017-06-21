@@ -7,4 +7,6 @@
     <string name="ADD">ADD</string>
     <string name="Cancel">Cancel</string>
     <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
 </resources>
