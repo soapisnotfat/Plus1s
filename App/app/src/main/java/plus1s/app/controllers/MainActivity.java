@@ -1,12 +1,12 @@
 package plus1s.app.controllers;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import plus1s.app.R;
 import plus1s.app.model.UserDetails;
@@ -31,12 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 UserDetails.logout();
 
                 //display if successfully logout
-                AlertDialog.Builder dialog3 = new AlertDialog.Builder(MainActivity.this);
-                dialog3.setTitle("You have logged out");
-                dialog3.setMessage(".. ")
-                        .setNegativeButton("OK", null)
-                        .create()
-                        .show();
+                Toast.makeText(MainActivity.this, "You have successfully logged out", Toast.LENGTH_SHORT).show();
 
                 // go to login page after successfully logout
                 goToLogin();
@@ -55,17 +50,16 @@ public class MainActivity extends AppCompatActivity {
      * go to logging page
      */
     private void goToLogin() {
-        Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
-        MainActivity.this.startActivity(loginIntent);
+        MainActivity.this.startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 
     /**
      * go to lost item page
      */
     private void goToLostItem() {
-        Intent LostItemIntent = new Intent(MainActivity.this, LostItemActivity.class);
-        MainActivity.this.startActivity(LostItemIntent);
+        MainActivity.this.startActivity(new Intent(MainActivity.this, LostItemActivity.class));
     }
+
     /**
      * display current user's lot items
      * @return string of lost item

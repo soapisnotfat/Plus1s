@@ -38,15 +38,13 @@ public class WelcomeActivity extends AppCompatActivity {
      * go to login page
      */
     private void goToLogin() {
-        Intent LoginIntent = new Intent(WelcomeActivity.this, LoginActivity.class);
-        WelcomeActivity.this.startActivity(LoginIntent);
+        WelcomeActivity.this.startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
     }
 
     /**
      * got to register page
      */
     private void goToRegister() {
-        Intent RegisterIntent = new Intent(WelcomeActivity.this, RegisterActivity.class);
-        WelcomeActivity.this.startActivity(RegisterIntent);
+        WelcomeActivity.this.startActivity(new Intent(WelcomeActivity.this, RegisterActivity.class));
     }
 }

@@ -107,7 +107,6 @@ public class RegisterActivity extends AppCompatActivity {
      * go to login page
      */
     private void goToLogin() {
-        Intent backLoginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-        RegisterActivity.this.startActivity(backLoginIntent);
+        RegisterActivity.this.startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
     }
 }

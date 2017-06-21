@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import plus1s.app.R;
 import plus1s.app.model.UserDetails;
@@ -36,6 +37,8 @@ public class LostItemActivity extends AppCompatActivity {
                 String lost_item = lost_lost_item.getText().toString().trim();
                 if (!lost_item.equals("")) {
                     UserDetails.getCurrentUser().addLostItem(lost_item);
+                    lost_lost_item.setText("");
+                    Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
                 } else {
                     //display an alert while user's Name is invalid
                     AlertDialog.Builder dialog0 = new AlertDialog.Builder(LostItemActivity.this);
@@ -54,8 +57,7 @@ public class LostItemActivity extends AppCompatActivity {
      * go to main page
      */
     private void goToMain() {
-        Intent MainIntent = new Intent(LostItemActivity.this, MainActivity.class);
-        LostItemActivity.this.startActivity(MainIntent);
+        LostItemActivity.this.startActivity(new Intent(LostItemActivity.this, MainActivity.class));
     }
 
 

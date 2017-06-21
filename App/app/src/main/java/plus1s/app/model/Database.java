@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Database {
     private Account user;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     public void upLoadRequest() {
         Account user = UserDetails.getCurrentUser();

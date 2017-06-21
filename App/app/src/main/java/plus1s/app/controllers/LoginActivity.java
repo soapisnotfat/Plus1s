@@ -11,6 +11,8 @@ import android.widget.TextView;
 import plus1s.app.R;
 import plus1s.app.model.UserDetails;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //random variable instantiations
         final EditText login_username = (EditText) findViewById(R.id.login_user);
+        final TextView login_back = (TextView) findViewById(R.id.login_back);
         final EditText login_password = (EditText) findViewById(R.id.login_password);
         final Button login_login = (Button) findViewById(R.id.login_login);
         final TextView login_reg = (TextView) findViewById(R.id.login_register);
@@ -58,21 +61,33 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        login_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToWelcome();
+            }
+        });
+
     }
 
     /**
      * go to main page
      */
     private void goToMain() {
-        Intent toMainIntent = new Intent(LoginActivity.this, MainActivity.class);
-        LoginActivity.this.startActivity(toMainIntent);
+        LoginActivity.this.startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 
     /**
      * go to register page
      */
     private void goToRegister() {
-        Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-        LoginActivity.this.startActivity(registerIntent);
+        LoginActivity.this.startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+    }
+
+    /**
+     * go to welcome page
+     */
+    private void goToWelcome() {
+        LoginActivity.this.startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
     }
 }
