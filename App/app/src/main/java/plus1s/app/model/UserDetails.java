@@ -14,6 +14,7 @@ public class UserDetails {
     public static Account currentUser;
     //private static final ArrayList<Report> localReportList = new ArrayList<>();
 
+
     public static Account getCurrentUser() {
         return currentUser;
     }
@@ -34,6 +35,7 @@ public class UserDetails {
      * @return the status of login
      */
     public static boolean login(String username, String password) {
+
         if (localDetails.containsKey(username)) {
             if (localDetails.get(username).getPassword().equals(password)) {
                 currentUser = localDetails.get(username);
