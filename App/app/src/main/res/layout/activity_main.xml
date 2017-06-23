@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg1"
+    android:background="@drawable/bg_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="plus1s.app.controllers.MainActivity">
@@ -42,14 +42,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="79dp"
+        android:layout_marginTop="130dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginLeft="16dp" />
 
     <Button
         android:id="@+id/main_add_lost_item"

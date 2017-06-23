@@ -52,5 +52,6 @@ public class UserDetails {
         currentUser = null;
     }
 
+
     //TODO report system is about to be online
 }
