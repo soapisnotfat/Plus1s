@@ -93,10 +93,10 @@ public class User implements Account{
         lostItem.add(i);
     }
     @Override
-    public String getLostItem() {
+    public String getLostItemName() {
         String output = "";
         for (Item i: lostItem) {
-            output += i + ",\n";
+            output += i.getName() + ",\n";
         }
         return output;
     }

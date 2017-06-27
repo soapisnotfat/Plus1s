@@ -9,9 +9,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import plus1s.app.R;
+import plus1s.app.model.FoundItem;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
+    FoundItem fi = new FoundItem();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         TextView main_found = (TextView) findViewById(R.id.main_found);
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
         main_lost.setText("Your lost item(s) are " + displayLostItem());
+        main_found.setText("Found items are" + displayFoundItem());
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
      * @return string of lost item
      */
     private String displayLostItem() {
-        return UserDetails.getCurrentUser().getLostItem();
+        return UserDetails.getCurrentUser().getLostItemName();
+    }
+
+    /**
+     * display current found items
+     * @return string of found items
+     */
+    private String displayFoundItem() {
+        return fi.getLostItemName();
     }
 }

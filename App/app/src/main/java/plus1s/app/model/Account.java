@@ -75,10 +75,10 @@ public interface Account {
     boolean hasPermission();
 
     /**
-     * getter of user's lost items
-     * @return user's lost items
+     * getter of user's lost item's name
+     * @return user's lost item's name
      */
-    String getLostItem();
+    String getLostItemName();
 
     /**
      * add an item to user's lostItem array
