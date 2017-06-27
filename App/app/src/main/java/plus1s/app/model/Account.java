@@ -78,7 +78,7 @@ public interface Account {
      * getter of user's lost items
      * @return user's lost items
      */
-    ArrayList<String> getLostItem();
+    String getLostItem();
 
     /**
      * add an item to user's lostItem array
