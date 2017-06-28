@@ -24,19 +24,23 @@ public class Database {
         Account user_2 = UserDetails.getRegisterUser();
         if (user_1 != null) {
             DatabaseReference myRef = database.getReference(user_1.getUsername());
-            myRef.setValue(user);
+            myRef.setValue(user_1);
         } else if (user_2 != null) {
             DatabaseReference myRef = database.getReference(user_2.getUsername());
-            myRef.setValue(user);
+            myRef.setValue(user_2);
         }
     }
 
-    public Account downloadRequest(String username) {
+    public Account downloadRequest(final String username) {
         DatabaseReference myRef = database.getReference(username);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                user = dataSnapshot.getValue(Account.class);
+                if (dataSnapshot.hasChild(username)) {
+                    user = dataSnapshot.getValue(Account.class);
+                } else {
+                    user = null;
+                }
             }
 
             @Override

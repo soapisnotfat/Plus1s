@@ -9,11 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import plus1s.app.R;
+import plus1s.app.model.Account;
+import plus1s.app.model.Database;
 import plus1s.app.model.UserDetails;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class LoginActivity extends AppCompatActivity {
+    Database db = new Database();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +47,16 @@ public class LoginActivity extends AppCompatActivity {
                 String log_username = login_username.getText().toString();
                 String log_password = login_password.getText().toString();
 
-                if (UserDetails.login(log_username, log_password)) {
-                    //if login successfully, go to main page
-
+                Account online_user = db.downloadRequest(log_username);
+                if ((online_user != null ) && (log_password.equals(online_user.getPassword()))) {
+                    UserDetails.login(online_user);
                     goToMain();
 
                 } else {
                     //display an alert while password is invalid
                     AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
                     dialog3.setTitle("Invalid Login Attempt");
-                    dialog3.setMessage("please enter correct word combination ")
+                    dialog3.setMessage("please enter correct combination ")
                             .setNegativeButton("Retry", null)
                             .create()
                             .show();
@@ -91,4 +94,5 @@ public class LoginActivity extends AppCompatActivity {
     private void goToWelcome() {
         LoginActivity.this.startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
     }
+
 }

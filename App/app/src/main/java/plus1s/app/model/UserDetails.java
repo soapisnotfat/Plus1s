@@ -13,6 +13,7 @@ public class UserDetails {
     private static final HashMap<String, Account> localDetails = new HashMap<>();
     public static Account currentUser;
     public static Account registerUser;
+    Database db = new Database();
     //private static final ArrayList<Report> localReportList = new ArrayList<>();
 
 
@@ -34,21 +35,11 @@ public class UserDetails {
     }
 
     /**
-     * logging action
-     * checking if login is successful
-     * @param username the username used to login
-     * @param password the corresponding password to login
-     * @return the status of login
+     *  set up current user
+     * @param user user parsing in
      */
-    public static boolean login(String username, String password) {
-
-        if (localDetails.containsKey(username)) {
-            if (localDetails.get(username).getPassword().equals(password)) {
-                currentUser = localDetails.get(username);
-                return true;
-            }
-        }
-        return false;
+    public static void login(Account user) {
+        currentUser = user;
     }
 
     /**
