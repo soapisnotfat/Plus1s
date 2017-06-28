@@ -2,16 +2,16 @@ package plus1s.app.model;
 
 /**
  * Created by Ivorycandy on 6/28/17.
- * administrator class
+ * Manager class
  */
 
-public class Administrator extends User {
-    public Administrator() {
+public class Manager extends User {
+    public Manager() {
         super();
     }
 
     @Override
     public String getType() {
-        return "Administrator";
+        return "Manager";
     }
 }

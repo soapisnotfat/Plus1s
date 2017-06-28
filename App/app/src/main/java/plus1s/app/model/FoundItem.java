@@ -3,8 +3,8 @@ package plus1s.app.model;
 import java.util.ArrayList;
 
 /**
- * Created by ivorycandy on 6/26/17.
- *
+ * Created by Ivorycandy on 6/26/17.
+ * The class holding all found items
  */
 
 public class FoundItem {
@@ -30,5 +30,4 @@ public class FoundItem {
         }
         return output;
     }
-
 }

@@ -1,12 +1,13 @@
 package plus1s.app.model;
 
 /**
- * Created by zijinluo on 6/28/17.
+ * Created by Ivorycandy on 6/28/17.
  * Enum holding account types
  */
 
 public enum AccountType {
     ADMINISTRATOR("Administrator"),
+    MANAGER("Manager"),
     USER("User");
 
     private final String fullName;

@@ -1,9 +1,8 @@
 package plus1s.app.model;
 
-import java.util.ArrayList;
 
 /**
- * Created by zijinluo on 6/19/17.
+ * Created by Ivorycandy on 6/19/17.
  * provides User APIs
  */
 
@@ -85,4 +84,10 @@ public interface Account {
      * @param item the lost item parsing in
      */
     void addLostItem(String item);
+
+    /**
+     * getter of account type
+     * @return user's type
+     */
+    String getType();
 }

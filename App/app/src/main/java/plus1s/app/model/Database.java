@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by ivorycandy on 6/20/17.
+ * Created by Ivorycandy on 6/20/17.
  * Service Provider
  * provides functions of accessing Firebase
  */

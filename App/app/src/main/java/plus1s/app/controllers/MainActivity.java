@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 goToLostItem();
             }
         });
+        main_add_found_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToFoundItem();
+            }
+        });
     }
 
     /**
@@ -65,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private void goToLostItem() {
         MainActivity.this.startActivity(new Intent(MainActivity.this, LostItemActivity.class));
+    }
+
+    /**
+     * go to found item page
+     */
+    private void goToFoundItem() {
+        MainActivity.this.startActivity(new Intent(MainActivity.this, FoundItemActivity.class));
     }
 
     /**

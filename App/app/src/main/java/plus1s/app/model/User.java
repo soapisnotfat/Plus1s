@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by ivorycandy on 6/13/17.
+ * Created by Ivorycandy on 6/13/17.
  * class of user
  */
 
@@ -14,6 +14,7 @@ public class User implements Account{
     private boolean isLocked;
     private ArrayList<Item> lostItem;
     public final static List<AccountType> legalAccountType = Arrays.asList(AccountType.ADMINISTRATOR,
+            AccountType.MANAGER,
             AccountType.USER);
 
 
@@ -35,22 +36,12 @@ public class User implements Account{
     }
 
     /**
-     * four param constructor
-     * @param name user's name
-     * @param username user's username
-     * @param password user's password
-     * @param email user's email
-     */
-    public User (String name, String username, String password, String email) {
-        this(name, username, password, email, false);
-    }
-
-    /**
      * non-param constructor
      */
     public User() {
         this.lostItem = new ArrayList<>();
     }
+
 
     @Override
     public void setName(String name) {
@@ -117,4 +108,8 @@ public class User implements Account{
         return !getIsLocked();
     }
 
+    @Override
+    public String getType() {
+        return "general account";
+    }
 }

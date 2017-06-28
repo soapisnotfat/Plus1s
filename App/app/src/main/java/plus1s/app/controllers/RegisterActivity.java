@@ -16,6 +16,7 @@ import plus1s.app.R;
 import plus1s.app.model.Account;
 import plus1s.app.model.AccountType;
 import plus1s.app.model.Administrator;
+import plus1s.app.model.Manager;
 import plus1s.app.model.User;
 import plus1s.app.model.UserDetails;
 
@@ -60,6 +61,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     switch (accountType) {
                                         case "Administrator":
                                             RegisteredUser = new Administrator();
+                                            break;
+                                        case "Manager":
+                                            RegisteredUser = new Manager();
                                             break;
                                         default:
                                             RegisteredUser = new User();

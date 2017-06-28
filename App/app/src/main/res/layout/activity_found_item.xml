@@ -11,6 +11,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="60dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="41dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/found_back"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:text="Back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="528dp" />
 </android.support.constraint.ConstraintLayout>

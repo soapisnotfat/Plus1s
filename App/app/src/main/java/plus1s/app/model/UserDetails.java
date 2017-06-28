@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by zijinluo on 6/14/17.
+ * Created by Ivorycandy on 6/14/17.
  * provides info to register and login user locally
  */
 
