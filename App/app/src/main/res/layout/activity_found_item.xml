@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="41dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
@@ -23,6 +23,8 @@
         android:layout_height="48dp"
         android:text="Back"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="528dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 </android.support.constraint.ConstraintLayout>
