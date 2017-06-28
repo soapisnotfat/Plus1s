@@ -36,13 +36,13 @@ public class Database {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild(username)) {
-                    user = dataSnapshot.getValue(Account.class);
-                } else {
-                    user = null;
-                }
+                user = dataSnapshot.getValue(User.class);
+//                if (dataSnapshot.hasChild(username)) {
+//                    user = dataSnapshot.getValue(Account.class);
+//                } else {
+//                    user = null;
+//                }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
