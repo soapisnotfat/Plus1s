@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     User RegisteredUser = new User(name, username, password_1, email);
                                     UserDetails.register(RegisteredUser);
                                     Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
+
                                     //come back to login page after register successfully
                                     goToLogin();
 

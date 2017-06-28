@@ -9,11 +9,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import plus1s.app.R;
+import plus1s.app.model.Database;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
     FoundItem fi = new FoundItem();
+    Database db = new Database();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -22,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Button main_logout = (Button)findViewById(R.id.main_logout);
         Button main_add_lost_item = (Button) findViewById(R.id.main_add_lost_item);
         Button main_add_found_item = (Button) findViewById(R.id.main_add_found_item);
-        Button main_search_found_item = (Button) findViewById(R.id.main_search_found_item);
         TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         TextView main_lost = (TextView) findViewById(R.id.main_lost);
         TextView main_found = (TextView) findViewById(R.id.main_found);
@@ -34,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         main_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                db.upLoadRequest();
                 UserDetails.logout();
 
                 //display if successfully logout
                 Toast.makeText(MainActivity.this, "You have successfully logged out", Toast.LENGTH_SHORT).show();
-
                 // go to login page after successfully logout
                 goToLogin();
             }

@@ -83,7 +83,7 @@ public class User implements Account{
         this.isLocked = isLocked;
     }
     @Override
-    public boolean getIslocked() {
+    public boolean getIsLocked() {
         return this.isLocked;
     }
 
@@ -103,7 +103,7 @@ public class User implements Account{
 
     @Override
     public boolean hasPermission() {
-        return !getIslocked();
+        return !getIsLocked();
     }
 
 }

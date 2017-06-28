@@ -66,7 +66,7 @@ public interface Account {
      * getter of user's lock status
      * @return user's lock status
      */
-    boolean getIslocked();
+    boolean getIsLocked();
 
     /**
      * getter of permission that user obtains

@@ -52,6 +52,13 @@ public class UserDetails {
         currentUser = null;
     }
 
+    /**
+     * getter of localDetails
+     * @return localDetails
+     */
+    public static HashMap<String, Account> getLocalDetails() {
+        return localDetails;
+    }
 
     //TODO report system is about to be online
 }
