@@ -13,14 +13,15 @@ import android.widget.Toast;
 
 
 import plus1s.app.R;
-import plus1s.app.model.Account;
 import plus1s.app.model.AccountType;
 import plus1s.app.model.Administrator;
+import plus1s.app.model.Database;
 import plus1s.app.model.Manager;
 import plus1s.app.model.User;
 import plus1s.app.model.UserDetails;
 
 public class RegisterActivity extends AppCompatActivity {
+    Database db = new Database();
 
     // controls the minimum length of password
     int password_minimum_length = 3;
@@ -75,6 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setPassword(password_1);
                                     RegisteredUser.setIsLocked(false);
                                     UserDetails.register(RegisteredUser);
+                                    db.upLoadRequest();
                                     Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
 
                                     //come back to login page after register successfully
@@ -155,4 +157,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void goToWelcome() {
         RegisterActivity.this.startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
     }
+
+
 }

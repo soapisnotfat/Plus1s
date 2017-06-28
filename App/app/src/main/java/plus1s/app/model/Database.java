@@ -20,9 +20,15 @@ public class Database {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     public void upLoadRequest() {
-        Account user = UserDetails.getCurrentUser();
-        DatabaseReference myRef = database.getReference(user.getUsername());
-        myRef.setValue(user);
+        Account user_1 = UserDetails.getCurrentUser();
+        Account user_2 = UserDetails.getRegisterUser();
+        if (user_1 != null) {
+            DatabaseReference myRef = database.getReference(user_1.getUsername());
+            myRef.setValue(user);
+        } else if (user_2 != null) {
+            DatabaseReference myRef = database.getReference(user_2.getUsername());
+            myRef.setValue(user);
+        }
     }
 
     public Account downloadRequest(String username) {

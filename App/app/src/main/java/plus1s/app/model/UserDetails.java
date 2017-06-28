@@ -12,11 +12,16 @@ import java.util.HashMap;
 public class UserDetails {
     private static final HashMap<String, Account> localDetails = new HashMap<>();
     public static Account currentUser;
+    public static Account registerUser;
     //private static final ArrayList<Report> localReportList = new ArrayList<>();
 
 
     public static Account getCurrentUser() {
         return currentUser;
+    }
+
+    public static Account getRegisterUser() {
+        return registerUser;
     }
 
     /**
@@ -25,6 +30,7 @@ public class UserDetails {
      */
     public static void register(Account newUser) {
         localDetails.put(newUser.getUsername(), newUser);
+        registerUser = newUser;
     }
 
     /**

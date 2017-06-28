@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (UserDetails.login(log_username, log_password)) {
                     //if login successfully, go to main page
+
                     goToMain();
 
                 } else {
