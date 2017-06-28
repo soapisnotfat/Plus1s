@@ -21,15 +21,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //random variable instantiations
-        Button main_logout = (Button)findViewById(R.id.main_logout);
-        Button main_add_lost_item = (Button) findViewById(R.id.main_add_lost_item);
-        Button main_add_found_item = (Button) findViewById(R.id.main_add_found_item);
-        TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
-        TextView main_lost = (TextView) findViewById(R.id.main_lost);
-        TextView main_found = (TextView) findViewById(R.id.main_found);
+        final Button main_logout = (Button)findViewById(R.id.main_logout);
+        final Button main_add_lost_item = (Button) findViewById(R.id.main_add_lost_item);
+        final Button main_add_found_item = (Button) findViewById(R.id.main_add_found_item);
+        final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
+        final TextView main_lost = (TextView) findViewById(R.id.main_lost);
+        final TextView main_found = (TextView) findViewById(R.id.main_found);
+        final TextView main_role = (TextView) findViewById(R.id.main_role);
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
         main_lost.setText("Your lost item(s) are " + displayLostItem());
         main_found.setText("Found items are" + displayFoundItem());
+        main_role.setText("Mode: " + UserDetails.getCurrentUser().getType());
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {

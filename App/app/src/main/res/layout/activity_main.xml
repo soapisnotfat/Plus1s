@@ -35,7 +35,8 @@
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:id="@+id/main_lost"
@@ -43,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="64dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -58,27 +59,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="2dp"
         android:text="report new lost item"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         tools:ignore="HardcodedText"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginLeft="16dp" />
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/main_add_found_item"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
         android:text="report/search found item"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintBottom_toTopOf="@+id/main_add_lost_item"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/main_found"
@@ -86,8 +87,21 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="16dp"
-        android:layout_marginTop="70dp"
-        app:layout_constraintTop_toBottomOf="@+id/main_welcome" />
+        android:layout_marginTop="64dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_welcome"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/main_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_welcome"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="16dp" />
 
 </android.support.constraint.ConstraintLayout>
