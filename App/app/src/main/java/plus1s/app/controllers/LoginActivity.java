@@ -13,7 +13,6 @@ import plus1s.app.model.Account;
 import plus1s.app.model.Database;
 import plus1s.app.model.UserDetails;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class LoginActivity extends AppCompatActivity {
     Database db = new Database();
@@ -63,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                         login_password.setText("");
                     }
                 } else {
-                    //display an alert while password is invalid
+                    //display an alert while username is not found
                     AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
                     dialog3.setTitle("Invalid Login Attempt");
                     dialog3.setMessage("Username not found")

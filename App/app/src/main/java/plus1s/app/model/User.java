@@ -94,6 +94,7 @@ public class User implements Account{
         Item i = new Item(e);
         lostItem.add(i);
     }
+
     @Override
     public String getLostItemName() {
         String output = "";

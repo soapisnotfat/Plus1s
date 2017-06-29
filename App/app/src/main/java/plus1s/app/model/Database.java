@@ -35,7 +35,7 @@ public class Database {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //user = dataSnapshot.getValue(User.class);
                 if (dataSnapshot.exists()) {
-                    user = dataSnapshot.getValue(Account.class);
+                    user = dataSnapshot.getValue(User.class);
                 } else {
                     user = null;
                 }
