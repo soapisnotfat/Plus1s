@@ -6,9 +6,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by Ivorycandy on 6/20/17.
  * Service Provider
@@ -31,20 +28,21 @@ public class Database {
         }
     }
 
-    public Account downloadRequest(final String username) {
+    public Account downloadRequest(String username) {
         DatabaseReference myRef = database.getReference(username);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                user = dataSnapshot.getValue(User.class);
-//                if (dataSnapshot.hasChild(username)) {
-//                    user = dataSnapshot.getValue(Account.class);
-//                } else {
-//                    user = null;
-//                }
+                //user = dataSnapshot.getValue(User.class);
+                if (dataSnapshot.exists()) {
+                    user = dataSnapshot.getValue(Account.class);
+                } else {
+                    user = null;
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
             }
         });
         return user;

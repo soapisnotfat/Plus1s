@@ -110,6 +110,6 @@ public class User implements Account{
 
     @Override
     public String getType() {
-        return "general account";
+        return "User";
     }
 }

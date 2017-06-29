@@ -48,15 +48,25 @@ public class LoginActivity extends AppCompatActivity {
                 String log_password = login_password.getText().toString();
 
                 Account online_user = db.downloadRequest(log_username);
-                if ((online_user != null ) && (log_password.equals(online_user.getPassword()))) {
-                    UserDetails.login(online_user);
-                    goToMain();
-
+                if (online_user != null ) {
+                    if (log_password.equals(online_user.getPassword())) {
+                        UserDetails.login(online_user);
+                        goToMain();
+                    } else {
+                        //display an alert while password is invalid
+                        AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
+                        dialog3.setTitle("Invalid Login Attempt");
+                        dialog3.setMessage("please enter correct combination ")
+                                .setNegativeButton("Retry", null)
+                                .create()
+                                .show();
+                        login_password.setText("");
+                    }
                 } else {
                     //display an alert while password is invalid
                     AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
                     dialog3.setTitle("Invalid Login Attempt");
-                    dialog3.setMessage("please enter correct combination ")
+                    dialog3.setMessage("Username not found")
                             .setNegativeButton("Retry", null)
                             .create()
                             .show();
