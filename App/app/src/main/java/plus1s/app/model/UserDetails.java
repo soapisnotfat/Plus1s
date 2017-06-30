@@ -57,5 +57,9 @@ public class UserDetails {
         return localDetails;
     }
 
+    public static void setLocalDetails(String username, Account user) {
+        localDetails.put(username, user);
+    }
+
     //TODO report system is about to be online
 }

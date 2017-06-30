@@ -16,7 +16,7 @@ import plus1s.app.model.UserDetails;
 
 public class LoginActivity extends AppCompatActivity {
     Database db = new Database();
-    UserDetails ud = new UserDetails();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +44,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //parse in input data
-                String log_username = login_username.getText().toString();
-                String log_password = login_password.getText().toString();
+                String log_username = login_username.getText().toString().trim();
+                String log_password = login_password.getText().toString().trim();
 
                 Account online_user = db.downloadRequest(log_username);
-                if (online_user != null ) {
+                UserDetails.setLocalDetails(log_username, online_user);
+                if (online_user != null) {
                     if (log_password.equals(online_user.getPassword())) {
                         UserDetails.login(online_user);
                         goToMain();
@@ -71,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                             .create()
                             .show();
                     login_password.setText("");
+                    login_username.setText("");
                 }
             }
         });

@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         final Button reg_register = (Button) findViewById(R.id.reg_register);
         final Button reg_cancel = (Button) findViewById(R.id.reg_cancel);;
         final Spinner reg_account_type = (Spinner) findViewById(R.id.reg_account_type);
-        ArrayAdapter<AccountType> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, User.legalAccountType);
+        ArrayAdapter<AccountType> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, User.legalAccountType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         reg_account_type.setAdapter(adapter);
 
@@ -50,9 +50,9 @@ public class RegisterActivity extends AppCompatActivity {
         reg_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = reg_name.getText().toString();
-                String username = reg_username.getText().toString();
-                String email = reg_email.getText().toString();
+                String name = reg_name.getText().toString().trim();
+                String username = reg_username.getText().toString().trim();
+                String email = reg_email.getText().toString().trim();
                 String password_1 = reg_password_confirm.getText().toString();
                 String password_2 = reg_password.getText().toString();
                 String accountType = reg_account_type.getSelectedItem().toString();

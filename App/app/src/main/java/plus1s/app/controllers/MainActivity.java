@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import plus1s.app.R;
 import plus1s.app.model.Database;
@@ -31,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
         final TextView main_lost = (TextView) findViewById(R.id.main_lost);
         final TextView main_found = (TextView) findViewById(R.id.main_found);
         final TextView main_role = (TextView) findViewById(R.id.main_role);
+        final ListView main_lost_item_list = (ListView) findViewById(R.id.main_lost_item_list);
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayLostItem());
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
-        main_lost.setText("Your lost item(s) are " + displayLostItem());
+        main_lost.setText("Your lost item(s) are ");
         main_found.setText("Found items are" + displayFoundItem());
         main_role.setText("Mode: " + UserDetails.getCurrentUser().returnType());
+        main_lost_item_list.setAdapter(adapter);
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {
@@ -89,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
      * display current user's lot items
      * @return string of lost item
      */
-    private String displayLostItem() {
+    private List<String> displayLostItem() {
         ArrayList<Item> temp = UserDetails.getCurrentUser().getLostItem();
-        String output = "";
+        List<String> output = new ArrayList<String>();
         for (Item i : temp) {
-            output += i.getName() + ", \n";
+            output.add(i.getName());
         }
         return output;
     }
