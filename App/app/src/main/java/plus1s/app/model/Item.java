@@ -28,6 +28,10 @@ public class Item {
     }
 
     /**
+     * non-param constructor
+     */
+    public Item() {};
+    /**
      * getter of name
      * @return item name
      */

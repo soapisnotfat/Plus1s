@@ -23,7 +23,7 @@ public class FoundItem {
      * get a string of all reported found items
      * @return string of reported items
      */
-    public String getLostItemName() {
+    public String getFoundItemName() {
         String output = "";
         for (Item i: foundItem) {
             output += i.getName() + ",\n";

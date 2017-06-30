@@ -1,6 +1,8 @@
 package plus1s.app.model;
 
 
+import java.util.ArrayList;
+
 /**
  * Created by Ivorycandy on 6/19/17.
  * provides User APIs
@@ -77,7 +79,7 @@ public interface Account {
      * getter of user's lost item's name
      * @return user's lost item's name
      */
-    String getLostItemName();
+    ArrayList<Item> getLostItem();
 
     /**
      * add an item to user's lostItem array
@@ -86,8 +88,19 @@ public interface Account {
     void addLostItem(String item);
 
     /**
+     * setter of lost item
+     * @param e user's lost item
+     */
+    void setLostItem(ArrayList<Item> e);
+    /**
      * getter of account type
      * @return user's type
      */
-    String getType();
+    String returnType();
+
+    /**
+     * setter of account type
+     * @param type type parsing in
+     */
+
 }

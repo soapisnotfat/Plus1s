@@ -12,6 +12,7 @@ import java.util.List;
 public class User implements Account{
     private String name, username, password, email;
     private boolean isLocked;
+    protected String type;
     private ArrayList<Item> lostItem;
     public final static List<AccountType> legalAccountType = Arrays.asList(AccountType.ADMINISTRATOR,
             AccountType.MANAGER,
@@ -40,6 +41,7 @@ public class User implements Account{
      */
     public User() {
         this.lostItem = new ArrayList<>();
+        type = AccountType.USER.toString();
     }
 
 
@@ -96,13 +98,15 @@ public class User implements Account{
     }
 
     @Override
-    public String getLostItemName() {
-        String output = "";
-        for (Item i: lostItem) {
-            output += i.getName() + ",\n";
-        }
-        return output;
+    public void setLostItem(ArrayList<Item> e) {
+        lostItem.addAll(e);
     }
+
+    @Override
+    public ArrayList<Item> getLostItem() {
+        return lostItem;
+    }
+
 
     @Override
     public boolean hasPermission() {
@@ -110,7 +114,8 @@ public class User implements Account{
     }
 
     @Override
-    public String getType() {
+    public String returnType() {
         return "User";
     }
+
 }

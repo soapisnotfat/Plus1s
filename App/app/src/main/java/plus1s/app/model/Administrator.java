@@ -8,10 +8,11 @@ package plus1s.app.model;
 public class Administrator extends User {
     public Administrator() {
         super();
+        this.type = AccountType.ADMINISTRATOR.toString();
     }
 
     @Override
-    public String getType() {
+    public String returnType() {
         return "Administrator";
     }
 }

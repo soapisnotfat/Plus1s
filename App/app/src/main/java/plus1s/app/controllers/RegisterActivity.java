@@ -12,10 +12,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import java.util.ArrayList;
+
 import plus1s.app.R;
 import plus1s.app.model.AccountType;
 import plus1s.app.model.Administrator;
 import plus1s.app.model.Database;
+import plus1s.app.model.Item;
 import plus1s.app.model.Manager;
 import plus1s.app.model.User;
 import plus1s.app.model.UserDetails;
@@ -75,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setEmail(email);
                                     RegisteredUser.setPassword(password_1);
                                     RegisteredUser.setIsLocked(false);
+                                    RegisteredUser.setLostItem(new ArrayList<Item>());
                                     UserDetails.register(RegisteredUser);
                                     db.upLoadRequest();
                                     Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);

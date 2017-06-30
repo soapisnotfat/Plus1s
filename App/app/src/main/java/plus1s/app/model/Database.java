@@ -6,6 +6,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 /**
  * Created by Ivorycandy on 6/20/17.
  * Service Provider
@@ -28,14 +30,30 @@ public class Database {
         }
     }
 
-    public Account downloadRequest(String username) {
+    public Account downloadRequest(final String username) {
         DatabaseReference myRef = database.getReference(username);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //user = dataSnapshot.getValue(User.class);
                 if (dataSnapshot.exists()) {
-                    user = dataSnapshot.getValue(User.class);
+                    switch (dataSnapshot.child("type").getValue(String.class)) {
+                        case "Administrator":
+                            user = new Administrator();
+                            break;
+                        case "Manager":
+                            user = new Manager();
+                            break;
+                        default:
+                            user = new User();
+                            break;
+                    }
+
+                    user.setUsername(dataSnapshot.child("username").getValue(String.class));
+                    user.setName(dataSnapshot.child("name").getValue(String.class));
+                    user.setPassword(dataSnapshot.child("password").getValue(String.class));
+                    user.setEmail(dataSnapshot.child("email").getValue(String.class));
+                    user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
+                    user.setLostItem(dataSnapshot.child("lostItem").getValue(String.class));
                 } else {
                     user = null;
                 }

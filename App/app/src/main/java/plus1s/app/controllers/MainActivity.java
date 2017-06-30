@@ -8,9 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import plus1s.app.R;
 import plus1s.app.model.Database;
 import plus1s.app.model.FoundItem;
+import plus1s.app.model.Item;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
         main_lost.setText("Your lost item(s) are " + displayLostItem());
         main_found.setText("Found items are" + displayFoundItem());
-        main_role.setText("Mode: " + UserDetails.getCurrentUser().getType());
+        main_role.setText("Mode: " + UserDetails.getCurrentUser().returnType());
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +90,12 @@ public class MainActivity extends AppCompatActivity {
      * @return string of lost item
      */
     private String displayLostItem() {
-        return UserDetails.getCurrentUser().getLostItemName();
+        ArrayList<Item> temp = UserDetails.getCurrentUser().getLostItem();
+        String output = "";
+        for (Item i : temp) {
+            output += i.getName() + ", \n";
+        }
+        return output;
     }
 
     /**
@@ -95,6 +103,6 @@ public class MainActivity extends AppCompatActivity {
      * @return string of found items
      */
     private String displayFoundItem() {
-        return fi.getLostItemName();
+        return fi.getFoundItemName();
     }
 }
