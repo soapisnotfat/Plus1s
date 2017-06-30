@@ -79,6 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setPassword(password_1);
                                     RegisteredUser.setIsLocked(false);
                                     RegisteredUser.setLostItem(new ArrayList<Item>());
+                                    RegisteredUser.addLostItem("start");
                                     UserDetails.register(RegisteredUser);
                                     db.upLoadRequest();
                                     Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);

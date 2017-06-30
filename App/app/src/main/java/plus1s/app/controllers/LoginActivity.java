@@ -16,7 +16,7 @@ import plus1s.app.model.UserDetails;
 
 public class LoginActivity extends AppCompatActivity {
     Database db = new Database();
-
+    UserDetails ud = new UserDetails();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText login_password = (EditText) findViewById(R.id.login_password);
         final Button login_login = (Button) findViewById(R.id.login_login);
         final TextView login_reg = (TextView) findViewById(R.id.login_register);
+
 
         //register on clicking register button
         login_reg.setOnClickListener(new View.OnClickListener() {

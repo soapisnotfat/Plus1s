@@ -30,7 +30,8 @@ public class Item {
     /**
      * non-param constructor
      */
-    public Item() {};
+    public Item() {}
+
     /**
      * getter of name
      * @return item name
@@ -62,4 +63,6 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

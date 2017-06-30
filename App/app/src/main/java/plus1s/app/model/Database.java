@@ -4,6 +4,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -53,7 +54,8 @@ public class Database {
                     user.setPassword(dataSnapshot.child("password").getValue(String.class));
                     user.setEmail(dataSnapshot.child("email").getValue(String.class));
                     user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
-                    user.setLostItem(dataSnapshot.child("lostItem").getValue(String.class));
+                    GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
+                    user.setLostItem(dataSnapshot.child("lostItem").getValue(t));
                 } else {
                     user = null;
                 }
