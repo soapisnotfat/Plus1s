@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import plus1s.app.R;
 import plus1s.app.model.Account;
 import plus1s.app.model.Database;
@@ -19,9 +20,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //DatabaseReference database = FirebaseDatabase.getInstance().getReference()
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         //random variable instantiations
         final EditText login_username = (EditText) findViewById(R.id.login_user);
         final TextView login_back = (TextView) findViewById(R.id.login_back);
@@ -48,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                 String log_password = login_password.getText().toString().trim();
 
                 Account online_user = db.downloadRequest(log_username);
-                UserDetails.setLocalDetails(log_username, online_user);
                 if (online_user != null) {
                     if (log_password.equals(online_user.getPassword())) {
                         UserDetails.login(online_user);

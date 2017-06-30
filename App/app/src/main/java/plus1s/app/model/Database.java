@@ -17,26 +17,27 @@ import java.util.ArrayList;
 
 public class Database {
     private Account user;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
     public void upLoadRequest() {
         Account user_1 = UserDetails.getCurrentUser();
         Account user_2 = UserDetails.getRegisterUser();
         if (user_1 != null) {
-            DatabaseReference myRef = database.getReference(user_1.getUsername());
+            DatabaseReference myRef = database.child(user_1.getUsername());
             myRef.setValue(user_1);
         } else if (user_2 != null) {
-            DatabaseReference myRef = database.getReference(user_2.getUsername());
+            DatabaseReference myRef = database.child(user_2.getUsername());
             myRef.setValue(user_2);
         }
     }
 
-    public Account downloadRequest(final String username) {
-        DatabaseReference myRef = database.getReference(username);
-        myRef.addValueEventListener(new ValueEventListener() {
+    public Account downloadRequest(String username) {
+        DatabaseReference Ref = database.child(username);
+        Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+
                     switch (dataSnapshot.child("type").getValue(String.class)) {
                         case "Administrator":
                             user = new Administrator();
@@ -56,6 +57,7 @@ public class Database {
                     user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
                     GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
                     user.setLostItem(dataSnapshot.child("lostItem").getValue(t));
+
                 } else {
                     user = null;
                 }

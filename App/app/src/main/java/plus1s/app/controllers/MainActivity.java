@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private List<String> displayLostItem() {
         ArrayList<Item> temp = UserDetails.getCurrentUser().getLostItem();
-        List<String> output = new ArrayList<String>();
+        List<String> output = new ArrayList<>();
         for (Item i : temp) {
             output.add(i.getName());
         }
