@@ -1,8 +1,10 @@
 package plus1s.app.model;
 
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -95,8 +97,11 @@ public class User implements Account{
 
 
     @Override
-    public void addLostItem(String name, String description, String location, ItemCategory category, int reward, String dateEntered, User currentUser) {
-        Item i = new Item(name, description, location, true, category, ItemType.LOST, reward, dateEntered, currentUser);
+    public void addLostItem(String name, String description, String location, ItemCategory category, int reward, User currentUser) {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c.getTime());
+        Item i = new Item(name, description, location, true, category, ItemType.LOST, reward, formattedDate, currentUser);
         lostItem.add(i);
     }
 
@@ -111,8 +116,11 @@ public class User implements Account{
     }
 
     @Override
-    public void addFoundItem(String e) {
-        Item i = new Item(e);
+    public void addFoundItem(String name, String description, String location, ItemCategory category, int reward, User currentUser) {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c.getTime());
+        Item i = new Item(name, description, location, true, category, ItemType.FOUND, reward, formattedDate, currentUser);
         foundItem.add(i);
     }
 
