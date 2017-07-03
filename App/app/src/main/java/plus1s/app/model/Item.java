@@ -1,5 +1,8 @@
 package plus1s.app.model;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by Ivorycandy on 6/26/17.
  * class obtaining item method
@@ -14,8 +17,11 @@ public class Item {
     private ItemType type;
     private int reward;
     private String dateEntered;
-    private User uploader;
+    private Account uploader;
 
+    public static List<ItemCategory> legalItemCategory= Arrays.asList(ItemCategory.KEEPSAKES, ItemCategory.HEIRLOOMS,
+            ItemCategory.MISC
+    );
 
     /**
      * two param constructor
@@ -23,7 +29,7 @@ public class Item {
      * @param description description parsing in
      */
     public Item(String name, String description, String location, boolean status, ItemCategory category,
-                    ItemType type, int reward, String dateEntered, User uploader) {
+                    ItemType type, int reward, String dateEntered, Account uploader) {
         this.name = name;
         this.description = description;
         this.location = location;
@@ -103,7 +109,7 @@ public class Item {
      * getter of uploader
      * @return item uploader
      */
-    public User getUploader() {
+    public Account getUploader() {
         return uploader;
     }
 
@@ -170,7 +176,7 @@ public class Item {
      * setter of uploader
      * @param uploader item uploader
      */
-    public void setUploader(User uploader) {
+    public void setUploader(Account uploader) {
         this.uploader = uploader;
     }
 }

@@ -97,7 +97,7 @@ public class  User implements Account{
 
 
     @Override
-    public void addLostItem(String name, String description, String location, ItemCategory category, int reward, User currentUser) {
+    public void addLostItem(String name, String description, String location, ItemCategory category, int reward, Account currentUser) {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c.getTime());
@@ -116,7 +116,7 @@ public class  User implements Account{
     }
 
     @Override
-    public void addFoundItem(String name, String description, String location, ItemCategory category, int reward, User currentUser) {
+    public void addFoundItem(String name, String description, String location, ItemCategory category, int reward, Account currentUser) {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c.getTime());
