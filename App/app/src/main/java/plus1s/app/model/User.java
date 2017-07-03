@@ -95,8 +95,8 @@ public class User implements Account{
 
 
     @Override
-    public void addLostItem(String e) {
-        Item i = new Item(e);
+    public void addLostItem(String name, String description, String location, ItemCategory category, int reward, String dateEntered, User currentUser) {
+        Item i = new Item(name, description, location, true, category, ItemType.LOST, reward, dateEntered, currentUser);
         lostItem.add(i);
     }
 

@@ -3,6 +3,7 @@ package plus1s.app.model;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Created by Ivorycandy on 6/19/17.
@@ -84,9 +85,13 @@ public interface Account {
 
     /**
      * add an item to user's lostItem array
-     * @param item the lost item parsing in
+     * @param name
+     * @param description
+     * @param  location
+     * @param category
+     * @param  currentUser
      */
-    void addLostItem(String item);
+    void addLostItem(String name, String description, String location,ItemCategory category, int reward, String dateEntered, User currentUser);
 
     /**
      * setter of lost item
