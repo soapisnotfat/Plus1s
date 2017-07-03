@@ -1,6 +1,7 @@
 package plus1s.app.model;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -92,6 +93,25 @@ public interface Account {
      * @param e user's lost item
      */
     void setLostItem(ArrayList<Item> e);
+
+    /**
+     * getter of user's found item's name
+     * @return user's found item's name
+     */
+    ArrayList<Item> getFoundItem();
+
+    /**
+     * add an item to user's foundItem array
+     * @param item the found item parsing in
+     */
+    void addFoundItem(String item);
+
+    /**
+     * setter of found item
+     * @param e user's found item
+     */
+    void setFoundItem(ArrayList<Item> e);
+
     /**
      * getter of account type
      * @return user's type

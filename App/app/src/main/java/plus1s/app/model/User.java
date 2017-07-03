@@ -1,5 +1,6 @@
 package plus1s.app.model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +15,7 @@ public class User implements Account{
     private boolean isLocked;
     protected String type;
     private ArrayList<Item> lostItem;
+    private ArrayList<Item> foundItem;
     public final static List<AccountType> legalAccountType = Arrays.asList(AccountType.ADMINISTRATOR,
             AccountType.MANAGER,
             AccountType.USER);
@@ -41,6 +43,7 @@ public class User implements Account{
      */
     public User() {
         this.lostItem = new ArrayList<>();
+        this.foundItem = new ArrayList<>();
         type = AccountType.USER.toString();
     }
 
@@ -99,6 +102,22 @@ public class User implements Account{
 
     @Override
     public void setLostItem(ArrayList<Item> e) {
+        lostItem.addAll(e);
+    }
+
+    @Override
+    public ArrayList<Item> getFoundItem() {
+        return lostItem;
+    }
+
+    @Override
+    public void addFoundItem(String e) {
+        Item i = new Item(e);
+        foundItem.add(i);
+    }
+
+    @Override
+    public void setFoundItem(ArrayList<Item> e) {
         lostItem.addAll(e);
     }
 
