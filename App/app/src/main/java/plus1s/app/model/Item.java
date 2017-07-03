@@ -22,18 +22,27 @@ public class Item {
      * @param name name parsing in
      * @param description description parsing in
      */
-    public Item(String name, String description) {
+    public Item(String name, String description, String location, boolean status, ItemCategory category,
+                    ItemType type, int reward, String dateEntered, User uploader) {
         this.name = name;
         this.description = description;
+        this.location = location;
+        this.status = status;
+        this.category = category;
+        this.type = type;
+        this.reward = reward;
+        this.dateEntered = dateEntered;
+        this.uploader = uploader;
     }
 
     /**
      * one param constructor
      * @param name name parsing in
-     */
+
     public Item(String name) {
         this(name, "");
     }
+    */
 
     /**
      * non-param constructor

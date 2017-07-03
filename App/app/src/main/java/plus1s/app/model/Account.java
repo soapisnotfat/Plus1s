@@ -1,7 +1,9 @@
 package plus1s.app.model;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Created by Ivorycandy on 6/19/17.
@@ -83,15 +85,38 @@ public interface Account {
 
     /**
      * add an item to user's lostItem array
-     * @param item the lost item parsing in
+     * @param name
+     * @param description
+     * @param  location
+     * @param category
+     * @param  currentUser
      */
-    void addLostItem(String item);
+    void addLostItem(String name, String description, String location,ItemCategory category, int reward, String dateEntered, User currentUser);
 
     /**
      * setter of lost item
      * @param e user's lost item
      */
     void setLostItem(ArrayList<Item> e);
+
+    /**
+     * getter of user's found item's name
+     * @return user's found item's name
+     */
+    ArrayList<Item> getFoundItem();
+
+    /**
+     * add an item to user's foundItem array
+     * @param item the found item parsing in
+     */
+    void addFoundItem(String item);
+
+    /**
+     * setter of found item
+     * @param e user's found item
+     */
+    void setFoundItem(ArrayList<Item> e);
+
     /**
      * getter of account type
      * @return user's type
