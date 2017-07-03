@@ -27,15 +27,15 @@ public class LostItemActivity extends AppCompatActivity {
         final Button lost_cancel = (Button)findViewById(R.id.lost_cancel);
         final Button lost_add = (Button)findViewById(R.id.lost_add);
         final EditText lost_lost_item = (EditText) findViewById(R.id.lost_lost_item);
-        final EditText LocationEnter = (EditText)  findViewById(R.id.LocationEnter);
-        final EditText DescriptionEnter = (EditText)  findViewById(R.id.DescriptionEnter);
-        final EditText MoneyReward = (EditText)  findViewById(R.id.MoneyReward);
-        final TextView Name = (TextView) findViewById(R.id.Name);
-        final TextView Description = (TextView) findViewById(R.id.Description);
-        final TextView Location = (TextView) findViewById(R.id.Location);
-        final TextView Category = (TextView) findViewById(R.id.Category);
-        final TextView Reward = (TextView) findViewById(R.id.Reward);
-        final Spinner CategorySpinner = (Spinner) findViewById(R.id.spinner);
+        final EditText LocationEnter = (EditText)  findViewById(R.id.lost_location_enter);
+        final EditText DescriptionEnter = (EditText)  findViewById(R.id.lost_description_enter);
+        final EditText MoneyReward = (EditText)  findViewById(R.id.lost_reward_enter);
+        final TextView Name = (TextView) findViewById(R.id.lost_name);
+        final TextView Description = (TextView) findViewById(R.id.lost_description);
+        final TextView Location = (TextView) findViewById(R.id.lost_location);
+        final TextView Category = (TextView) findViewById(R.id.lost_category);
+        final TextView Reward = (TextView) findViewById(R.id.lost_reward);
+        final Spinner CategorySpinner = (Spinner) findViewById(R.id.lost_spinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Item.legalItemCategory);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
