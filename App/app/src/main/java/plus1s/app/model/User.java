@@ -9,7 +9,7 @@ import java.util.List;
  * class of user
  */
 
-public class User implements Account{
+public class  User implements Account{
     private String name, username, password, email;
     private boolean isLocked;
     protected String type;
