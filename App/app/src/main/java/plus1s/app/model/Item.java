@@ -42,15 +42,6 @@ public class Item {
     }
 
     /**
-     * one param constructor
-     * @param name name parsing in
-
-    public Item(String name) {
-        this(name, "");
-    }
-    */
-
-    /**
      * non-param constructor
      */
     public Item() {}
@@ -183,7 +174,7 @@ public class Item {
     public void setType(ItemType type) {
         this.type = type;
     }
-    
+
     /**
      * setter of uploader
      * @param uploader item uploader

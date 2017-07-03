@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 import plus1s.app.R;
-import plus1s.app.model.FoundItem;
 
 public class FoundItemActivity extends AppCompatActivity {
 
