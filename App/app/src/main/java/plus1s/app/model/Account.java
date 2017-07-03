@@ -85,13 +85,13 @@ public interface Account {
 
     /**
      * add an item to user's lostItem array
-     * @param name
-     * @param description
-     * @param  location
-     * @param category
-     * @param  currentUser
+     * @param name item's name
+     * @param description item's description
+     * @param location item's location
+     * @param category item's category
+     * @param currentUser item's currentUser
      */
-    void addLostItem(String name, String description, String location,ItemCategory category, int reward, Account currentUser);
+    void addLostItem(String name, String description, String location, ItemCategory category, int reward, Account currentUser);
 
     /**
      * setter of lost item
@@ -107,11 +107,11 @@ public interface Account {
 
     /**
      * add an item to user's foundItem array
-     * @param name
-     * @param description
-     * @param  location
-     * @param category
-     * @param  currentUser
+     * @param name item's name
+     * @param description item's description
+     * @param location item's location
+     * @param category item's category
+     * @param currentUser item's currentUser
      */
     void addFoundItem(String name, String description, String location, ItemCategory category, int reward, Account currentUser);
 
@@ -127,9 +127,6 @@ public interface Account {
      */
     String returnType();
 
-    /**
-     * setter of account type
-     * @param type type parsing in
-     */
+
 
 }

@@ -118,7 +118,7 @@ public class  User implements Account{
     @Override
     public void addFoundItem(String name, String description, String location, ItemCategory category, int reward, Account currentUser) {
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("DD-MM-YYYY");
         String formattedDate = df.format(c.getTime());
         Item i = new Item(name, description, location, true, category, ItemType.FOUND, reward, formattedDate, currentUser);
         foundItem.add(i);

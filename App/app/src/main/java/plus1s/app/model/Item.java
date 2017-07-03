@@ -70,6 +70,7 @@ public class Item {
     public String getDescription() {
         return description;
     }
+
     /**
      * getter of reward
      * @return item reward
@@ -77,6 +78,7 @@ public class Item {
     public int getReward() {
         return reward;
     }
+
     /**
      * getter of category
      * @return item category
@@ -84,6 +86,7 @@ public class Item {
     public ItemCategory getCategory() {
         return category;
     }
+
     /**
      * getter of type
      * @return item type
@@ -91,6 +94,7 @@ public class Item {
     public ItemType getType() {
         return type;
     }
+
     /**
      * getter of dateEntered
      * @return item dateEntered
@@ -98,6 +102,7 @@ public class Item {
     public String getDateEntered() {
         return dateEntered;
     }
+
     /**
      * getter of location
      * @return item location
@@ -105,6 +110,7 @@ public class Item {
     public String getLocation() {
         return location;
     }
+
     /**
      * getter of uploader
      * @return item uploader
@@ -118,7 +124,6 @@ public class Item {
      * setter of name
      * @param name item name
      */
-
     public void setName(String name) {
         this.name = name;
     }
@@ -130,6 +135,7 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
+
     /**
      * setter of category
      * @param category item category
@@ -137,6 +143,7 @@ public class Item {
     public void setCategory(ItemCategory category) {
         this.category = category;
     }
+
     /**
      * setter of dateEntered
      * @param dateEntered item dateEntered
@@ -144,6 +151,7 @@ public class Item {
     public void setDateEntered(String dateEntered) {
         this.dateEntered = dateEntered;
     }
+
     /**
      * setter of location
      * @param location item location
@@ -151,6 +159,7 @@ public class Item {
     public void setLocation(String location) {
         this.location = location;
     }
+
     /**
      * setter of reward
      * @param reward item reward
@@ -158,6 +167,7 @@ public class Item {
     public void setReward(int reward) {
         this.reward = reward;
     }
+
     /**
      * setter of status
      * @param status item status
@@ -165,6 +175,7 @@ public class Item {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
     /**
      * setter of type
      * @param type item type
@@ -172,6 +183,7 @@ public class Item {
     public void setType(ItemType type) {
         this.type = type;
     }
+    
     /**
      * setter of uploader
      * @param uploader item uploader
