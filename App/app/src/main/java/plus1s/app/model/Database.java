@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class Database {
     private Account user;
-    private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
 
     public void upLoadRequest() {
         Account user_1 = UserDetails.getCurrentUser();
@@ -33,40 +33,35 @@ public class Database {
 
     public Account downloadRequest(String username) {
         DatabaseReference Ref = database.child(username);
-        Ref.addValueEventListener(new ValueEventListener() {
+        ValueEventListener e = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-
-                    switch (dataSnapshot.child("type").getValue(String.class)) {
-                        case "Administrator":
-                            user = new Administrator();
-                            break;
-                        case "Manager":
-                            user = new Manager();
-                            break;
-                        default:
-                            user = new User();
-                            break;
-                    }
-
-                    user.setUsername(dataSnapshot.child("username").getValue(String.class));
-                    user.setName(dataSnapshot.child("name").getValue(String.class));
-                    user.setPassword(dataSnapshot.child("password").getValue(String.class));
-                    user.setEmail(dataSnapshot.child("email").getValue(String.class));
-                    user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
-                    GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
-                    user.setLostItem(dataSnapshot.child("lostItem").getValue(t));
-
-                } else {
-                    user = null;
+                switch (dataSnapshot.child("type").getValue(String.class)) {
+                    case "Administrator":
+                        user = new Administrator();
+                        break;
+                    case "Manager":
+                        user = new Manager();
+                        break;
+                    default:
+                        user = new User();
+                        break;
                 }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                user.setUsername(dataSnapshot.child("username").getValue(String.class));
+                user.setName(dataSnapshot.child("name").getValue(String.class));
+                user.setPassword(dataSnapshot.child("password").getValue(String.class));
+                user.setEmail(dataSnapshot.child("email").getValue(String.class));
+                user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
+                GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
+                user.setLostItem(dataSnapshot.child("lostItem").getValue(t));
+
+        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+
+        Ref.addListenerForSingleValueEvent(e);
         return user;
     }
 

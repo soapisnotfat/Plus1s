@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //DatabaseReference database = FirebaseDatabase.getInstance().getReference()
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //random variable instantiations

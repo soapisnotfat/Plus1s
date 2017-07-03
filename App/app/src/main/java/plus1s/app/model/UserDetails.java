@@ -13,9 +13,6 @@ public class UserDetails {
     private static final HashMap<String, Account> localDetails = new HashMap<>();
     public static Account currentUser;
     public static Account registerUser;
-    Database db = new Database();
-    //private static final ArrayList<Report> localReportList = new ArrayList<>();
-
 
     public static Account getCurrentUser() {
         return currentUser;
