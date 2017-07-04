@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         //random variable instantiations
         final Button main_logout = (Button)findViewById(R.id.main_logout);
         final Button main_add_item = (Button) findViewById(R.id.main_add_item);
+        final Button main_go_to_map = (Button) findViewById(R.id.go_to_map);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         final TextView main_lost = (TextView) findViewById(R.id.main_lost);
         final TextView main_found = (TextView) findViewById(R.id.main_found);
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayLostItem());
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
         main_lost.setText("Your lost item(s) are ");
+        main_go_to_map.setText("Click here to map");
         main_found.setText("Found items are" + displayFoundItem());
         main_role.setText("Mode: " + UserDetails.getCurrentUser().returnType());
         main_lost_item_list.setAdapter(adapter);
@@ -57,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "You have successfully logged out", Toast.LENGTH_SHORT).show();
                 // go to login page after successfully logout
                 goToLogin();
+            }
+        });
+        main_go_to_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToMap();
             }
         });
 
@@ -106,5 +114,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private String displayFoundItem() {
         return fi.getFoundItemName();
+    }
+
+    private void goToMap() {
+        MainActivity.this.startActivity(new Intent(MainActivity.this, MapsActivity.class));
     }
 }
