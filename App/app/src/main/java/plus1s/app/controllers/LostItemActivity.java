@@ -26,7 +26,6 @@ public class LostItemActivity extends AppCompatActivity {
         final Button lost_cancel = (Button)findViewById(R.id.lost_cancel);
         final Button lost_add = (Button)findViewById(R.id.lost_add);
         final EditText lost_lost_item = (EditText) findViewById(R.id.lost_lost_item);
-        final EditText LocationEnter = (EditText)  findViewById(R.id.lost_location_enter);
         final EditText DescriptionEnter = (EditText)  findViewById(R.id.lost_description_enter);
         final EditText MoneyReward = (EditText)  findViewById(R.id.lost_reward);
         final EditText LongitudeNumber = (EditText) findViewById(R.id.lost_longitude);
@@ -54,7 +53,6 @@ public class LostItemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String lost_item = lost_lost_item.getText().toString().trim();
                 String description = DescriptionEnter.getText().toString().trim();
-                String location = LocationEnter.getText().toString().trim();
                 String reward = MoneyReward.getText().toString().trim();
                 String pre_latitude = LatitudeNumber.getText().toString().trim();
                 String pre_longitude = LongitudeNumber.getText().toString().trim();
@@ -83,13 +81,11 @@ public class LostItemActivity extends AppCompatActivity {
                 if (!lost_item.equals("")) {
                     UserDetails.getCurrentUser().addItems(lost_item,
                             description,
-                            location,
                             lostCategorySpinner.getSelectedItem().toString(),
                             lostTypeSpinner.getSelectedItem().toString(),
                             moneyReward,
                             UserDetails.getCurrentUser().getUsername(),latitude, longitude);
                     lost_lost_item.setText("");
-                    LocationEnter.setText("");
                     DescriptionEnter.setText("");
                     MoneyReward.setText("");
                     LatitudeNumber.setText("");

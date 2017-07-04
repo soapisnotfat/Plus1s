@@ -68,7 +68,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Item thisItem = (Item)(marker.getTag());
                 AlertDialog.Builder dialog3 = new AlertDialog.Builder(MapsActivity.this);
                 dialog3.setTitle("This item is " + thisItem.getName());
-                dialog3.setMessage("The uploader is " + thisItem.getUploader())
+                dialog3.setMessage("The uploader is " + thisItem.getUploader() + ".\nThe description is " + thisItem.getDescription() + ".")
                         .setNegativeButton("Get it", null)
                         .create()
                         .show();

@@ -11,7 +11,6 @@ import java.util.List;
 public class Item {
     private String name;
     private String description;
-    private String location;
     private boolean status;
     private String category;
     private String type;
@@ -31,11 +30,10 @@ public class Item {
      * @param name name parsing in
      * @param description description parsing in
      */
-    public Item(String name, String description, String location, boolean status, String category,
+    public Item(String name, String description, boolean status, String category,
                     String type, int reward, String dateEntered, String uploader, double latitude, double longitude) {
         this.name = name;
         this.description = description;
-        this.location = location;
         this.status = status;
         this.category = category;
         this.type = type;
@@ -103,13 +101,6 @@ public class Item {
         return dateEntered;
     }
 
-    /**
-     * getter of location
-     * @return item location
-     */
-    public String getLocation() {
-        return location;
-    }
 
     /**
      * getter of uploader
@@ -154,13 +145,6 @@ public class Item {
         this.dateEntered = dateEntered;
     }
 
-    /**
-     * setter of location
-     * @param location item location
-     */
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     /**
      * setter of reward
