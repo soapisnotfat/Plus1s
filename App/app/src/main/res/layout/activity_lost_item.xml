@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="put a lost item"
+        android:hint="Put a lost item"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -64,55 +64,55 @@
         android:ems="10"
         android:hint="Enter Location"
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/lost_location"
+        app:layout_constraintLeft_toLeftOf="1"
         tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
         tools:layout_editor_absoluteX="8dp" />
 
     <TextView
         android:id="@+id/lost_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="64dp"
         android:text="Item Name"
         app:layout_constraintHorizontal_bias="0.025"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="1"
+        tools:layout_constraintTop_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        android:layout_marginRight="308dp" />
 
     <TextView
         android:id="@+id/lost_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="132dp"
         android:text="Description of the Item"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toLeftOf="1"
+        tools:layout_constraintTop_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp" />
+        android:layout_marginRight="42dp" />
 
     <TextView
         android:id="@+id/lost_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location"
-        app:layout_constraintHorizontal_bias="0.024"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/lost_description_enter"
-        android:layout_marginStart="8dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toLeftOf="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"/>
 
     <TextView
         android:id="@+id/lost_category"
@@ -120,12 +120,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Category"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginLeft="8dp"
         app:layout_constraintTop_toBottomOf="@+id/lost_location_enter"
-        android:layout_marginStart="8dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toLeftOf="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"/>
 
     <Spinner
         android:id="@+id/lost_spinner"
@@ -133,8 +134,11 @@
         android:layout_height="24dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/lost_category"
+        tools:layout_editor_absoluteX="8dp"
+        app:layout_constraintLeft_toLeftOf="1"
         tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"/>
 
     <TextView
         android:id="@+id/lost_reward"
@@ -142,12 +146,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="333dp"
         android:text="Reward"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toLeftOf="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"/>
 
     <EditText
         android:id="@+id/lost_description_enter"
@@ -157,9 +162,13 @@
         android:ems="10"
         android:hint="Enter Description"
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/lost_description"
+        tools:layout_editor_absoluteX="8dp"
+        app:layout_constraintLeft_toLeftOf="1"
         tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"/>
 
     <EditText
         android:id="@+id/lost_reward_enter"
@@ -169,8 +178,12 @@
         android:ems="10"
         android:hint="Amount you want to reward"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/lost_reward"
+        tools:layout_editor_absoluteX="8dp"
+        app:layout_constraintLeft_toLeftOf="1"
         tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"/>
 
 </android.support.constraint.ConstraintLayout>
