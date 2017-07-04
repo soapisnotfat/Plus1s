@@ -1,6 +1,6 @@
 package plus1s.app.model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Ivorycandy on 6/26/17.
@@ -8,26 +8,24 @@ import java.util.ArrayList;
  */
 
 public class FoundItem {
-    private ArrayList<Item> foundItem = new ArrayList<>();
+    private static HashMap<String, Item> foundItem = new HashMap<>();
 
     /**
      * add reported item to foundItem
+     *
      * @param e Item parsing in
      */
-    public void addFoundItem(Item e) {
-        foundItem.add(e);
+    public static void addFoundItem(Item e) {
+        foundItem.put(e.getName(), e);
     }
 
 
     /**
      * get a string of all reported found items
+     *
      * @return string of reported items
      */
-    public String getFoundItemName() {
-        String output = "";
-        for (Item i: foundItem) {
-            output += i.getName() + ",\n";
-        }
-        return output;
+    public static HashMap<String, Item> getFoundItems() {
+        return foundItem;
     }
 }

@@ -24,7 +24,6 @@ import plus1s.app.model.ItemType;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
-    FoundItem fi = new FoundItem();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -36,15 +35,11 @@ public class MainActivity extends AppCompatActivity {
         final Button main_lost_view = (Button) findViewById(R.id.main_lost_view);
         final Button main_found_view = (Button) findViewById(R.id.main_found_view);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
-        final TextView main_lost = (TextView) findViewById(R.id.main_lost);
-        final TextView main_found = (TextView) findViewById(R.id.main_found);
         final TextView main_role = (TextView) findViewById(R.id.main_role);
         final ListView main_lost_item_list = (ListView) findViewById(R.id.main_lost_item_list);
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayLostItem());
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
-        main_lost.setText("Your lost item(s) are ");
         main_go_to_map.setText("Click here to map");
-        main_found.setText("Found items are" + displayFoundItem());
         main_role.setText("Mode: " + UserDetails.getCurrentUser().returnType());
         main_lost_item_list.setAdapter(adapter);
 
@@ -145,11 +140,4 @@ public class MainActivity extends AppCompatActivity {
         return output;
     }
 
-    /**
-     * display current found items
-     * @return string of found items
-     */
-    private String displayFoundItem() {
-        return fi.getFoundItemName();
-    }
 }

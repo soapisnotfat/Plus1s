@@ -2,6 +2,7 @@ package plus1s.app.model;
 
 /**
  * Created by siyul on 7/3/2017.
+ * enum obtaining all item categories
  */
 
 public enum ItemCategory {
