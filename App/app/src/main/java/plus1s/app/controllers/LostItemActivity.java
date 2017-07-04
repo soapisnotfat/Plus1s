@@ -27,7 +27,9 @@ public class LostItemActivity extends AppCompatActivity {
         final EditText lost_lost_item = (EditText) findViewById(R.id.lost_lost_item);
         final EditText LocationEnter = (EditText)  findViewById(R.id.lost_location_enter);
         final EditText DescriptionEnter = (EditText)  findViewById(R.id.lost_description_enter);
-        final EditText MoneyReward = (EditText)  findViewById(R.id.lost_reward_enter);
+        final EditText MoneyReward = (EditText)  findViewById(R.id.latitude);
+        final EditText LongitudeNumber = (EditText) findViewById(R.id.longitude);
+        final EditText LatitudeNumber = (EditText) findViewById(R.id.latitude);
         final Spinner lostCategorySpinner = (Spinner) findViewById(R.id.lost_categoty_spinner);
         final Spinner lostTypeSpinner = (Spinner) findViewById(R.id.lost_type_spinner);
 
@@ -53,6 +55,8 @@ public class LostItemActivity extends AppCompatActivity {
                 String description = DescriptionEnter.getText().toString().trim();
                 String location = LocationEnter.getText().toString().trim();
                 String reward = MoneyReward.getText().toString().trim();
+                double latitude = Double.parseDouble(LatitudeNumber.getText().toString().trim());
+                double longitude = Double.parseDouble(LongitudeNumber.getText().toString().trim());
                 int moneyReward;
                 if (!reward.equals("")) {
                     moneyReward = Integer.parseInt(reward);
@@ -67,11 +71,13 @@ public class LostItemActivity extends AppCompatActivity {
                             lostCategorySpinner.getSelectedItem().toString(),
                             lostTypeSpinner.getSelectedItem().toString(),
                             moneyReward,
-                            UserDetails.getCurrentUser().getUsername());
+                            UserDetails.getCurrentUser().getUsername(),latitude, longitude);
                     lost_lost_item.setText("");
                     LocationEnter.setText("");
                     DescriptionEnter.setText("");
                     MoneyReward.setText("");
+                    LatitudeNumber.setText("");
+                    LongitudeNumber.setText("");
                     Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
                 } else {
                     //display an alert while user's Name is invalid

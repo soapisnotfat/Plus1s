@@ -92,7 +92,7 @@ public interface Account {
      * @param category item's category
      * @param currentUsername item's uploader name
      */
-    void addItems(String name, String description, String location, String category, String type, int reward, String currentUsername);
+    void addItems(String name, String description, String location, String category, String type, int reward, String currentUsername, double latitude, double longtitude);
 
     /**
      * setter of found item

@@ -18,6 +18,8 @@ public class Item {
     private int reward;
     private String dateEntered;
     private String uploader;
+    private double longitude;
+    private double latitude;
 
     public final static List<ItemCategory> legalItemCategory = Arrays.asList(ItemCategory.KEEPSAKES, ItemCategory.HEIRLOOMS,
             ItemCategory.MISC);
@@ -30,7 +32,7 @@ public class Item {
      * @param description description parsing in
      */
     public Item(String name, String description, String location, boolean status, String category,
-                    String type, int reward, String dateEntered, String uploader) {
+                    String type, int reward, String dateEntered, String uploader, double latitude, double longitude) {
         this.name = name;
         this.description = description;
         this.location = location;
@@ -40,6 +42,8 @@ public class Item {
         this.reward = reward;
         this.dateEntered = dateEntered;
         this.uploader = uploader;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Item(String name) {
@@ -114,6 +118,8 @@ public class Item {
     public String getUploader() {
         return uploader;
     }
+    public double getLongitude() {return longitude;}
+    public double getLatitude() {return latitude;}
 
 
     /**
@@ -187,4 +193,6 @@ public class Item {
     public void setUploader(String uploader) {
         this.uploader = uploader;
     }
+    public void setLongitude(double longitude) {this.longitude = longitude;}
+    public void setLatitude(double latitude) {this.latitude = latitude;}
 }
