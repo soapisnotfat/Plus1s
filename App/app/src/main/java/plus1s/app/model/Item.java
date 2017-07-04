@@ -22,7 +22,7 @@ public class Item {
     public final static List<ItemCategory> legalItemCategory = Arrays.asList(ItemCategory.KEEPSAKES, ItemCategory.HEIRLOOMS,
             ItemCategory.MISC);
 
-    public final static List<ItemType> legalItemType = Arrays.asList(ItemType.FOUND, ItemType.FOUND, ItemType.NEED);
+    public final static List<ItemType> legalItemType = Arrays.asList(ItemType.FOUND, ItemType.LOST, ItemType.NEED);
 
     /**
      * two param constructor

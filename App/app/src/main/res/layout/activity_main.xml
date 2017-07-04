@@ -54,33 +54,33 @@
         tools:layout_constraintTop_creator="1" />
 
     <Button
-        android:id="@+id/main_add_lost_item"
+        android:id="@+id/main_add_item"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="report new lost item"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="report new item"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         tools:ignore="HardcodedText"
         tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="16dp" />
+        tools:layout_constraintLeft_creator="1" />
 
     <Button
         android:id="@+id/main_add_found_item"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="16dp"
-        android:text="report/search found item"
+        android:layout_marginStart="16dp"
+        android:text="search item"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        app:layout_constraintBottom_toTopOf="@+id/main_add_lost_item"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/main_add_item"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/main_found"

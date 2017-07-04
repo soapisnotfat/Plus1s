@@ -9,12 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import plus1s.app.R;
 import plus1s.app.model.Item;
-import plus1s.app.model.ItemCategory;
 import plus1s.app.model.UserDetails;
 
 public class LostItemActivity extends AppCompatActivity {
@@ -63,7 +61,7 @@ public class LostItemActivity extends AppCompatActivity {
                 }
 
                 if (!lost_item.equals("")) {
-                    UserDetails.getCurrentUser().addLostItem(lost_item,
+                    UserDetails.getCurrentUser().addItems(lost_item,
                             description,
                             location,
                             lostCategorySpinner.getSelectedItem().toString(),
@@ -71,6 +69,9 @@ public class LostItemActivity extends AppCompatActivity {
                             moneyReward,
                             UserDetails.getCurrentUser().getUsername());
                     lost_lost_item.setText("");
+                    LocationEnter.setText("");
+                    DescriptionEnter.setText("");
+                    MoneyReward.setText("");
                     Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
                 } else {
                     //display an alert while user's Name is invalid

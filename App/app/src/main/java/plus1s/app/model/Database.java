@@ -53,8 +53,8 @@ public class Database {
                 user.setPassword(dataSnapshot.child("password").getValue(String.class));
                 user.setEmail(dataSnapshot.child("email").getValue(String.class));
                 user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
-                GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
-                user.setLostItem(dataSnapshot.child("lostItem").getValue(t));
+                //GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
+                //user.setItems(dataSnapshot.child("lostItem").getValue(t));
 
         }
             @Override

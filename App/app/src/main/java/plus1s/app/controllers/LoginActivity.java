@@ -13,7 +13,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 import plus1s.app.R;
 import plus1s.app.model.Account;
@@ -82,8 +85,8 @@ public class LoginActivity extends AppCompatActivity {
                         user.setPassword(dataSnapshot.child("password").getValue(String.class));
                         user.setEmail(dataSnapshot.child("email").getValue(String.class));
                         user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
-                        //GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
-                        //user.setLostItem(dataSnapshot.child("lostItem").getValue(t));
+                        GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
+                        user.setItems(dataSnapshot.child("items").getValue(t));
                         if (user != null) {
                             if (log_password.equals(user.getPassword())) {
                                 UserDetails.login(user);

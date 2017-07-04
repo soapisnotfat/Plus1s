@@ -15,10 +15,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import plus1s.app.R;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
+import plus1s.app.model.ItemType;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         //random variable instantiations
         final Button main_logout = (Button)findViewById(R.id.main_logout);
-        final Button main_add_lost_item = (Button) findViewById(R.id.main_add_lost_item);
-        final Button main_add_found_item = (Button) findViewById(R.id.main_add_found_item);
+        final Button main_add_item = (Button) findViewById(R.id.main_add_item);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         final TextView main_lost = (TextView) findViewById(R.id.main_lost);
         final TextView main_found = (TextView) findViewById(R.id.main_found);
@@ -59,16 +60,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        main_add_lost_item.setOnClickListener(new View.OnClickListener() {
+        main_add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToLostItem();
-            }
-        });
-        main_add_found_item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToFoundItem();
             }
         });
     }
@@ -88,21 +83,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * go to found item page
-     */
-    private void goToFoundItem() {
-        MainActivity.this.startActivity(new Intent(MainActivity.this, FoundItemActivity.class));
-    }
-
-    /**
      * display current user's lot items
      * @return string of lost item
      */
     private List<String> displayLostItem() {
-        ArrayList<Item> temp = UserDetails.getCurrentUser().getLostItem();
+        ArrayList<Item> e = new ArrayList<>();
         List<String> output = new ArrayList<>();
-        for (Item i : temp) {
-            output.add(i.getName());
+        for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
+            e.add(entry.getValue());
+        }
+        for (Item i : e) {
+            if (i.getType().equals(ItemType.LOST.toString())) {
+                output.add(i.getName());
+            }
         }
         return output;
     }

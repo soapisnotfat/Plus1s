@@ -5,9 +5,9 @@ package plus1s.app.model;
  */
 
 public enum ItemType {
-    LOST("Lost"),
-    FOUND("Found"),
-    NEED("Need");
+    LOST("LOST"),
+    FOUND("FOUND"),
+    NEED("NEED");
 
     private String itemType;
 

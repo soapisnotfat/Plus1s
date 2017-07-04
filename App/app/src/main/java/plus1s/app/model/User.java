@@ -1,10 +1,10 @@
 package plus1s.app.model;
 
-import java.lang.reflect.Array;
+
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -16,8 +16,7 @@ public class  User implements Account{
     private String name, username, password, email;
     private boolean isLocked;
     protected String type;
-    private ArrayList<Item> lostItem;
-    private ArrayList<Item> foundItem;
+    private HashMap<String, Item> items;
     public final static List<AccountType> legalAccountType = Arrays.asList(AccountType.ADMINISTRATOR,
             AccountType.MANAGER,
             AccountType.USER);
@@ -37,16 +36,14 @@ public class  User implements Account{
         this.password = password;
         this.email = email;
         this.isLocked = isLocked;
-        this.lostItem = new ArrayList<>();
-        this.foundItem = new ArrayList<>();
+        this.items = new HashMap<>();
     }
 
     /**
      * non-param constructor
      */
     public User() {
-        this.lostItem = new ArrayList<>();
-        this.foundItem = new ArrayList<>();
+        this.items = new HashMap<>();
         type = AccountType.USER.toString();
     }
 
@@ -98,43 +95,23 @@ public class  User implements Account{
 
 
     @Override
-    public void addLostItem(String name, String description, String location, String category, String type, int reward, String currentUsername) {
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-        String formattedDate = df.format(c.getTime());
-        Item i = new Item(name, description, location, true, category, ItemType.LOST.toString(), reward, formattedDate, currentUsername);
-        lostItem.add(i);
+    public HashMap<String, Item> getItems() {
+        return items;
     }
 
     @Override
-    public void setLostItem(ArrayList<Item> e) {
-        lostItem.addAll(e);
-    }
-
-    @Override
-    public ArrayList<Item> getFoundItem() {
-        return lostItem;
-    }
-
-    @Override
-    public void addFoundItem(String name, String description, String location, String category, String type, int reward, String currentUsername) {
+    public void addItems(String name, String description, String location, String category, String type, int reward, String currentUsername) {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("DD-MM-YYYY");
         String formattedDate = df.format(c.getTime());
-        Item i = new Item(name, description, location, true, category, ItemType.FOUND.toString(), reward, formattedDate, currentUsername);
-        foundItem.add(i);
+        Item i = new Item(name, description, location, true, category, type, reward, formattedDate, currentUsername);
+        items.put(name, i);
     }
 
     @Override
-    public void setFoundItem(ArrayList<Item> e) {
-        lostItem.addAll(e);
+    public void setItems(HashMap<String, Item> e) {
+        items.putAll(e);
     }
-
-    @Override
-    public ArrayList<Item> getLostItem() {
-        return lostItem;
-    }
-
 
     @Override
     public boolean hasPermission() {

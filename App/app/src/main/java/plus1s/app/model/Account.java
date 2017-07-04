@@ -3,6 +3,7 @@ package plus1s.app.model;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 /**
@@ -78,32 +79,10 @@ public interface Account {
     boolean hasPermission();
 
     /**
-     * getter of user's lost item's name
-     * @return user's lost item's name
-     */
-    ArrayList<Item> getLostItem();
-
-    /**
-     * add an item to user's lostItem array
-     * @param name item's name
-     * @param description item's description
-     * @param location item's location
-     * @param category item's category
-     * @param currentUsername item's uploader name
-     */
-    void addLostItem(String name, String description, String location, String category, String type, int reward, String currentUsername);
-
-    /**
-     * setter of lost item
-     * @param e user's lost item
-     */
-    void setLostItem(ArrayList<Item> e);
-
-    /**
      * getter of user's found item's name
      * @return user's found item's name
      */
-    ArrayList<Item> getFoundItem();
+    HashMap<String, Item> getItems();
 
     /**
      * add an item to user's foundItem array
@@ -113,13 +92,13 @@ public interface Account {
      * @param category item's category
      * @param currentUsername item's uploader name
      */
-    void addFoundItem(String name, String description, String location, String category, String type, int reward, String currentUsername);
+    void addItems(String name, String description, String location, String category, String type, int reward, String currentUsername);
 
     /**
      * setter of found item
      * @param e user's found item
      */
-    void setFoundItem(ArrayList<Item> e);
+    void setItems(HashMap<String, Item> e);
 
     /**
      * getter of account type

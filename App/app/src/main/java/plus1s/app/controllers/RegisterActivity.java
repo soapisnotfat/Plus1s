@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import plus1s.app.R;
 import plus1s.app.model.AccountType;
@@ -86,8 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setEmail(email);
                                     RegisteredUser.setPassword(password_1);
                                     RegisteredUser.setIsLocked(false);
-                                    RegisteredUser.setLostItem(new ArrayList<Item>());
-                                    RegisteredUser.addLostItem("Items:", "", "", "", "", 0, "Dummy User");
+                                    RegisteredUser.setItems(new HashMap<String, Item>());
 
                                     // upload new user to database
                                     UserDetails.register(RegisteredUser);
