@@ -17,7 +17,7 @@ public class Item {
     private String type;
     private int reward;
     private String dateEntered;
-    private Account uploader;
+    private String uploader;
 
     public final static List<ItemCategory> legalItemCategory = Arrays.asList(ItemCategory.KEEPSAKES, ItemCategory.HEIRLOOMS,
             ItemCategory.MISC);
@@ -30,7 +30,7 @@ public class Item {
      * @param description description parsing in
      */
     public Item(String name, String description, String location, boolean status, String category,
-                    String type, int reward, String dateEntered, Account uploader) {
+                    String type, int reward, String dateEntered, String uploader) {
         this.name = name;
         this.description = description;
         this.location = location;
@@ -111,7 +111,7 @@ public class Item {
      * getter of uploader
      * @return item uploader
      */
-    public Account getUploader() {
+    public String getUploader() {
         return uploader;
     }
 
@@ -184,7 +184,7 @@ public class Item {
      * setter of uploader
      * @param uploader item uploader
      */
-    public void setUploader(Account uploader) {
+    public void setUploader(String uploader) {
         this.uploader = uploader;
     }
 }

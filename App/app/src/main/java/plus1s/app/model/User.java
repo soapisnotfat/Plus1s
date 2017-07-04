@@ -38,6 +38,7 @@ public class  User implements Account{
         this.email = email;
         this.isLocked = isLocked;
         this.lostItem = new ArrayList<>();
+        this.foundItem = new ArrayList<>();
     }
 
     /**
@@ -97,11 +98,11 @@ public class  User implements Account{
 
 
     @Override
-    public void addLostItem(String name, String description, String location, String category, String type, int reward, Account currentUser) {
+    public void addLostItem(String name, String description, String location, String category, String type, int reward, String currentUsername) {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c.getTime());
-        Item i = new Item(name, description, location, true, category, ItemType.LOST.toString(), reward, formattedDate, currentUser);
+        Item i = new Item(name, description, location, true, category, ItemType.LOST.toString(), reward, formattedDate, currentUsername);
         lostItem.add(i);
     }
 
@@ -116,11 +117,11 @@ public class  User implements Account{
     }
 
     @Override
-    public void addFoundItem(String name, String description, String location, String category, String type, int reward, Account currentUser) {
+    public void addFoundItem(String name, String description, String location, String category, String type, int reward, String currentUsername) {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("DD-MM-YYYY");
         String formattedDate = df.format(c.getTime());
-        Item i = new Item(name, description, location, true, category, ItemType.FOUND.toString(), reward, formattedDate, currentUser);
+        Item i = new Item(name, description, location, true, category, ItemType.FOUND.toString(), reward, formattedDate, currentUsername);
         foundItem.add(i);
     }
 

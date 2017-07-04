@@ -89,9 +89,9 @@ public interface Account {
      * @param description item's description
      * @param location item's location
      * @param category item's category
-     * @param currentUser item's currentUser
+     * @param currentUsername item's uploader name
      */
-    void addLostItem(String name, String description, String location, String category, String type, int reward, Account currentUser);
+    void addLostItem(String name, String description, String location, String category, String type, int reward, String currentUsername);
 
     /**
      * setter of lost item
@@ -111,9 +111,9 @@ public interface Account {
      * @param description item's description
      * @param location item's location
      * @param category item's category
-     * @param currentUser item's currentUser
+     * @param currentUsername item's uploader name
      */
-    void addFoundItem(String name, String description, String location, String category, String type, int reward, Account currentUser);
+    void addFoundItem(String name, String description, String location, String category, String type, int reward, String currentUsername);
 
     /**
      * setter of found item

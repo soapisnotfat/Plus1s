@@ -69,7 +69,7 @@ public class LostItemActivity extends AppCompatActivity {
                             lostCategorySpinner.getSelectedItem().toString(),
                             lostTypeSpinner.getSelectedItem().toString(),
                             moneyReward,
-                            UserDetails.getCurrentUser());
+                            UserDetails.getCurrentUser().getUsername());
                     lost_lost_item.setText("");
                     Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
                 } else {

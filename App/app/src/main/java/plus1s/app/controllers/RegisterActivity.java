@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setPassword(password_1);
                                     RegisteredUser.setIsLocked(false);
                                     RegisteredUser.setLostItem(new ArrayList<Item>());
-                                    RegisteredUser.addLostItem("Items:", "", "", "", "", 0, new User("好吧 原谅你了", "什么 你说我最帅", "这么帅的人嘛？", "你见过", false));
+                                    RegisteredUser.addLostItem("Items:", "", "", "", "", 0, "Dummy User");
 
                                     // upload new user to database
                                     UserDetails.register(RegisteredUser);
