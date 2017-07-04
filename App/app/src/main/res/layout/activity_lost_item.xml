@@ -144,7 +144,7 @@
         android:layout_width="77dp"
         android:layout_height="23dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="TextView"
+        android:text="Type"
         android:textSize="18sp"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
