@@ -2,6 +2,7 @@ package plus1s.app.controllers;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.renderscript.Double2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,9 +28,9 @@ public class LostItemActivity extends AppCompatActivity {
         final EditText lost_lost_item = (EditText) findViewById(R.id.lost_lost_item);
         final EditText LocationEnter = (EditText)  findViewById(R.id.lost_location_enter);
         final EditText DescriptionEnter = (EditText)  findViewById(R.id.lost_description_enter);
-        final EditText MoneyReward = (EditText)  findViewById(R.id.latitude);
-        final EditText LongitudeNumber = (EditText) findViewById(R.id.longitude);
-        final EditText LatitudeNumber = (EditText) findViewById(R.id.latitude);
+        final EditText MoneyReward = (EditText)  findViewById(R.id.lost_reward);
+        final EditText LongitudeNumber = (EditText) findViewById(R.id.lost_longitude);
+        final EditText LatitudeNumber = (EditText) findViewById(R.id.lost_latitude);
         final Spinner lostCategorySpinner = (Spinner) findViewById(R.id.lost_categoty_spinner);
         final Spinner lostTypeSpinner = (Spinner) findViewById(R.id.lost_type_spinner);
 
@@ -55,8 +56,23 @@ public class LostItemActivity extends AppCompatActivity {
                 String description = DescriptionEnter.getText().toString().trim();
                 String location = LocationEnter.getText().toString().trim();
                 String reward = MoneyReward.getText().toString().trim();
-                double latitude = Double.parseDouble(LatitudeNumber.getText().toString().trim());
-                double longitude = Double.parseDouble(LongitudeNumber.getText().toString().trim());
+                String pre_latitude = LatitudeNumber.getText().toString().trim();
+                String pre_longitude = LongitudeNumber.getText().toString().trim();
+
+                double latitude;
+                if (!pre_latitude.equals("")) {
+                    latitude = Double.parseDouble(pre_latitude);
+                } else {
+                    latitude = 0;
+                }
+
+                double longitude;
+                if (!pre_longitude.equals("")) {
+                    longitude = Double.parseDouble(pre_longitude);
+                } else {
+                    longitude = 0;
+                }
+
                 int moneyReward;
                 if (!reward.equals("")) {
                     moneyReward = Integer.parseInt(reward);

@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
         //random variable instantiations
         final Button main_logout = (Button)findViewById(R.id.main_logout);
         final Button main_add_item = (Button) findViewById(R.id.main_add_item);
-        final Button main_go_to_map = (Button) findViewById(R.id.go_to_map);
+        final Button main_go_to_map = (Button) findViewById(R.id.main_go_to_map);
+        final Button main_lost_view = (Button) findViewById(R.id.main_lost_view);
+        final Button main_found_view = (Button) findViewById(R.id.main_found_view);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         final TextView main_lost = (TextView) findViewById(R.id.main_lost);
         final TextView main_found = (TextView) findViewById(R.id.main_found);
@@ -74,6 +76,20 @@ public class MainActivity extends AppCompatActivity {
                 goToLostItem();
             }
         });
+
+        main_lost_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToLostView();
+            }
+        });
+
+        main_found_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToFoundView();
+            }
+        });
     }
 
     /**
@@ -88,6 +104,27 @@ public class MainActivity extends AppCompatActivity {
      */
     private void goToLostItem() {
         MainActivity.this.startActivity(new Intent(MainActivity.this, LostItemActivity.class));
+    }
+
+    /**
+     * go to map page
+     */
+    private void goToMap() {
+        MainActivity.this.startActivity(new Intent(MainActivity.this, MapsActivity.class));
+    }
+
+    /**
+     * go to lost view page
+     */
+    private void goToLostView() {
+        MainActivity.this.startActivity(new Intent(MainActivity.this, LostViewActivity.class));
+    }
+
+    /**
+     * go to found view page
+     */
+    private void goToFoundView() {
+        MainActivity.this.startActivity(new Intent(MainActivity.this, FoundViewActivity.class));
     }
 
     /**
@@ -114,9 +151,5 @@ public class MainActivity extends AppCompatActivity {
      */
     private String displayFoundItem() {
         return fi.getFoundItemName();
-    }
-
-    private void goToMap() {
-        MainActivity.this.startActivity(new Intent(MainActivity.this, MapsActivity.class));
     }
 }
