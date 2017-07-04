@@ -12,6 +12,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 import plus1s.app.R;
@@ -26,7 +29,6 @@ import plus1s.app.model.UserDetails;
 import static plus1s.app.model.ItemCategory.KEEPSAKES;
 
 public class RegisterActivity extends AppCompatActivity {
-    Database db = new Database();
 
     // controls the minimum length of password
     int password_minimum_length = 3;
@@ -63,6 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
                         if (email.contains("@")) {
                             if ((password_2.length() >= password_minimum_length)) {
                                 if ((password_2.equals(password_1))) {
+
+                                    // set up new user
                                     User RegisteredUser;
                                     switch (accountType) {
                                         case "Administrator":
@@ -82,8 +86,11 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setIsLocked(false);
                                     RegisteredUser.setLostItem(new ArrayList<Item>());
                                     RegisteredUser.addLostItem("Items:", "Items", "Items", KEEPSAKES, 0, new User("Item", "Item", "Item", "Item", false));
+
+                                    // upload new user to database
                                     UserDetails.register(RegisteredUser);
-                                    db.upLoadRequest();
+                                    DatabaseReference dr = FirebaseDatabase.getInstance().getReference("user");
+                                    dr.
                                     Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
 
                                     //come back to login page after register successfully
