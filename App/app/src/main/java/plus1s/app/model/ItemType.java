@@ -8,8 +8,11 @@ public enum ItemType {
     LOST("Lost"),
     FOUND("Found"),
     NEED("Need");
+
     private String itemType;
+
     ItemType(String value) {itemType = value;}
-    public String getItemType() {return itemType;}
+
+    public String toString() {return itemType;}
 
 }

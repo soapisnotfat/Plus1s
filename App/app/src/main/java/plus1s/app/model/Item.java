@@ -13,23 +13,24 @@ public class Item {
     private String description;
     private String location;
     private boolean status;
-    private ItemCategory category;
-    private ItemType type;
+    private String category;
+    private String type;
     private int reward;
     private String dateEntered;
     private Account uploader;
 
-    public static List<ItemCategory> legalItemCategory= Arrays.asList(ItemCategory.KEEPSAKES, ItemCategory.HEIRLOOMS,
-            ItemCategory.MISC
-    );
+    public final static List<ItemCategory> legalItemCategory = Arrays.asList(ItemCategory.KEEPSAKES, ItemCategory.HEIRLOOMS,
+            ItemCategory.MISC);
+
+    public final static List<ItemType> legalItemType = Arrays.asList(ItemType.FOUND, ItemType.FOUND, ItemType.NEED);
 
     /**
      * two param constructor
      * @param name name parsing in
      * @param description description parsing in
      */
-    public Item(String name, String description, String location, boolean status, ItemCategory category,
-                    ItemType type, int reward, String dateEntered, Account uploader) {
+    public Item(String name, String description, String location, boolean status, String category,
+                    String type, int reward, String dateEntered, Account uploader) {
         this.name = name;
         this.description = description;
         this.location = location;
@@ -39,6 +40,10 @@ public class Item {
         this.reward = reward;
         this.dateEntered = dateEntered;
         this.uploader = uploader;
+    }
+
+    public Item(String name) {
+        this.name = name;
     }
 
     /**
@@ -74,7 +79,7 @@ public class Item {
      * getter of category
      * @return item category
      */
-    public ItemCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -82,7 +87,7 @@ public class Item {
      * getter of type
      * @return item type
      */
-    public ItemType getType() {
+    public String getType() {
         return type;
     }
 
@@ -132,7 +137,7 @@ public class Item {
      * @param category item category
      */
     public void setCategory(ItemCategory category) {
-        this.category = category;
+        this.category = category.toString();
     }
 
     /**
@@ -172,7 +177,7 @@ public class Item {
      * @param type item type
      */
     public void setType(ItemType type) {
-        this.type = type;
+        this.type = type.toString();
     }
 
     /**

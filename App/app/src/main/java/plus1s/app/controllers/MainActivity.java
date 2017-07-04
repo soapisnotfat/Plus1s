@@ -10,18 +10,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import plus1s.app.R;
-import plus1s.app.model.Database;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
     FoundItem fi = new FoundItem();
-    Database db = new Database();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -46,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
         main_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.upLoadRequest();
+                String temp = UserDetails.getCurrentUser().getUsername();
+                DatabaseReference df = FirebaseDatabase.getInstance().getReference("user").child(temp);
+                df.setValue(UserDetails.getCurrentUser());
                 UserDetails.logout();
 
                 //display if successfully logout

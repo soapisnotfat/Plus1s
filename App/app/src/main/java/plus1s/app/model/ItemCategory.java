@@ -8,7 +8,10 @@ public enum ItemCategory {
     KEEPSAKES("KEEPSAKES"),
     HEIRLOOMS("HEIRLOOMS"),
     MISC("MISC");
+
     private String categories;
+
     ItemCategory (String value) {categories = value;}
-    public String getCategories() {return categories;}
+
+    public String toString() {return categories;}
 }

@@ -58,5 +58,4 @@ public class UserDetails {
         localDetails.put(username, user);
     }
 
-    //TODO report system is about to be online
 }

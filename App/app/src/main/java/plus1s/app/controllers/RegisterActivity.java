@@ -22,6 +22,8 @@ import plus1s.app.model.AccountType;
 import plus1s.app.model.Administrator;
 import plus1s.app.model.Database;
 import plus1s.app.model.Item;
+import plus1s.app.model.ItemCategory;
+import plus1s.app.model.ItemType;
 import plus1s.app.model.Manager;
 import plus1s.app.model.User;
 import plus1s.app.model.UserDetails;
@@ -85,12 +87,12 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setPassword(password_1);
                                     RegisteredUser.setIsLocked(false);
                                     RegisteredUser.setLostItem(new ArrayList<Item>());
-                                    RegisteredUser.addLostItem("Items:", "Items", "Items", KEEPSAKES, 0, new User("Item", "Item", "Item", "Item", false));
+                                    RegisteredUser.addLostItem("Items:", "", "", "", "", 0, new User("好吧 原谅你了", "什么 你说我最帅", "这么帅的人嘛？", "你见过", false));
 
                                     // upload new user to database
                                     UserDetails.register(RegisteredUser);
-                                    DatabaseReference dr = FirebaseDatabase.getInstance().getReference("user");
-                                    dr.
+                                    DatabaseReference dr = FirebaseDatabase.getInstance().getReference("user").child(username);
+                                    dr.setValue(UserDetails.getRegisterUser());
                                     Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
 
                                     //come back to login page after register successfully

@@ -30,16 +30,16 @@ public class LostItemActivity extends AppCompatActivity {
         final EditText LocationEnter = (EditText)  findViewById(R.id.lost_location_enter);
         final EditText DescriptionEnter = (EditText)  findViewById(R.id.lost_description_enter);
         final EditText MoneyReward = (EditText)  findViewById(R.id.lost_reward_enter);
-        final TextView Name = (TextView) findViewById(R.id.lost_name);
-        final TextView Description = (TextView) findViewById(R.id.lost_description);
-        final TextView Location = (TextView) findViewById(R.id.lost_location);
-        final TextView Category = (TextView) findViewById(R.id.lost_category);
-        final TextView Reward = (TextView) findViewById(R.id.lost_reward);
-        final Spinner CategorySpinner = (Spinner) findViewById(R.id.lost_spinner);
+        final Spinner lostCategorySpinner = (Spinner) findViewById(R.id.lost_categoty_spinner);
+        final Spinner lostTypeSpinner = (Spinner) findViewById(R.id.lost_type_spinner);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Item.legalItemCategory);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        CategorySpinner.setAdapter(adapter);
+        ArrayAdapter<String> category_adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Item.legalItemCategory);
+        category_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        lostCategorySpinner.setAdapter(category_adapter);
+
+        ArrayAdapter<String> type_adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Item.legalItemType);
+        type_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        lostTypeSpinner.setAdapter(type_adapter);
 
         lost_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,10 +55,21 @@ public class LostItemActivity extends AppCompatActivity {
                 String description = DescriptionEnter.getText().toString().trim();
                 String location = LocationEnter.getText().toString().trim();
                 String reward = MoneyReward.getText().toString().trim();
-                int moneyReward = Integer.parseInt(reward);
+                int moneyReward;
+                if (!reward.equals("")) {
+                    moneyReward = Integer.parseInt(reward);
+                } else {
+                    moneyReward = 0;
+                }
 
                 if (!lost_item.equals("")) {
-                    UserDetails.getCurrentUser().addLostItem(lost_item, description, location, (ItemCategory)CategorySpinner.getSelectedItem(),moneyReward, UserDetails.getCurrentUser());
+                    UserDetails.getCurrentUser().addLostItem(lost_item,
+                            description,
+                            location,
+                            lostCategorySpinner.getSelectedItem().toString(),
+                            lostTypeSpinner.getSelectedItem().toString(),
+                            moneyReward,
+                            UserDetails.getCurrentUser());
                     lost_lost_item.setText("");
                     Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
                 } else {
