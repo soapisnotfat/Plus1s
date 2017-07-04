@@ -23,6 +23,8 @@ import plus1s.app.model.Manager;
 import plus1s.app.model.User;
 import plus1s.app.model.UserDetails;
 
+import static plus1s.app.model.ItemCategory.KEEPSAKES;
+
 public class RegisterActivity extends AppCompatActivity {
     Database db = new Database();
 
@@ -79,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     RegisteredUser.setPassword(password_1);
                                     RegisteredUser.setIsLocked(false);
                                     RegisteredUser.setLostItem(new ArrayList<Item>());
-                                    RegisteredUser.addLostItem("Items:");
+                                    RegisteredUser.addLostItem("Items:", "Items", "Items", KEEPSAKES, 0, new User("Item", "Item", "Item", "Item", false));
                                     UserDetails.register(RegisteredUser);
                                     db.upLoadRequest();
                                     Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
