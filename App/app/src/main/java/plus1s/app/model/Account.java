@@ -86,7 +86,6 @@ public interface Account {
      * add an item to user's foundItem array
      * @param name item's name
      * @param description item's description
-     * @param location item's location
      * @param category item's category
      * @param currentUsername item's uploader name
      */

@@ -100,7 +100,7 @@ public class Item {
     public String getDateEntered() {
         return dateEntered;
     }
-
+    
     /**
      * getter of uploader
      * @return item uploader
