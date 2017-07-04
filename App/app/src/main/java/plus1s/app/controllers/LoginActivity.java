@@ -68,26 +68,26 @@ public class LoginActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Account user;
                         System.out.println("downloadRequest::onDataChange is Called!");
-                        switch (dataSnapshot.child("type").getValue(String.class)) {
-                            case "Administrator":
-                                user = new Administrator();
-                                break;
-                            case "Manager":
-                                user = new Manager();
-                                break;
-                            default:
-                                user = new User();
-                                break;
-                        }
+                        if (dataSnapshot.exists()) {
+                            switch (dataSnapshot.child("type").getValue(String.class)) {
+                                case "Administrator":
+                                    user = new Administrator();
+                                    break;
+                                case "Manager":
+                                    user = new Manager();
+                                    break;
+                                default:
+                                    user = new User();
+                                    break;
+                            }
 
-                        user.setUsername(dataSnapshot.child("username").getValue(String.class));
-                        user.setName(dataSnapshot.child("name").getValue(String.class));
-                        user.setPassword(dataSnapshot.child("password").getValue(String.class));
-                        user.setEmail(dataSnapshot.child("email").getValue(String.class));
-                        user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
-                        GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
-                        user.setItems(dataSnapshot.child("items").getValue(t));
-                        if (user != null) {
+                            user.setUsername(dataSnapshot.child("username").getValue(String.class));
+                            user.setName(dataSnapshot.child("name").getValue(String.class));
+                            user.setPassword(dataSnapshot.child("password").getValue(String.class));
+                            user.setEmail(dataSnapshot.child("email").getValue(String.class));
+                            user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
+                            GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
+                            user.setItems(dataSnapshot.child("items").getValue(t));
                             if (log_password.equals(user.getPassword())) {
                                 UserDetails.login(user);
                                 goToMain();
@@ -102,16 +102,17 @@ public class LoginActivity extends AppCompatActivity {
                                 login_password.setText("");
                             }
                         } else {
-                            //display an alert while username is not found
+                            //display an alert while password is invalid
                             AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
                             dialog3.setTitle("Invalid Login Attempt");
-                            dialog3.setMessage("Username not found")
+                            dialog3.setMessage("please enter correct combination ")
                                     .setNegativeButton("Retry", null)
                                     .create()
                                     .show();
                             login_password.setText("");
-                            login_username.setText("");
                         }
+
+
                     }
 
                     @Override
