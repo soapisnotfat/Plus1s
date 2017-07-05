@@ -13,7 +13,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import plus1s.app.R;
+import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
+import plus1s.app.model.LostItem;
 import plus1s.app.model.UserDetails;
 
 public class LostItemActivity extends AppCompatActivity {
@@ -85,11 +87,27 @@ public class LostItemActivity extends AppCompatActivity {
                             lostTypeSpinner.getSelectedItem().toString(),
                             moneyReward,
                             UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                    if (lostTypeSpinner.getSelectedItem().toString().equals("FOUND")) {
+                        FoundItem.addFoundItem(lost_item,
+                                description,
+                                lostCategorySpinner.getSelectedItem().toString(),
+                                lostTypeSpinner.getSelectedItem().toString(),
+                                moneyReward,
+                                UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                    } else if (lostTypeSpinner.getSelectedItem().toString().equals("LOST")) {
+                        LostItem.addLostItem(lost_item,
+                                description,
+                                lostCategorySpinner.getSelectedItem().toString(),
+                                lostTypeSpinner.getSelectedItem().toString(),
+                                moneyReward,
+                                UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                    }
                     lost_lost_item.setText("");
                     DescriptionEnter.setText("");
                     MoneyReward.setText("");
                     LatitudeNumber.setText("");
                     LongitudeNumber.setText("");
+
                     Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
                 } else {
                     //display an alert while user's Name is invalid

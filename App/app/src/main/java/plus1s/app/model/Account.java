@@ -83,13 +83,17 @@ public interface Account {
     HashMap<String, Item> getItems();
 
     /**
-     * add an item to user's foundItem array
+     * add items to user's property
      * @param name item's name
      * @param description item's description
      * @param category item's category
+     * @param type item's type
+     * @param reward item's reward amount
      * @param currentUsername item's uploader name
+     * @param latitude item's latitude
+     * @param longitude item's longitude
      */
-    void addItems(String name, String description, String category, String type, int reward, String currentUsername, double latitude, double longtitude);
+    void addItems(String name, String description, String category, String type, int reward, String currentUsername, double latitude, double longitude);
 
     /**
      * setter of found item

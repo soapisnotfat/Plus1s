@@ -14,5 +14,6 @@ public enum ItemCategory {
 
     ItemCategory (String value) {categories = value;}
 
+    @Override
     public String toString() {return categories;}
 }

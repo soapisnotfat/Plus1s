@@ -16,7 +16,6 @@ import plus1s.app.R;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
 import plus1s.app.model.ItemType;
-import plus1s.app.model.UserDetails;
 
 public class FoundViewActivity extends AppCompatActivity {
 
@@ -28,7 +27,7 @@ public class FoundViewActivity extends AppCompatActivity {
         final TextView found_view_back = (TextView) findViewById(R.id.found_view_back);
         final ListView found_view_list = (ListView) findViewById(R.id.found_view_list);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayLostItem());
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayFoundItem());
         found_view_list.setAdapter(adapter);
         found_view_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,16 +44,18 @@ public class FoundViewActivity extends AppCompatActivity {
         FoundViewActivity.this.startActivity(new Intent(FoundViewActivity.this, MainActivity.class));
     }
 
-    private List<String> displayLostItem() {
+    /**
+     * display all found items
+     * @return a list of found items
+     */
+    private List<String> displayFoundItem() {
         ArrayList<Item> e = new ArrayList<>();
         List<String> output = new ArrayList<>();
         for (Map.Entry<String, Item> entry: FoundItem.getFoundItems().entrySet()) {
             e.add(entry.getValue());
         }
         for (Item i : e) {
-            if (i.getType().equals(ItemType.LOST.toString())) {
                 output.add(i.getName());
-            }
         }
         return output;
     }

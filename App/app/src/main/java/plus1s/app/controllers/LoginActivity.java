@@ -22,15 +22,17 @@ import plus1s.app.R;
 import plus1s.app.model.Account;
 import plus1s.app.model.Administrator;
 import plus1s.app.model.Database;
+import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
+import plus1s.app.model.LostItem;
 import plus1s.app.model.Manager;
 import plus1s.app.model.User;
 import plus1s.app.model.UserDetails;
 
 
 public class LoginActivity extends AppCompatActivity {
-    Database db = new Database();
-     DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
+    DatabaseReference database_2 = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,20 @@ public class LoginActivity extends AppCompatActivity {
         final EditText login_password = (EditText) findViewById(R.id.login_password);
         final Button login_login = (Button) findViewById(R.id.login_login);
         final TextView login_reg = (TextView) findViewById(R.id.login_register);
+
+        database_2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
+                FoundItem.setFoundItem(dataSnapshot.child("foundItems").getValue(t));
+                LostItem.setLostItem(dataSnapshot.child("lostItems").getValue(t));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         //register on clicking register button

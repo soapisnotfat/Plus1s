@@ -91,14 +91,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp" />
 
-    <ListView
-        android:id="@+id/main_lost_item_list"
-        android:layout_width="169dp"
-        android:layout_height="269dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="143dp" />
-
     <Button
         android:id="@+id/main_lost_view"
         android:layout_width="wrap_content"

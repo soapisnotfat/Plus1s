@@ -100,7 +100,7 @@ public class Item {
     public String getDateEntered() {
         return dateEntered;
     }
-    
+
     /**
      * getter of uploader
      * @return item uploader
@@ -108,9 +108,18 @@ public class Item {
     public String getUploader() {
         return uploader;
     }
-    public double getLongitude() {return longitude;}
-    public double getLatitude() {return latitude;}
 
+    /**
+     * getter of item's longitude
+     * @return item's longitude
+     */
+    public double getLongitude() {return longitude;}
+
+    /**
+     * getter of item's latitude
+     * @return item's latitude
+     */
+    public double getLatitude() {return latitude;}
 
     /**
      * setter of name
@@ -175,6 +184,16 @@ public class Item {
     public void setUploader(String uploader) {
         this.uploader = uploader;
     }
+
+    /**
+     * setter of item's longitude
+     * @param longitude ite,'s longitude
+     */
     public void setLongitude(double longitude) {this.longitude = longitude;}
+
+    /**
+     * setter of item's latitude
+     * @param latitude item's latitude
+     */
     public void setLatitude(double latitude) {this.latitude = latitude;}
 }

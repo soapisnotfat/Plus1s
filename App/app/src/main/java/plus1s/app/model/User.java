@@ -102,7 +102,7 @@ public class  User implements Account{
     @Override
     public void addItems(String name, String description, String category, String type, int reward, String currentUsername, double latitude, double longitude) {
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("DD-MM-YYYY");
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c.getTime());
         Item i = new Item(name, description, true, category, type, reward, formattedDate, currentUsername, latitude, longitude);
         items.put(name, i);

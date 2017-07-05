@@ -21,6 +21,7 @@ import plus1s.app.R;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
 import plus1s.app.model.ItemType;
+import plus1s.app.model.LostItem;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,12 +37,9 @@ public class MainActivity extends AppCompatActivity {
         final Button main_found_view = (Button) findViewById(R.id.main_found_view);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         final TextView main_role = (TextView) findViewById(R.id.main_role);
-        final ListView main_lost_item_list = (ListView) findViewById(R.id.main_lost_item_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayLostItem());
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
         main_go_to_map.setText("Click here to map");
         main_role.setText("Mode: " + UserDetails.getCurrentUser().returnType());
-        main_lost_item_list.setAdapter(adapter);
 
         //logout action on clocking logout button
         main_logout.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
                 String temp = UserDetails.getCurrentUser().getUsername();
                 DatabaseReference df = FirebaseDatabase.getInstance().getReference("user").child(temp);
                 df.setValue(UserDetails.getCurrentUser());
+                DatabaseReference df_2 =FirebaseDatabase.getInstance().getReference("foundItems");
+                df_2.setValue(FoundItem.getFoundItems());
+                DatabaseReference df_3 =FirebaseDatabase.getInstance().getReference("lostItems");
+                df_3.setValue(LostItem.getLostItems());
                 UserDetails.logout();
 
                 //display if successfully logout
@@ -120,24 +122,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private void goToFoundView() {
         MainActivity.this.startActivity(new Intent(MainActivity.this, FoundViewActivity.class));
-    }
-
-    /**
-     * display current user's lot items
-     * @return string of lost item
-     */
-    private List<String> displayLostItem() {
-        ArrayList<Item> e = new ArrayList<>();
-        List<String> output = new ArrayList<>();
-        for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
-            e.add(entry.getValue());
-        }
-        for (Item i : e) {
-            if (i.getType().equals(ItemType.LOST.toString())) {
-                output.add(i.getName());
-            }
-        }
-        return output;
     }
 
 }
