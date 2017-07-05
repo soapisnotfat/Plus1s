@@ -15,21 +15,16 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import plus1s.app.R;
 import plus1s.app.model.AccountType;
 import plus1s.app.model.Administrator;
-import plus1s.app.model.Database;
 import plus1s.app.model.Item;
-import plus1s.app.model.ItemCategory;
-import plus1s.app.model.ItemType;
 import plus1s.app.model.Manager;
 import plus1s.app.model.User;
 import plus1s.app.model.UserDetails;
 
-import static plus1s.app.model.ItemCategory.KEEPSAKES;
 
 public class RegisterActivity extends AppCompatActivity {
 

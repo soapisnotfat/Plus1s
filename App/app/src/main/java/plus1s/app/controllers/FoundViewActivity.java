@@ -15,7 +15,6 @@ import java.util.Map;
 import plus1s.app.R;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
-import plus1s.app.model.ItemType;
 
 public class FoundViewActivity extends AppCompatActivity {
 

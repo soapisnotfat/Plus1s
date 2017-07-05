@@ -13,10 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 import plus1s.app.R;
-import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
 import plus1s.app.model.ItemType;
-import plus1s.app.model.LostItem;
+
 import plus1s.app.model.UserDetails;
 
 public class LostViewActivity extends AppCompatActivity {

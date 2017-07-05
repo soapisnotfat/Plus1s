@@ -21,7 +21,6 @@ import java.util.HashMap;
 import plus1s.app.R;
 import plus1s.app.model.Account;
 import plus1s.app.model.Administrator;
-import plus1s.app.model.Database;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
 import plus1s.app.model.LostItem;

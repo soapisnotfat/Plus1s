@@ -4,23 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import plus1s.app.R;
 import plus1s.app.model.FoundItem;
-import plus1s.app.model.Item;
-import plus1s.app.model.ItemType;
 import plus1s.app.model.LostItem;
 import plus1s.app.model.UserDetails;
 
