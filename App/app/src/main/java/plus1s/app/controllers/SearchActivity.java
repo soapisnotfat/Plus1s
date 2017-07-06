@@ -105,7 +105,7 @@ public class SearchActivity extends AppCompatActivity {
      */
     private List<String> validCategory() {
         List<String> output = new ArrayList<>();
-        output.add("");
+        output.add("All Categories");
         output.add(ItemCategory.HEIRLOOMS.toString());
         output.add(ItemCategory.KEEPSAKES.toString());
         output.add(ItemCategory.MISC.toString());
@@ -118,7 +118,7 @@ public class SearchActivity extends AppCompatActivity {
      */
     private List<String> validType() {
         List<String> output = new ArrayList<>();
-        output.add("");
+        output.add("All Types");
         output.add(ItemType.FOUND.toString());
         output.add(ItemType.LOST.toString());
         output.add(ItemType.NEED.toString());
@@ -151,6 +151,11 @@ public class SearchActivity extends AppCompatActivity {
         }
 
         if (type.equals("FOUND")) {
+            if (category.equals("All Categories")) {
+                for (Item i : allFound) {
+                    output.add(i.getName());
+                }
+            }
             if (category.equals("HEIRLOOMS")) {
                 for (Item i : allFound) {
                     if (i.getCategory().equals("HEIRLOOMS")) {
@@ -170,16 +175,16 @@ public class SearchActivity extends AppCompatActivity {
                     if (i.getCategory().equals("MISC")) {
                         output.add(i.getName());
                     }
-                }
-            }
-            if (category.equals("")) {
-                for (Item i : allFound) {
-                        output.add(i.getName());
                 }
             }
         }
 
         if (type.equals("LOST")) {
+            if (category.equals("All Categories")) {
+                for (Item i : personalLost) {
+                    output.add(i.getName());
+                }
+            }
             if (category.equals("HEIRLOOMS")) {
                 for (Item i : personalLost) {
                     if (i.getCategory().equals("HEIRLOOMS")) {
@@ -201,14 +206,14 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 }
             }
-            if (category.equals("")) {
-                for (Item i : personalLost) {
+        }
+
+        if (type.equals("All Types")) {
+            if (category.equals("All Categories")) {
+                for (Item i : allItem) {
                     output.add(i.getName());
                 }
             }
-        }
-
-        if (type.equals("")) {
             if (category.equals("HEIRLOOMS")) {
                 for (Item i : allItem) {
                     if (i.getCategory().equals("HEIRLOOMS")) {
