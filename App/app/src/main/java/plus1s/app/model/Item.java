@@ -1,5 +1,6 @@
 package plus1s.app.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class Item {
             ItemCategory.MISC);
 
     public final static List<ItemType> legalItemType = Arrays.asList(ItemType.FOUND, ItemType.LOST, ItemType.NEED);
+
+    public static List<String> searchList = new ArrayList<>();
 
     /**
      * two param constructor

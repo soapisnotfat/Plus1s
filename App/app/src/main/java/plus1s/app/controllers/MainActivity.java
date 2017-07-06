@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         final Button main_go_to_map = (Button) findViewById(R.id.main_go_to_map);
         final Button main_lost_view = (Button) findViewById(R.id.main_lost_view);
         final Button main_found_view = (Button) findViewById(R.id.main_found_view);
+        final Button main_search = (Button) findViewById(R.id.main_search);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         final TextView main_role = (TextView) findViewById(R.id.main_role);
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
@@ -79,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 goToFoundView();
             }
         });
+
+        main_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToSearch();
+            }
+        });
     }
 
     /**
@@ -116,4 +124,10 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(new Intent(MainActivity.this, FoundViewActivity.class));
     }
 
+    /**
+     * go to search page
+     */
+    private void goToSearch() {
+        MainActivity.this.startActivity(new Intent(MainActivity.this, SearchActivity.class));
+    }
 }
