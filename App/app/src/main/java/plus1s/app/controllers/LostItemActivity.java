@@ -2,7 +2,6 @@ package plus1s.app.controllers;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.renderscript.Double2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;

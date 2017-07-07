@@ -10,7 +10,7 @@ public enum ItemCategory {
     HEIRLOOMS("HEIRLOOMS"),
     MISC("MISC");
 
-    private String categories;
+    private final String categories;
 
     /**
      * one-param constructor setting name of enum

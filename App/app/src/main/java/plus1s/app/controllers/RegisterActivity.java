@@ -29,7 +29,7 @@ import plus1s.app.model.UserDetails;
 public class RegisterActivity extends AppCompatActivity {
 
     // controls the minimum length of password
-    int password_minimum_length = 3;
+    private final int password_minimum_length = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText reg_password = (EditText) findViewById(R.id.reg_password);
         final EditText reg_password_confirm = (EditText) findViewById(R.id.reg_pass_confirm);
         final Button reg_register = (Button) findViewById(R.id.reg_register);
-        final Button reg_cancel = (Button) findViewById(R.id.reg_cancel);;
+        final Button reg_cancel = (Button) findViewById(R.id.reg_cancel);
         final Spinner reg_account_type = (Spinner) findViewById(R.id.reg_account_type);
         ArrayAdapter<AccountType> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, User.legalAccountType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

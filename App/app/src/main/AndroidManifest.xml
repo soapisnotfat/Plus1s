@@ -47,7 +47,7 @@
         <activity android:name=".controllers.LostViewActivity" />
         <activity android:name=".controllers.FoundViewActivity" />
         <activity android:name=".controllers.SearchActivity" />
-        <activity android:name=".controllers.SearchResultActivity"></activity>
+        <activity android:name=".controllers.SearchResultActivity"/>
     </application>
 
 </manifest>

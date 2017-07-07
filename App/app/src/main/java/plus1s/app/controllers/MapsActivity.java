@@ -21,8 +21,6 @@ import plus1s.app.model.UserDetails;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
+    public void onMapReady(GoogleMap mMap) {
 //        Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
@@ -58,8 +54,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         for (Item i : e) {
             LatLng location = new LatLng(i.getLongitude(), i.getLatitude());
-            Marker amarker = mMap.addMarker(new MarkerOptions().position(location).title("This is " + i.getName()));
-            amarker.setTag(i);
+            Marker aMarker = mMap.addMarker(new MarkerOptions().position(location).title("This is " + i.getName()));
+            aMarker.setTag(i);
             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
         }
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {

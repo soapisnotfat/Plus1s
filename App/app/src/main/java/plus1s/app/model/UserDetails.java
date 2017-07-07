@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 public class UserDetails {
     private static final HashMap<String, Account> localDetails = new HashMap<>();
-    public static Account currentUser;
-    public static Account registerUser;
+    private static Account currentUser;
+    private static Account registerUser;
 
     /**
      * register new user to local storage
@@ -32,7 +32,7 @@ public class UserDetails {
 
     /**
      * getter of registered user
-     * @return registered userg
+     * @return registered user
      */
     public static Account getRegisterUser() {
         return registerUser;

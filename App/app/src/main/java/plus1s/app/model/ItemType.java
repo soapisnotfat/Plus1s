@@ -10,7 +10,7 @@ public enum ItemType {
     FOUND("FOUND"),
     NEED("NEED");
 
-    private String itemType;
+    private final String itemType;
 
     /**
      * one-param constructor setting item's type

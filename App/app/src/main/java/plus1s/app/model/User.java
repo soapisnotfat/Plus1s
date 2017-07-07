@@ -15,8 +15,8 @@ import java.util.List;
 public class  User implements Account{
     private String name, username, password, email;
     private boolean isLocked;
-    protected String type;
-    private HashMap<String, Item> items;
+    String type;
+    private final HashMap<String, Item> items;
     public final static List<AccountType> legalAccountType = Arrays.asList(AccountType.ADMINISTRATOR,
             AccountType.MANAGER,
             AccountType.USER);

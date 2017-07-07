@@ -30,8 +30,8 @@ import plus1s.app.model.UserDetails;
 
 
 public class LoginActivity extends AppCompatActivity {
-    DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
-    DatabaseReference database_2 = FirebaseDatabase.getInstance().getReference();
+    private final DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
+    private final DatabaseReference database_2 = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
