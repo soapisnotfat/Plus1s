@@ -48,8 +48,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
-                FoundItem.setFoundItem(dataSnapshot.child("foundItems").getValue(t));
-                LostItem.setLostItem(dataSnapshot.child("lostItems").getValue(t));
+                if (dataSnapshot.hasChild("foundItems")) {
+                    FoundItem.setFoundItem(dataSnapshot.child("foundItems").getValue(t));
+                }
+
+                if (dataSnapshot.hasChild("lostItems")) {
+                    LostItem.setLostItem(dataSnapshot.child("lostItems").getValue(t));
+                }
             }
 
             @Override
@@ -102,7 +107,9 @@ public class LoginActivity extends AppCompatActivity {
                             user.setEmail(dataSnapshot.child("email").getValue(String.class));
                             user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
                             GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
-                            user.setItems(dataSnapshot.child("items").getValue(t));
+                            if (dataSnapshot.hasChild("items")) {
+                                user.setItems(dataSnapshot.child("items").getValue(t));
+                            }
                             if (log_password.equals(user.getPassword())) {
                                 UserDetails.login(user);
                                 goToMain();
