@@ -1,5 +1,6 @@
 package plus1s.app.model;
 
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -13,8 +14,10 @@ import java.util.Map;
 
 /**
  * Created by Ivorycandy on 6/20/17.
- * Service Provider
  * provides functions of accessing Firebase
+ *********************
+ * DISCARDED ALREADY *
+ *********************
  */
 
 public class Database {

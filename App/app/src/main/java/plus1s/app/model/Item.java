@@ -1,5 +1,6 @@
 package plus1s.app.model;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +48,10 @@ public class Item {
         this.longitude = longitude;
     }
 
+    /**
+     * one-param constructor setting item's name
+     * @param name item's name putting in
+     */
     public Item(String name) {
         this.name = name;
     }

@@ -12,6 +12,10 @@ public enum AccountType {
 
     private final String fullName;
 
+    /**
+     * one-param constructor setting name
+     * @param name name of the enum
+     */
     AccountType(String name) {
         this.fullName = name;
     }

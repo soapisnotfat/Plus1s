@@ -11,38 +11,41 @@
         android:id="@+id/reg_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="31dp"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed"
         android:hint="Name"
         android:inputType="text"
+        android:textSize="18sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlHardcoded"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp" />
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/reg_user"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed"
         android:hint="Username"
         android:inputType="text"
-        tools:ignore="HardcodedText"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/reg_name"
+        tools:ignore="HardcodedText"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/reg_register"
@@ -64,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintHorizontal_bias="0.0"
@@ -78,16 +82,17 @@
         android:id="@+id/reg_pass_confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed"
         android:hint="Confirm Password"
         android:inputType="textPassword"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/reg_password"
         app:layout_constraintRight_toRightOf="@+id/reg_password"
+        app:layout_constraintTop_toBottomOf="@+id/reg_password"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/reg_password" />
+        tools:layout_constraintRight_creator="1" />
 
     <Button
         android:id="@+id/reg_cancel"
@@ -112,16 +117,17 @@
         android:id="@+id/reg_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/reg_user"
         app:layout_constraintRight_toRightOf="@+id/reg_user"
+        app:layout_constraintTop_toBottomOf="@+id/reg_user"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/reg_user" />
+        tools:layout_constraintRight_creator="1" />
 
     <Spinner
         android:id="@+id/reg_account_type"
@@ -129,11 +135,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:dropDownWidth="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_pass_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/register_type_hint"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="@+id/reg_pass_confirm"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/reg_pass_confirm"
         app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/register_type_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Choose an account type"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_pass_confirm" />
 
 </android.support.constraint.ConstraintLayout>

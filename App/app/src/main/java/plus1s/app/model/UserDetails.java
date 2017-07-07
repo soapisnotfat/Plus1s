@@ -1,7 +1,6 @@
 package plus1s.app.model;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -14,14 +13,6 @@ public class UserDetails {
     public static Account currentUser;
     public static Account registerUser;
 
-    public static Account getCurrentUser() {
-        return currentUser;
-    }
-
-    public static Account getRegisterUser() {
-        return registerUser;
-    }
-
     /**
      * register new user to local storage
      * @param newUser user to be registered
@@ -29,6 +20,22 @@ public class UserDetails {
     public static void register(Account newUser) {
         localDetails.put(newUser.getUsername(), newUser);
         registerUser = newUser;
+    }
+
+    /**
+     * getter of Current User
+     * @return current user
+     */
+    public static Account getCurrentUser() {
+        return currentUser;
+    }
+
+    /**
+     * getter of registered user
+     * @return registered userg
+     */
+    public static Account getRegisterUser() {
+        return registerUser;
     }
 
     /**

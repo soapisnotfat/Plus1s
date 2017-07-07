@@ -12,6 +12,10 @@ public enum ItemType {
 
     private String itemType;
 
+    /**
+     * one-param constructor setting item's type
+     * @param value item's type
+     */
     ItemType(String value) {itemType = value;}
 
     @Override

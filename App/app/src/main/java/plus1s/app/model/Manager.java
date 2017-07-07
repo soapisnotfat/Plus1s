@@ -6,6 +6,10 @@ package plus1s.app.model;
  */
 
 public class Manager extends User {
+
+    /**
+     * non-param constructor inherited from User
+     */
     public Manager() {
         super();
         this.type = AccountType.MANAGER.toString();

@@ -12,6 +12,10 @@ public enum ItemCategory {
 
     private String categories;
 
+    /**
+     * one-param constructor setting name of enum
+     * @param value name of enum
+     */
     ItemCategory (String value) {categories = value;}
 
     @Override
