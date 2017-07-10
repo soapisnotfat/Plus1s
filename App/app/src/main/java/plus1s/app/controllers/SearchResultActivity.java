@@ -29,7 +29,7 @@ public class SearchResultActivity extends AppCompatActivity {
         search_result_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Item.searchList = new ArrayList<>();
+                Item.searchList.clear();
                 goToSearch();
             }
         });

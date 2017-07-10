@@ -138,8 +138,10 @@ public class SearchActivity extends AppCompatActivity {
         ArrayList<String> output = new ArrayList<>();
 
         for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
-            personalLost.add(entry.getValue());
-            allItem.add(entry.getValue());
+            if (entry.getValue().getType().equals("LOST")) {
+                personalLost.add(entry.getValue());
+                allItem.add(entry.getValue());
+            }
         }
         for (Map.Entry<String, Item> entry: FoundItem.getFoundItems().entrySet()) {
             allFound.add(entry.getValue());
