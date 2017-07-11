@@ -1,11 +1,11 @@
 # cs2340 Team
 # +1s (PlusOneSecond)
 # Collaborators:
- Siyu Li;__
- Zijin Luo;__
- Zhu Zhuang;__
- Jinghua Zhang__
+ Siyu Li<br />
+ Zijin Luo<br />
+ Zhu Zhuang<br />
+ Jinghua Zhang<br />
 
 # TODO
- Design Pattern__
- Singleton__
+ Design Pattern<br />
+ Singleton<br />
