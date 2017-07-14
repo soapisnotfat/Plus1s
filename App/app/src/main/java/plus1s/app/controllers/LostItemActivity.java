@@ -65,11 +65,21 @@ public class LostItemActivity extends AppCompatActivity {
                     latitude = 0;
                 }
 
+                if (latitude >= 90 || latitude <= -90) {
+                    Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90]", Toast.LENGTH_SHORT).show();
+                    LostItemActivity.this.startActivity(new Intent(LostItemActivity.this, LostItemActivity.class));
+                }
+
                 double longitude;
                 if (!pre_longitude.equals("")) {
                     longitude = Double.parseDouble(pre_longitude);
                 } else {
                     longitude = 0;
+                }
+
+                if (longitude >= 180 || longitude <= -180) {
+                    Toast.makeText(LostItemActivity.this, "Please enter longitude in [-180,180]", Toast.LENGTH_SHORT).show();
+                    LostItemActivity.this.startActivity(new Intent(LostItemActivity.this, LostItemActivity.class));
                 }
 
                 int moneyReward;
