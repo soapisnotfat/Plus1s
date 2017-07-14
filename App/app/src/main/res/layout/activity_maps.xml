@@ -5,4 +5,7 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="plus1s.app.controllers.MapsActivity" />
+    tools:context="plus1s.app.controllers.MapsActivity"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp" />
+

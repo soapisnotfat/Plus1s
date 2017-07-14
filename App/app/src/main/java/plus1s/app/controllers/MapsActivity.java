@@ -3,11 +3,13 @@ package plus1s.app.controllers;
 import android.app.AlertDialog;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -16,7 +18,9 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import plus1s.app.R;
+import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
+import plus1s.app.model.LostItem;
 import plus1s.app.model.UserDetails;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -44,16 +48,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap mMap) {
 //        Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
+        UiSettings mUiSettings = mMap.getUiSettings();
+        mUiSettings.setZoomControlsEnabled(true);
         ArrayList<Item> e = new ArrayList<>();
         for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
             e.add(entry.getValue());
         }
+        for (Map.Entry<String, Item> entry: FoundItem.getFoundItems().entrySet()) {
+            e.add(entry.getValue());
+        }
+        for (Map.Entry<String, Item> entry: LostItem.getLostItems().entrySet()) {
+            e.add(entry.getValue());
+        }
         for (Item i : e) {
-            LatLng location = new LatLng(i.getLongitude(), i.getLatitude());
+            LatLng location = new LatLng(i.getLatitude(), i.getLongitude());
             Marker aMarker = mMap.addMarker(new MarkerOptions().position(location).title("This is " + i.getName()));
             aMarker.setTag(i);
             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
@@ -64,12 +72,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Item thisItem = (Item)(marker.getTag());
                 AlertDialog.Builder dialog3 = new AlertDialog.Builder(MapsActivity.this);
                 dialog3.setTitle("This item is " + thisItem.getName());
-                dialog3.setMessage("The uploader is " + thisItem.getUploader() + ".\nThe description is " + thisItem.getDescription() + ".")
+                dialog3.setMessage("The uploader is " + thisItem.getUploader() + ".\nThe description is " + thisItem.getDescription() + ".\nThis is a "
+                + thisItem.getType())
                         .setNegativeButton("Get it", null)
                         .create()
                         .show();
                 return false;
             }
         });
+
     }
 }
