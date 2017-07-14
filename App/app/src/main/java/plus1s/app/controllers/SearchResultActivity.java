@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import plus1s.app.R;
 import plus1s.app.model.Item;
 

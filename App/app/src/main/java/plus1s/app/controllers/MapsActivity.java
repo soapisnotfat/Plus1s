@@ -3,7 +3,6 @@ package plus1s.app.controllers;
 import android.app.AlertDialog;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -50,6 +49,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        Add a marker in Sydney and move the camera
         UiSettings mUiSettings = mMap.getUiSettings();
         mUiSettings.setZoomControlsEnabled(true);
+        mUiSettings.setCompassEnabled(true);
+        mUiSettings.setMyLocationButtonEnabled(true);
+        mUiSettings.setScrollGesturesEnabled(true);
+        mUiSettings.setZoomGesturesEnabled(true);
+        mUiSettings.setTiltGesturesEnabled(true);
+        mUiSettings.setRotateGesturesEnabled(true);
+
         ArrayList<Item> e = new ArrayList<>();
         for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
             e.add(entry.getValue());
@@ -73,7 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 AlertDialog.Builder dialog3 = new AlertDialog.Builder(MapsActivity.this);
                 dialog3.setTitle("This item is " + thisItem.getName());
                 dialog3.setMessage("The uploader is " + thisItem.getUploader() + ".\nThe description is " + thisItem.getDescription() + ".\nThis is a "
-                + thisItem.getType())
+                + thisItem.getType() + " item.")
                         .setNegativeButton("Get it", null)
                         .create()
                         .show();
