@@ -57,9 +57,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mUiSettings.setRotateGesturesEnabled(true);
 
         ArrayList<Item> e = new ArrayList<>();
-        for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
-            e.add(entry.getValue());
-        }
         for (Map.Entry<String, Item> entry: FoundItem.getFoundItems().entrySet()) {
             e.add(entry.getValue());
         }
@@ -67,6 +64,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.add(entry.getValue());
         }
         for (Item i : e) {
+            System.out.println(i.getName());
             LatLng location = new LatLng(i.getLatitude(), i.getLongitude());
             Marker aMarker = mMap.addMarker(new MarkerOptions().position(location).title("This is " + i.getName()));
             aMarker.setTag(i);
