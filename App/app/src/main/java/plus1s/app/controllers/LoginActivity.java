@@ -187,10 +187,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param password
-     * @param user
-     * @return
+     * check if passwords match
+     * @param password the passwprd user puts in
+     * @param user the user gotten from online database
+     * @return the result whether passwords match
      */
     public static boolean loginProcess(String password, Account user) {
         if (password.equals(user.getPassword())) {
