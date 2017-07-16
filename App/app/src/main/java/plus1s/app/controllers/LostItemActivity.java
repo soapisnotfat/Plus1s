@@ -61,6 +61,8 @@ public class LostItemActivity extends AppCompatActivity {
                 if(!checkValidLocation(pre_latitude, pre_longitude)){
                     LongitudeNumber.setText("");
                     LatitudeNumber.setText((""));
+                    Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90] and longitude in [-180,180]",
+                            Toast.LENGTH_SHORT).show();
                 }
                 else {
                     double latitude = Double.parseDouble(pre_latitude);
@@ -119,7 +121,7 @@ public class LostItemActivity extends AppCompatActivity {
     /**
      * Check valid input of longitude and latitude
      */
-    private boolean checkValidLocation(String pre_latitude, String pre_longitude) {
+    public static boolean checkValidLocation(String pre_latitude, String pre_longitude) {
         //double[] location = new double[2];
         double latitude;
 
@@ -130,7 +132,7 @@ public class LostItemActivity extends AppCompatActivity {
         }
 
         if (latitude > 90 || latitude <= -90 || pre_latitude.equals("")) {
-            Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90]", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90]", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -142,7 +144,7 @@ public class LostItemActivity extends AppCompatActivity {
         }
 
         if (longitude > 180 || longitude <= -180 || pre_longitude.equals("")) {
-            Toast.makeText(LostItemActivity.this, "Please enter longitude in [-180,180]", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(LostItemActivity.this, "Please enter longitude in [-180,180]", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
