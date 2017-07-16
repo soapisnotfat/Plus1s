@@ -120,6 +120,9 @@ public class LostItemActivity extends AppCompatActivity {
     }
     /**
      * Check valid input of longitude and latitude
+     * @param pre_latitude the latitude that the user input
+     * @param pre_longitude the longitude that the user input
+     * @return boolean true if the location input is value, false if invalid
      */
     public static boolean checkValidLocation(String pre_latitude, String pre_longitude) {
         //double[] location = new double[2];
