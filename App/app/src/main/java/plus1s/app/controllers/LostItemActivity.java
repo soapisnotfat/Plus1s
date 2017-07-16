@@ -58,78 +58,95 @@ public class LostItemActivity extends AppCompatActivity {
                 String pre_latitude = LatitudeNumber.getText().toString().trim();
                 String pre_longitude = LongitudeNumber.getText().toString().trim();
 
-                double latitude;
-                if (!pre_latitude.equals("")) {
-                    latitude = Double.parseDouble(pre_latitude);
-                } else {
-                    latitude = 0;
-                }
-
-                if (latitude >= 90 || latitude <= -90) {
-                    Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90]", Toast.LENGTH_SHORT).show();
-                    LostItemActivity.this.startActivity(new Intent(LostItemActivity.this, LostItemActivity.class));
-                }
-
-                double longitude;
-                if (!pre_longitude.equals("")) {
-                    longitude = Double.parseDouble(pre_longitude);
-                } else {
-                    longitude = 0;
-                }
-
-                if (longitude >= 180 || longitude <= -180) {
-                    Toast.makeText(LostItemActivity.this, "Please enter longitude in [-180,180]", Toast.LENGTH_SHORT).show();
-                    LostItemActivity.this.startActivity(new Intent(LostItemActivity.this, LostItemActivity.class));
-                }
-
-                int moneyReward;
-                if (!reward.equals("")) {
-                    moneyReward = Integer.parseInt(reward);
-                } else {
-                    moneyReward = 0;
-                }
-
-                if (!lost_item.equals("")) {
-                    UserDetails.getCurrentUser().addItems(lost_item,
-                            description,
-                            lostCategorySpinner.getSelectedItem().toString(),
-                            lostTypeSpinner.getSelectedItem().toString(),
-                            moneyReward,
-                            UserDetails.getCurrentUser().getUsername(),latitude, longitude);
-                    if (lostTypeSpinner.getSelectedItem().toString().equals("FOUND")) {
-                        FoundItem.addFoundItem(lost_item,
-                                description,
-                                lostCategorySpinner.getSelectedItem().toString(),
-                                lostTypeSpinner.getSelectedItem().toString(),
-                                moneyReward,
-                                UserDetails.getCurrentUser().getUsername(),latitude, longitude);
-                    } else if (lostTypeSpinner.getSelectedItem().toString().equals("LOST")) {
-                        LostItem.addLostItem(lost_item,
-                                description,
-                                lostCategorySpinner.getSelectedItem().toString(),
-                                lostTypeSpinner.getSelectedItem().toString(),
-                                moneyReward,
-                                UserDetails.getCurrentUser().getUsername(),latitude, longitude);
-                    }
-                    lost_lost_item.setText("");
-                    DescriptionEnter.setText("");
-                    MoneyReward.setText("");
-                    LatitudeNumber.setText("");
+                if(!checkValidLocation(pre_latitude, pre_longitude)){
                     LongitudeNumber.setText("");
-
-                    Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
-                } else {
-                    //display an alert while user's Name is invalid
-                    AlertDialog.Builder dialog0 = new AlertDialog.Builder(LostItemActivity.this);
-                    dialog0.setTitle("Invalid input");
-                    dialog0.setMessage("Please enter valid input")
-                            .setNegativeButton("Retry", null)
-                            .create()
-                            .show();
-                    lost_lost_item.setText("");
+                    LatitudeNumber.setText((""));
                 }
+                else {
+                    double latitude = Double.parseDouble(pre_latitude);
+                    double longitude = Double.parseDouble(pre_longitude);
+                    int moneyReward;
+                    if (!reward.equals("")) {
+                        moneyReward = Integer.parseInt(reward);
+                    } else {
+                        moneyReward = 0;
+                    }
+
+                    if (!lost_item.equals("")) {
+                        UserDetails.getCurrentUser().addItems(lost_item,
+                                description,
+                                lostCategorySpinner.getSelectedItem().toString(),
+                                lostTypeSpinner.getSelectedItem().toString(),
+                                moneyReward,
+                                UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                        if (lostTypeSpinner.getSelectedItem().toString().equals("FOUND")) {
+                            FoundItem.addFoundItem(lost_item,
+                                    description,
+                                    lostCategorySpinner.getSelectedItem().toString(),
+                                    lostTypeSpinner.getSelectedItem().toString(),
+                                    moneyReward,
+                                    UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                        } else if (lostTypeSpinner.getSelectedItem().toString().equals("LOST")) {
+                            LostItem.addLostItem(lost_item,
+                                    description,
+                                    lostCategorySpinner.getSelectedItem().toString(),
+                                    lostTypeSpinner.getSelectedItem().toString(),
+                                    moneyReward,
+                                    UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                        }
+                        lost_lost_item.setText("");
+                        DescriptionEnter.setText("");
+                        MoneyReward.setText("");
+                        LatitudeNumber.setText("");
+                        LongitudeNumber.setText("");
+
+                        Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
+                    } else {
+                        //display an alert while user's Name is invalid
+                        AlertDialog.Builder dialog0 = new AlertDialog.Builder(LostItemActivity.this);
+                        dialog0.setTitle("Invalid input");
+                        dialog0.setMessage("Please enter valid input")
+                                .setNegativeButton("Retry", null)
+                                .create()
+                                .show();
+                        lost_lost_item.setText("");
+                    }
+                }
+
             }
         });
+    }
+    /**
+     * Check valid input of longitude and latitude
+     */
+    private boolean checkValidLocation(String pre_latitude, String pre_longitude) {
+        //double[] location = new double[2];
+        double latitude;
+
+        if (!pre_latitude.equals("")) {
+            latitude = Double.parseDouble(pre_latitude);
+        } else {
+            latitude = 0;
+        }
+
+        if (latitude > 90 || latitude <= -90 || pre_latitude.equals("")) {
+            Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90]", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        double longitude;
+        if (!pre_longitude.equals("")) {
+            longitude = Double.parseDouble(pre_longitude);
+        } else {
+            longitude = 0;
+        }
+
+        if (longitude > 180 || longitude <= -180 || pre_longitude.equals("")) {
+            Toast.makeText(LostItemActivity.this, "Please enter longitude in [-180,180]", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+
     }
 
     /**
