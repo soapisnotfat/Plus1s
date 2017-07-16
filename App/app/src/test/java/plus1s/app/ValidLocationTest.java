@@ -27,6 +27,7 @@ public class ValidLocationTest {
      * Test for invalid location input
      * @throws Exception if the input is not valid;
      */
+    @Test
     public void locationInvalidTest() throws Exception {
         assertFalse(LostItemActivity.checkValidLocation("100", "19"));
         assertFalse(LostItemActivity.checkValidLocation("100", "189"));
