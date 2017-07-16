@@ -90,17 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                         Account user;
                         System.out.println("downloadRequest::onDataChange is Called!");
                         if (dataSnapshot.exists()) {
-                            switch (dataSnapshot.child("type").getValue(String.class)) {
-                                case "Administrator":
-                                    user = new Administrator();
-                                    break;
-                                case "Manager":
-                                    user = new Manager();
-                                    break;
-                                default:
-                                    user = new User();
-                                    break;
-                            }
+                            user = createUser(dataSnapshot.child("type").getValue(String.class));
 
                             user.setUsername(dataSnapshot.child("username").getValue(String.class));
                             user.setName(dataSnapshot.child("name").getValue(String.class));
@@ -111,8 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (dataSnapshot.hasChild("items")) {
                                 user.setItems(dataSnapshot.child("items").getValue(t));
                             }
-                            if (log_password.equals(user.getPassword())) {
-                                UserDetails.login(user);
+                            if (loginProcess(log_password, user)) {
                                 goToMain();
                             } else {
                                 //display an alert while password is invalid
@@ -176,4 +165,39 @@ public class LoginActivity extends AppCompatActivity {
         LoginActivity.this.startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
     }
 
+    /**
+     * check the account from online database and create corresponding one on local client
+     * @param type the account type parsing in
+     * @return the account created
+     */
+    public static Account createUser(String type) {
+        Account user;
+        switch (type) {
+            case "Administrator":
+                user = new Administrator();
+                break;
+            case "Manager":
+                user = new Manager();
+                break;
+            default:
+                user = new User();
+                break;
+        }
+        return user;
+    }
+
+    /**
+     *
+     * @param password
+     * @param user
+     * @return
+     */
+    public static boolean loginProcess(String password, Account user) {
+        if (password.equals(user.getPassword())) {
+            UserDetails.login(user);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
