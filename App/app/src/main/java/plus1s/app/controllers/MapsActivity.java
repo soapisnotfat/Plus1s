@@ -20,7 +20,6 @@ import plus1s.app.R;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
 import plus1s.app.model.LostItem;
-import plus1s.app.model.UserDetails;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -64,7 +63,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.add(entry.getValue());
         }
         for (Item i : e) {
-            System.out.println(i.getName());
             LatLng location = new LatLng(i.getLatitude(), i.getLongitude());
             Marker aMarker = mMap.addMarker(new MarkerOptions().position(location).title("This is " + i.getName()));
             aMarker.setTag(i);

@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //parse in input data
+
                 String log_username = login_username.getText().toString().trim();
                 log_password = login_password.getText().toString().trim();
                 DatabaseReference Ref = database.child(log_username);

@@ -59,7 +59,6 @@ public class SearchActivity extends AppCompatActivity {
                         if (i.equals(current_name)) {
                             e.add(i);
                         }
-
                     }
                     Item.searchList.addAll(e);
                 }

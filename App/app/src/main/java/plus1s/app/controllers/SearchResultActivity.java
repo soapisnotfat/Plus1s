@@ -39,4 +39,5 @@ public class SearchResultActivity extends AppCompatActivity {
     private void goToSearch() {
         SearchResultActivity.this.startActivity(new Intent(SearchResultActivity.this, SearchActivity.class));
     }
+
 }
