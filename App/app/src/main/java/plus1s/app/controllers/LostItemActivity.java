@@ -58,37 +58,36 @@ public class LostItemActivity extends AppCompatActivity {
                 String pre_latitude = LatitudeNumber.getText().toString().trim();
                 String pre_longitude = LongitudeNumber.getText().toString().trim();
 
-                if(!checkValidLocation(pre_latitude, pre_longitude)){
-                    LongitudeNumber.setText("");
-                    LatitudeNumber.setText((""));
-                    Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90] and longitude in [-180,180]",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    double latitude = Double.parseDouble(pre_latitude);
-                    double longitude = Double.parseDouble(pre_longitude);
-                    int moneyReward = parseReward(reward);
-
-                    if (!lost_item.equals("")) {
+                if (!lost_item.equals("")) {
+                    if (!checkValidLocation(pre_latitude, pre_longitude)) {
+                        LongitudeNumber.setText("");
+                        LatitudeNumber.setText((""));
+                        Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90] and longitude in [-180,180]",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        double latitude = Double.parseDouble(pre_latitude);
+                        double longitude = Double.parseDouble(pre_longitude);
+                        int moneyReward = parseReward(reward);
                         UserDetails.getCurrentUser().addItems(lost_item,
                                 description,
                                 lostCategorySpinner.getSelectedItem().toString(),
                                 lostTypeSpinner.getSelectedItem().toString(),
                                 moneyReward,
-                                UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                                UserDetails.getCurrentUser().getUsername(), latitude, longitude);
                         if (lostTypeSpinner.getSelectedItem().toString().equals("FOUND")) {
                             FoundItem.addFoundItem(lost_item,
                                     description,
                                     lostCategorySpinner.getSelectedItem().toString(),
                                     lostTypeSpinner.getSelectedItem().toString(),
                                     moneyReward,
-                                    UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                                    UserDetails.getCurrentUser().getUsername(), latitude, longitude);
                         } else if (lostTypeSpinner.getSelectedItem().toString().equals("LOST")) {
                             LostItem.addLostItem(lost_item,
                                     description,
                                     lostCategorySpinner.getSelectedItem().toString(),
                                     lostTypeSpinner.getSelectedItem().toString(),
                                     moneyReward,
-                                    UserDetails.getCurrentUser().getUsername(),latitude, longitude);
+                                    UserDetails.getCurrentUser().getUsername(), latitude, longitude);
                         }
                         lost_lost_item.setText("");
                         DescriptionEnter.setText("");
@@ -97,16 +96,16 @@ public class LostItemActivity extends AppCompatActivity {
                         LongitudeNumber.setText("");
 
                         Toast.makeText(LostItemActivity.this, "You have added lost item", Toast.LENGTH_SHORT).show();
-                    } else {
-                        //display an alert while user's Name is invalid
-                        AlertDialog.Builder dialog0 = new AlertDialog.Builder(LostItemActivity.this);
-                        dialog0.setTitle("Invalid input");
-                        dialog0.setMessage("Please enter valid input")
-                                .setNegativeButton("Retry", null)
-                                .create()
-                                .show();
-                        lost_lost_item.setText("");
                     }
+                }else {
+                    //display an alert while user's Name is invalid
+                    AlertDialog.Builder dialog0 = new AlertDialog.Builder(LostItemActivity.this);
+                    dialog0.setTitle("Invalid input");
+                    dialog0.setMessage("Please enter valid item name")
+                            .setNegativeButton("Retry", null)
+                            .create()
+                            .show();
+                    lost_lost_item.setText("");
                 }
 
             }
