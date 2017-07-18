@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 /**
  * Created by Ivorycandy on 6/14/17.
+ *
  * provides info to register and login user locally
  */
 
@@ -15,6 +16,7 @@ public class UserDetails {
 
     /**
      * register new user to local storage
+     *
      * @param newUser user to be registered
      */
     public static void register(Account newUser) {
@@ -24,6 +26,7 @@ public class UserDetails {
 
     /**
      * getter of Current User
+     *
      * @return current user
      */
     public static Account getCurrentUser() {
@@ -32,6 +35,7 @@ public class UserDetails {
 
     /**
      * getter of registered user
+     *
      * @return registered user
      */
     public static Account getRegisterUser() {
@@ -39,7 +43,8 @@ public class UserDetails {
     }
 
     /**
-     *  set up current user
+     * set up current user
+     *
      * @param user user parsing in
      */
     public static void login(Account user) {
@@ -55,13 +60,20 @@ public class UserDetails {
 
     /**
      * getter of localDetails
+     *
      * @return localDetails
      */
     public static HashMap<String, Account> getLocalDetails() {
         return localDetails;
     }
 
-    public static void setLocalDetails(String username, Account user) {
+    /**
+     * add a single user to local user storage
+     *
+     * @param username the username of user
+     * @param user the data structure of user
+     */
+    public static void addLocalDetails(String username, Account user) {
         localDetails.put(username, user);
     }
 

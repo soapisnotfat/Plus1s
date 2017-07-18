@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 /**
  * Created by Catherine z.zhuang on 7/3/2017.
+ *
  * class obtaining all lost items
  */
 
@@ -15,6 +16,7 @@ public class LostItem {
 
     /**
      * add items to user's property
+     *
      * @param name item's name
      * @param description item's description
      * @param category item's category
@@ -34,6 +36,7 @@ public class LostItem {
 
     /**
      * setter of lostItem
+     *
      * @param e lostItem
      */
     public static void setLostItem(HashMap<String, Item> e) {
@@ -42,6 +45,7 @@ public class LostItem {
 
     /**
      * get a string of all reported lost items
+     *
      * @return string of reported items
      */
     public static HashMap<String, Item> getLostItems() {

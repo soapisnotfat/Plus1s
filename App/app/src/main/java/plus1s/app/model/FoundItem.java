@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 /**
  * Created by Ivorycandy on 6/26/17.
+ *
  * The class holding all found items
  */
 
@@ -15,6 +16,7 @@ public class FoundItem {
 
     /**
      * add items to user's property
+     *
      * @param name item's name
      * @param description item's description
      * @param category item's category
@@ -34,6 +36,7 @@ public class FoundItem {
 
     /**
      * setter of foundItem
+     *
      * @param e foundItem
      */
     public static void setFoundItem(HashMap<String, Item> e) {

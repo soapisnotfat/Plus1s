@@ -63,16 +63,10 @@ public class LostItemActivity extends AppCompatActivity {
                     LatitudeNumber.setText((""));
                     Toast.makeText(LostItemActivity.this, "Please enter latitude in [-90,90] and longitude in [-180,180]",
                             Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     double latitude = Double.parseDouble(pre_latitude);
                     double longitude = Double.parseDouble(pre_longitude);
-                    int moneyReward;
-                    if (!reward.equals("")) {
-                        moneyReward = Integer.parseInt(reward);
-                    } else {
-                        moneyReward = 0;
-                    }
+                    int moneyReward = parseReward(reward);
 
                     if (!lost_item.equals("")) {
                         UserDetails.getCurrentUser().addItems(lost_item,
@@ -120,6 +114,7 @@ public class LostItemActivity extends AppCompatActivity {
     }
     /**
      * Check valid input of longitude and latitude
+     *
      * @param pre_latitude the latitude that the user input
      * @param pre_longitude the longitude that the user input
      * @return boolean true if the location input is value, false if invalid
@@ -147,7 +142,6 @@ public class LostItemActivity extends AppCompatActivity {
         }
 
         if (longitude > 180 || longitude <= -180 || pre_longitude.equals("")) {
-            //Toast.makeText(LostItemActivity.this, "Please enter longitude in [-180,180]", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -159,6 +153,20 @@ public class LostItemActivity extends AppCompatActivity {
      */
     private void goToMain() {
         LostItemActivity.this.startActivity(new Intent(LostItemActivity.this, MainActivity.class));
+    }
+
+    /**
+     * parse reward from string to int
+     *
+     * @param reward the string putting in
+     * @return the int returning back
+     */
+    private int parseReward(String reward) {
+        if (!reward.equals("")) {
+            return Integer.parseInt(reward);
+        } else {
+            return  0;
+        }
     }
 
 

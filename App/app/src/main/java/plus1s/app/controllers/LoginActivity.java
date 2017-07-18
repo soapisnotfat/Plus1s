@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Account user;
+                        // retrieve data from Database
                         System.out.println("downloadRequest::onDataChange is Called!");
                         if (dataSnapshot.exists()) {
                             user = createUser(dataSnapshot.child("type").getValue(String.class));
@@ -123,8 +124,6 @@ public class LoginActivity extends AppCompatActivity {
                                     .show();
                             login_password.setText("");
                         }
-
-
                     }
 
                     @Override

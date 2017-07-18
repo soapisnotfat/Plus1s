@@ -47,6 +47,7 @@ public class LostViewActivity extends AppCompatActivity {
 
     /**
      * display all lost items
+     *
      * @return a list of all lost items
      */
     private List<String> displayLostItem() {

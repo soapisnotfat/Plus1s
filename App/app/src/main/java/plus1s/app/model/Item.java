@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Ivorycandy on 6/26/17.
+ *
  * class obtaining item method
  */
 
@@ -31,6 +32,7 @@ public class Item {
 
     /**
      * two param constructor
+     *
      * @param name name parsing in
      * @param description description parsing in
      */
@@ -50,6 +52,7 @@ public class Item {
 
     /**
      * one-param constructor setting item's name
+     *
      * @param name item's name putting in
      */
     public Item(String name) {
@@ -63,6 +66,7 @@ public class Item {
 
     /**
      * getter of name
+     *
      * @return item name
      */
     public String getName() {
@@ -71,6 +75,7 @@ public class Item {
 
     /**
      * getter of description
+     *
      * @return item description
      */
     public String getDescription() {
@@ -79,6 +84,7 @@ public class Item {
 
     /**
      * getter of reward
+     *
      * @return item reward
      */
     public int getReward() {
@@ -87,6 +93,7 @@ public class Item {
 
     /**
      * getter of category
+     *
      * @return item category
      */
     public String getCategory() {
@@ -95,6 +102,7 @@ public class Item {
 
     /**
      * getter of type
+     *
      * @return item type
      */
     public String getType() {
@@ -103,6 +111,7 @@ public class Item {
 
     /**
      * getter of dateEntered
+     *
      * @return item dateEntered
      */
     public String getDateEntered() {
@@ -111,6 +120,7 @@ public class Item {
 
     /**
      * getter of uploader
+     *
      * @return item uploader
      */
     public String getUploader() {
@@ -119,18 +129,21 @@ public class Item {
 
     /**
      * getter of item's longitude
+     *
      * @return item's longitude
      */
     public double getLongitude() {return longitude;}
 
     /**
      * getter of item's latitude
+     *
      * @return item's latitude
      */
     public double getLatitude() {return latitude;}
 
     /**
      * setter of name
+     *
      * @param name item name
      */
     public void setName(String name) {
@@ -139,6 +152,7 @@ public class Item {
 
     /**
      * setter of description
+     *
      * @param description item description
      */
     public void setDescription(String description) {
@@ -147,6 +161,7 @@ public class Item {
 
     /**
      * setter of category
+     *
      * @param category item category
      */
     public void setCategory(ItemCategory category) {
@@ -155,6 +170,7 @@ public class Item {
 
     /**
      * setter of dateEntered
+     *
      * @param dateEntered item dateEntered
      */
     public void setDateEntered(String dateEntered) {
@@ -163,6 +179,7 @@ public class Item {
 
     /**
      * setter of reward
+     *
      * @param reward item reward
      */
     public void setReward(int reward) {
@@ -171,6 +188,7 @@ public class Item {
 
     /**
      * setter of status
+     *
      * @param status item status
      */
     public void setStatus(boolean status) {
@@ -179,6 +197,7 @@ public class Item {
 
     /**
      * setter of type
+     *
      * @param type item type
      */
     public void setType(ItemType type) {
@@ -187,6 +206,7 @@ public class Item {
 
     /**
      * setter of uploader
+     *
      * @param uploader item uploader
      */
     public void setUploader(String uploader) {
@@ -195,12 +215,14 @@ public class Item {
 
     /**
      * setter of item's longitude
+     *
      * @param longitude ite,'s longitude
      */
     public void setLongitude(double longitude) {this.longitude = longitude;}
 
     /**
      * setter of item's latitude
+     *
      * @param latitude item's latitude
      */
     public void setLatitude(double latitude) {this.latitude = latitude;}

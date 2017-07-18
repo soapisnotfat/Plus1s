@@ -2,6 +2,7 @@ package plus1s.app.model;
 
 /**
  * Created by Ivorycandy on 6/28/17.
+ *
  * Enum holding account types
  */
 
@@ -14,6 +15,7 @@ public enum AccountType {
 
     /**
      * one-param constructor setting name
+     *
      * @param name name of the enum
      */
     AccountType(String name) {

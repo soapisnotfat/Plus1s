@@ -51,6 +51,7 @@ public class SearchActivity extends AppCompatActivity {
                 String current_type = search_type.getSelectedItem().toString();
                 String current_name = search_item_name.getText().toString().trim();
 
+                // if name inout is not detected, return all items by default
                 if (current_name.equals("")) {
                     Item.searchList.addAll(correspondingArray(current_type, current_category));
                 } else {
@@ -99,6 +100,7 @@ public class SearchActivity extends AppCompatActivity {
 
     /**
      * display valid categories for category spinner
+     *
      * @return a list of all categories
      */
     private List<String> validCategory() {
@@ -112,6 +114,7 @@ public class SearchActivity extends AppCompatActivity {
 
     /**
      * display valid types for types spinner
+     *
      * @return a list of all types
      */
     private List<String> validType() {
@@ -124,31 +127,71 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     /**
+     * return all lost items
+     *
+     * @return all lost items
+     */
+    private ArrayList<Item> returnAllLost() {
+        ArrayList<Item> temp = new ArrayList<>();
+        for (Map.Entry<String, Item> entry: LostItem.getLostItems().entrySet()) {
+            temp.add(entry.getValue());
+        }
+        return temp;
+    }
+
+    /**
+     * return all found items
+     *
+     * @return all found items
+     */
+    private ArrayList<Item> returnAllFound() {
+        ArrayList<Item> temp = new ArrayList<>();
+        for (Map.Entry<String, Item> entry: FoundItem.getFoundItems().entrySet()) {
+            temp.add(entry.getValue());
+        }
+        return temp;
+    }
+
+    /**
+     * return all items
+     *
+     * @return all items
+     */
+    private ArrayList<Item> returnAllItem() {
+        ArrayList<Item> temp = new ArrayList<>();
+        temp.addAll(returnPersonalLost());
+        temp.addAll(returnAllFound());
+        return temp;
+    }
+
+    /**
+     * return personal lost items
+     *
+     * @return personal lost items
+     */
+    private ArrayList<Item> returnPersonalLost() {
+        ArrayList<Item> temp = new ArrayList<>();
+        for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
+            if (entry.getValue().getType().equals("LOST")) {
+                temp.add(entry.getValue());
+            }
+        }
+        return temp;
+    }
+
+    /**
      * return the search result list
+     *
      * @param type item's type
      * @param category item's category
      * @return search result list
      */
     private ArrayList<String> correspondingArray(String type, String category) {
-        ArrayList<Item> personalLost = new ArrayList<>();
-        ArrayList<Item> allLost = new ArrayList<>();
-        ArrayList<Item> allFound = new ArrayList<>();
-        ArrayList<Item> allItem = new ArrayList<>();
+        ArrayList<Item> personalLost = returnPersonalLost();
+        ArrayList<Item> allLost = returnAllLost();
+        ArrayList<Item> allFound = returnAllFound();
+        ArrayList<Item> allItem = returnAllItem();
         ArrayList<String> output = new ArrayList<>();
-
-        for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
-            if (entry.getValue().getType().equals("LOST")) {
-                personalLost.add(entry.getValue());
-                allItem.add(entry.getValue());
-            }
-        }
-        for (Map.Entry<String, Item> entry: FoundItem.getFoundItems().entrySet()) {
-            allFound.add(entry.getValue());
-            allItem.add(entry.getValue());
-        }
-        for (Map.Entry<String, Item> entry: LostItem.getLostItems().entrySet()) {
-            allLost.add(entry.getValue());
-        }
 
         if (type.equals("FOUND")) {
             if (category.equals("All Categories")) {

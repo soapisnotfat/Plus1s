@@ -2,6 +2,7 @@ package plus1s.app.model;
 
 /**
  * Created by siyul on 7/3/2017.
+ *
  * enum obtaining all item types
  */
 
@@ -14,6 +15,7 @@ public enum ItemType {
 
     /**
      * one-param constructor setting item's type
+     *
      * @param value item's type
      */
     ItemType(String value) {itemType = value;}

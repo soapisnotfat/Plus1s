@@ -2,6 +2,7 @@ package plus1s.app.model;
 
 /**
  * Created by Ivorycandy on 6/28/17.
+ *
  * Manager class
  */
 

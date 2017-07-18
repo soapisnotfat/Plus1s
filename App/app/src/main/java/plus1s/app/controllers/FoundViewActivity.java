@@ -45,6 +45,7 @@ public class FoundViewActivity extends AppCompatActivity {
 
     /**
      * display all found items
+     *
      * @return a list of found items
      */
     private List<String> displayFoundItem() {

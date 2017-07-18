@@ -2,6 +2,7 @@ package plus1s.app.model;
 
 /**
  * Created by siyul on 7/3/2017.
+ *
  * enum obtaining all item categories
  */
 
@@ -14,6 +15,7 @@ public enum ItemCategory {
 
     /**
      * one-param constructor setting name of enum
+     *
      * @param value name of enum
      */
     ItemCategory (String value) {categories = value;}
