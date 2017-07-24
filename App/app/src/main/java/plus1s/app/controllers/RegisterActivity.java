@@ -58,91 +58,44 @@ public class RegisterActivity extends AppCompatActivity {
                 String password_1 = reg_password_confirm.getText().toString();
                 String password_2 = reg_password.getText().toString();
                 String accountType = reg_account_type.getSelectedItem().toString();
-                if (!name.trim().equals("")) {
-                    if (!username.trim().equals("")) {
-                        if (email.contains("@")) {
-                            if ((password_2.length() >= password_minimum_length)) {
-                                if ((password_2.equals(password_1))) {
-
-                                    // set up new user
-                                    User RegisteredUser;
-                                    switch (accountType) {
-                                        case "Administrator":
-                                            RegisteredUser = new Administrator();
-                                            break;
-                                        case "Manager":
-                                            RegisteredUser = new Manager();
-                                            break;
-                                        default:
-                                            RegisteredUser = new User();
-                                            break;
-                                    }
-                                    RegisteredUser.setUsername(username);
-                                    RegisteredUser.setName(name);
-                                    RegisteredUser.setEmail(email);
-                                    RegisteredUser.setPassword(password_1);
-                                    RegisteredUser.setIsLocked(false);
-                                    RegisteredUser.setItems(new HashMap<String, Item>());
-
-                                    // upload new user to database
-                                    UserDetails.register(RegisteredUser);
-                                    DatabaseReference dr = FirebaseDatabase.getInstance().getReference("user").child(username);
-                                    dr.setValue(UserDetails.getRegisterUser());
-                                    Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
-
-                                    //come back to login page after register successfully
-                                    goToLogin();
-
-                                } else {
-                                    //display an alert when passwords don't match
-                                    AlertDialog.Builder dialog3 = new AlertDialog.Builder(RegisterActivity.this);
-                                    dialog3.setTitle("Password not confirmed");
-                                    dialog3.setMessage("Your passwords don't match")
-                                            .setNegativeButton("Retry", null)
-                                            .create()
-                                            .show();
-                                    reg_password_confirm.setText("");
-                                }
-                            } else {
-                                //display an alert while password is invalid
-                                AlertDialog.Builder dialog3 = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog3.setTitle("Invalid Password");
-                                dialog3.setMessage("Your password should be longer than 8 ")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
-                                reg_password.setText("");
-                                reg_password_confirm.setText("");
-                            }
-                        } else {
-                            //display an alert while email address is invalid
-                            AlertDialog.Builder dialog2 = new AlertDialog.Builder(RegisterActivity.this);
-                            dialog2.setTitle("Invalid Email");
-                            dialog2.setMessage("Your email should contain '@'")
-                                    .setNegativeButton("Retry", null)
-                                    .create()
-                                    .show();
-                            reg_email.setText("");
-                        }
-                    } else {
-                        //display an alert while username is invalid
-                        AlertDialog.Builder dialog1 = new AlertDialog.Builder(RegisterActivity.this);
-                        dialog1.setTitle("Invalid Username");
-                        dialog1.setMessage("Please enter valid Username")
-                                .setNegativeButton("Retry", null)
-                                .create()
-                                .show();
-                        reg_username.setText("");
+                boolean qualified = registerQualified(name, username, email, password_1, password_2);
+                if (qualified) {
+                    //set up new user
+                    User RegisteredUser;
+                    switch (accountType) {
+                        case "Administrator":
+                            RegisteredUser = new Administrator();
+                            break;
+                        case "Manager":
+                            RegisteredUser = new Manager();
+                            break;
+                        default:
+                            RegisteredUser = new User();
+                            break;
                     }
+                    RegisteredUser.setUsername(username);
+                    RegisteredUser.setName(name);
+                    RegisteredUser.setEmail(email);
+                    RegisteredUser.setPassword(password_1);
+                    RegisteredUser.setIsLocked(false);
+                    RegisteredUser.setItems(new HashMap<String, Item>());
+
+                    // upload new user to database
+                    UserDetails.register(RegisteredUser);
+                    DatabaseReference dr = FirebaseDatabase.getInstance().getReference("user").child(username);
+                    dr.setValue(UserDetails.getRegisterUser());
+                    Toast.makeText(RegisterActivity.this, "You have successfully registered", Toast.LENGTH_SHORT);
+
+                    //come back to login page after register successfully
+                    goToLogin();
                 } else {
-                    //display an alert while user's Name is invalid
-                    AlertDialog.Builder dialog0 = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog0.setTitle("Invalid Name");
-                    dialog0.setMessage("Please enter valid name")
+                    AlertDialog.Builder dialog3 = new AlertDialog.Builder(RegisterActivity.this);
+                    dialog3.setTitle("Password not confirmed");
+                    dialog3.setMessage("Your passwords don't match")
                             .setNegativeButton("Retry", null)
                             .create()
                             .show();
-                    reg_name.setText("");
+                    reg_password_confirm.setText("");
                 }
             }
         });
@@ -153,6 +106,29 @@ public class RegisterActivity extends AppCompatActivity {
                 goToWelcome();
             }
         });
+    }
+    /**
+     * check whether the register's information is qualified
+     * @param name user's name
+     * @param username user's username
+     * @param email user's email
+     * @param password_1 user's first time typing password
+     * @param password_2 user's second time typing password
+     * @return whether the register's information is qualified
+     */
+    private boolean registerQualified(String name, String username, String email, String password_1, String password_2) {
+        if (!name.trim().equals("")) {
+            if (!username.trim().equals("")) {
+                if (email.contains("@")) {
+                    if ((password_2.length() >= password_minimum_length)) {
+                        if ((password_2.equals(password_1))) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /**
