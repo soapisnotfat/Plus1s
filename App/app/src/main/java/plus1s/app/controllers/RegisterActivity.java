@@ -29,7 +29,7 @@ import plus1s.app.model.UserDetails;
 public class RegisterActivity extends AppCompatActivity {
 
     // controls the minimum length of password
-    private final int password_minimum_length = 3;
+    private static final int password_minimum_length = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
      * @param password_2 user's second time typing password
      * @return whether the register's information is qualified
      */
-    private boolean registerQualified(String name, String username, String email, String password_1, String password_2) {
+    public static boolean registerQualified(String name, String username, String email, String password_1, String password_2) {
         if (!name.trim().equals("")) {
             if (!username.trim().equals("")) {
                 if (email.contains("@")) {
