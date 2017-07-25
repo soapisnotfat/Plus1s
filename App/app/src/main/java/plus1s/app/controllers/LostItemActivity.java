@@ -140,10 +140,11 @@ public class LostItemActivity extends AppCompatActivity {
             longitude = 0;
         }
 
-        if (longitude > 180 || longitude <= -180 || pre_longitude.equals("")) {
-            return false;
-        }
-        return true;
+//        if (longitude > 180 || longitude <= -180 || pre_longitude.equals("")) {
+//            return false;
+//        }
+//        return true;
+        return !(longitude > 180 || longitude <= -180 || pre_longitude.equals(""));
 
     }
 

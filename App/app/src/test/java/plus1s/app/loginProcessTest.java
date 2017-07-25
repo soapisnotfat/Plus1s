@@ -10,6 +10,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 /**
  * Created by Catherine z.zhuang on 7/16/2017.
+ * checks if login process works fine
  */
 
 public class loginProcessTest {

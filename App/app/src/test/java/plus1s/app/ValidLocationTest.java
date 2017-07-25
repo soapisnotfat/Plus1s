@@ -1,15 +1,15 @@
 package plus1s.app;
 
-/**
- * Created by siyul on 7/16/2017.
- */
 import plus1s.app.controllers.LostItemActivity;
 
 
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
+/**
+ * Created by siyul on 7/16/2017.
+ * check if location works fine
+ */
 public class ValidLocationTest {
     /**
      * Test for valid location input

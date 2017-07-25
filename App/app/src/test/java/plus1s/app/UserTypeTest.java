@@ -1,6 +1,5 @@
 package plus1s.app;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import plus1s.app.controllers.LoginActivity;

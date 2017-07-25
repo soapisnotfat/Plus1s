@@ -1,16 +1,15 @@
 package plus1s.app;
 
-/**
- * Created by Jinghua Zhang on 7/16/2017.
- */
-
 import org.junit.Test;
 
 import plus1s.app.controllers.RegisterActivity;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
+/**
+ * Created by Jinghua Zhang on 7/16/2017.
+ * check if registervalid method works fine
+ */
 public class RegisterValidTest {
     /**
      * Test for valid register user input
