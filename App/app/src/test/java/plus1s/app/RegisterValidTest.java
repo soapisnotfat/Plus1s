@@ -77,8 +77,9 @@ public class RegisterValidTest {
      */
     @Test
     public void password() throws Exception {
-        assertTrue(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen@", "shen","shen"));
-        assertTrue(RegisterActivity.registerQualified("123456", "123456amazon", "shen@", "she","she"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen@", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen@", "sheng","shen"));
+
     }
 
 }
