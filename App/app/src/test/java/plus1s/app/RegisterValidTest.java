@@ -33,5 +33,31 @@ public class RegisterValidTest {
         assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen@", "sh","sh"));
         assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen@", "shen","sh"));
         assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen", "shen","sheng"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen@", "shen","shen"));
+        assertFalse(RegisterActivity.registerQualified("", "jzhang", "shen", "shen","shen"));
+        assertFalse(RegisterActivity.registerQualified("", "jzhang", "shen@", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("", "jzhang", "shen@", "sheng","shen"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "", "shen", "shen","shen"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "", "shen@", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "", "shen@", "sheng","shen"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen", "sheng","shen"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen@", "sh","sheng"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen", "shen","shen"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen@", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen@", "sheng","shen"));
+        assertFalse(RegisterActivity.registerQualified("", "jzhang", "shen", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("", "jzhang", "shen", "sheng","shen"));
+        assertFalse(RegisterActivity.registerQualified("", "jzhang", "shen", "sh","sheng"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "", "shen", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "", "shen", "sheng","shen"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "jzhang", "shen", "sh","sheng"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen", "sh","sh"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen", "sh","sheng"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen", "sh","sheng"));
+        assertFalse(RegisterActivity.registerQualified("", "jzhang", "shen", "sh","sheng"));
+        assertFalse(RegisterActivity.registerQualified("jzhang866", "", "shen", "sh","sheng"));
+        assertFalse(RegisterActivity.registerQualified("", "", "shen", "sh","sheng"));
+
     }
 }
