@@ -119,7 +119,6 @@ public class LostItemActivity extends AppCompatActivity {
      * @return boolean true if the location input is value, false if invalid
      */
     public static boolean checkValidLocation(String pre_latitude, String pre_longitude) {
-        //double[] location = new double[2];
         double latitude;
 
         if (!pre_latitude.equals("")) {
@@ -140,10 +139,6 @@ public class LostItemActivity extends AppCompatActivity {
             longitude = 0;
         }
 
-//        if (longitude > 180 || longitude <= -180 || pre_longitude.equals("")) {
-//            return false;
-//        }
-//        return true;
         return !(longitude > 180 || longitude <= -180 || pre_longitude.equals(""));
 
     }

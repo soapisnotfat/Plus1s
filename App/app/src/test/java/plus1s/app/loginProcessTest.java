@@ -1,4 +1,6 @@
 package plus1s.app;
+import android.util.Log;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,4 +43,12 @@ public class loginProcessTest {
         assertFalse(LoginActivity.loginProcess("345", user));
     }
 
+    /**
+     * Test for empty password login try
+     * @throws Exception if input is not valid
+     */
+    @Test
+    public void LoginValidTest1() throws Exception {
+        assertFalse(LoginActivity.loginProcess("", user));
+    }
 }
