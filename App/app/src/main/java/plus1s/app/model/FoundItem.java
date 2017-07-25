@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 
 public class FoundItem {
-    private static HashMap<String, Item> foundItem = new HashMap<>();
+    private final static HashMap<String, Item> foundItem = new HashMap<>();
 
     /**
      * add items to user's property

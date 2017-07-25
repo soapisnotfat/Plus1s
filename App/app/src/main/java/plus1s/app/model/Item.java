@@ -28,7 +28,7 @@ public class Item {
 
     public final static List<ItemType> legalItemType = Arrays.asList(ItemType.FOUND, ItemType.LOST, ItemType.NEED);
 
-    public static List<String> searchList = new ArrayList<>();
+    public final static List<String> searchList = new ArrayList<>();
 
     /**
      * two param constructor

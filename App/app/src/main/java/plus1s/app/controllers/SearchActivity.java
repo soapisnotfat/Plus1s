@@ -159,7 +159,7 @@ public class SearchActivity extends AppCompatActivity {
      */
     private ArrayList<Item> returnAllItem() {
         ArrayList<Item> temp = new ArrayList<>();
-        temp.addAll(returnPersonalLost());
+        temp.addAll(returnAllLost());
         temp.addAll(returnAllFound());
         return temp;
     }
@@ -224,26 +224,26 @@ public class SearchActivity extends AppCompatActivity {
 
         if (type.equals("LOST")) {
             if (category.equals("All Categories")) {
-                for (Item i : personalLost) {
+                for (Item i : allLost) {
                     output.add(i.getName());
                 }
             }
             if (category.equals("HEIRLOOMS")) {
-                for (Item i : personalLost) {
+                for (Item i : allLost) {
                     if (i.getCategory().equals("HEIRLOOMS")) {
                         output.add(i.getName());
                     }
                 }
             }
             if (category.equals("KEEPSAKES")) {
-                for (Item i : personalLost) {
+                for (Item i : allLost) {
                     if (i.getCategory().equals("KEEPSAKES")) {
                         output.add(i.getName());
                     }
                 }
             }
             if (category.equals("MISC")) {
-                for (Item i : personalLost) {
+                for (Item i : allLost) {
                     if (i.getCategory().equals("MISC")) {
                         output.add(i.getName());
                     }

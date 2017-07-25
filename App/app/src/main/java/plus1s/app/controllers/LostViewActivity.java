@@ -16,6 +16,7 @@ import plus1s.app.R;
 import plus1s.app.model.Item;
 import plus1s.app.model.ItemType;
 
+import plus1s.app.model.LostItem;
 import plus1s.app.model.UserDetails;
 
 public class LostViewActivity extends AppCompatActivity {
@@ -53,7 +54,7 @@ public class LostViewActivity extends AppCompatActivity {
     private List<String> displayLostItem() {
         ArrayList<Item> e = new ArrayList<>();
         List<String> output = new ArrayList<>();
-        for (Map.Entry<String, Item> entry: UserDetails.getCurrentUser().getItems().entrySet()) {
+        for (Map.Entry<String, Item> entry: LostItem.getLostItems().entrySet()) {
             e.add(entry.getValue());
         }
         for (Item i : e) {

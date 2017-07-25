@@ -73,12 +73,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public boolean onMarkerClick(Marker marker) {
                 Item thisItem = (Item)(marker.getTag());
                 AlertDialog.Builder dialog3 = new AlertDialog.Builder(MapsActivity.this);
-                dialog3.setTitle("This item is " + thisItem.getName());
-                dialog3.setMessage("The uploader is " + thisItem.getUploader() + ".\nThe description is " + thisItem.getDescription() + ".\nThis is a "
-                + thisItem.getType() + " item.")
-                        .setNegativeButton("Get it", null)
-                        .create()
-                        .show();
+                if (thisItem.getName() != null) {
+                    dialog3.setTitle("This item is " + thisItem.getName());
+                    dialog3.setMessage("The uploader is " + thisItem.getUploader() + ".\nThe description is " + thisItem.getDescription() + ".\nThis is a "
+                            + thisItem.getType() + " item.")
+                            .setNegativeButton("Get it", null)
+                            .create()
+                            .show();
+                }
                 return false;
             }
         });
