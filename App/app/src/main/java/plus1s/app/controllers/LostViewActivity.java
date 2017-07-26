@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,19 +17,16 @@ import plus1s.app.model.Item;
 import plus1s.app.model.ItemType;
 
 import plus1s.app.model.LostItem;
-//import plus1s.app.model.UserDetails;
 
 public class LostViewActivity extends AppCompatActivity {
-    ListView lost_view_list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_view);
 
         final TextView lost_view_back = (TextView) findViewById(R.id.lost_view_back);
-        lost_view_list = (ListView) findViewById(R.id.lost_view_list);
-        final Animation fade_in_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
-        lost_view_list.setAnimation(fade_in_anim);
+        final ListView lost_view_list = (ListView) findViewById(R.id.lost_view_list);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayLostItem());
         lost_view_list.setAdapter(adapter);

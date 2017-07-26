@@ -21,6 +21,7 @@ import java.util.HashMap;
 import plus1s.app.R;
 import plus1s.app.model.Account;
 import plus1s.app.model.Administrator;
+import plus1s.app.model.Encryption;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.Item;
 import plus1s.app.model.LostItem;
@@ -83,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 String log_username = login_username.getText().toString().trim();
                 log_password = login_password.getText().toString().trim();
+                log_password = Encryption.encrypt(log_password);
                 DatabaseReference Ref = database.child(log_username);
                 ValueEventListener e = new ValueEventListener() {
                     @Override

@@ -20,6 +20,7 @@ import java.util.HashMap;
 import plus1s.app.R;
 import plus1s.app.model.AccountType;
 import plus1s.app.model.Administrator;
+import plus1s.app.model.Encryption;
 import plus1s.app.model.Item;
 import plus1s.app.model.Manager;
 import plus1s.app.model.User;
@@ -76,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                     RegisteredUser.setUsername(username);
                     RegisteredUser.setName(name);
                     RegisteredUser.setEmail(email);
-                    RegisteredUser.setPassword(password_1);
+                    RegisteredUser.setPassword(Encryption.encrypt(password_1));
                     RegisteredUser.setIsLocked(false);
                     RegisteredUser.setItems(new HashMap<String, Item>());
 
