@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         final Button main_lost_view = (Button) findViewById(R.id.main_lost_view);
         final Button main_found_view = (Button) findViewById(R.id.main_found_view);
         final Button main_search = (Button) findViewById(R.id.main_search);
+        final Button main_ban = (Button) findViewById(R.id.main_ban);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         final TextView main_role = (TextView) findViewById(R.id.main_role);
         img = (ImageView) findViewById(R.id.imageView);
@@ -57,43 +58,53 @@ public class MainActivity extends AppCompatActivity {
                 UserDetails.logout();
 
                 //display if successfully logout
-                Toast.makeText(MainActivity.this, "You have successfully logged out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,
+                        "You have successfully logged out", Toast.LENGTH_SHORT).show();
                 // go to login page after successfully logout
                 goToLogin();
             }
         });
+
+        // button activities
         main_go_to_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToMap();
             }
         });
-
         main_add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToLostItem();
             }
         });
-
         main_lost_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToLostView();
             }
         });
-
         main_found_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToFoundView();
             }
         });
-
         main_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToSearch();
+            }
+        });
+        main_ban.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (UserDetails.getCurrentUser().returnType().equals("Administrator")) {
+                    goToBan();
+                } else {
+                    Toast.makeText(MainActivity.this,
+                            "No permission to access this page", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -138,5 +149,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void goToSearch() {
         MainActivity.this.startActivity(new Intent(MainActivity.this, SearchActivity.class));
+    }
+
+    /**
+     * go to ban page
+     */
+    private void goToBan() {
+        MainActivity.this.startActivity(new Intent(MainActivity.this, BanActivity.class));
     }
 }

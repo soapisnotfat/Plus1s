@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import plus1s.app.R;
@@ -33,12 +35,13 @@ import plus1s.app.model.UserDetails;
 public class LoginActivity extends AppCompatActivity {
     private final DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
     private final DatabaseReference database_2 = FirebaseDatabase.getInstance().getReference();
+    private int tries = 0;
+    private String preUser = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //random variable instantiations
         final EditText login_username = (EditText) findViewById(R.id.login_user);
         final TextView login_back = (TextView) findViewById(R.id.login_back);
         final EditText login_password = (EditText) findViewById(R.id.login_password);
@@ -49,12 +52,17 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
+                GenericTypeIndicator<ArrayList<String>> z = new GenericTypeIndicator<ArrayList<String>>() {};
                 if (dataSnapshot.hasChild("foundItems")) {
                     FoundItem.setFoundItem(dataSnapshot.child("foundItems").getValue(t));
                 }
 
                 if (dataSnapshot.hasChild("lostItems")) {
                     LostItem.setLostItem(dataSnapshot.child("lostItems").getValue(t));
+                }
+
+                if (dataSnapshot.hasChild("banList")) {
+                    UserDetails.setBanList(dataSnapshot.child("banList").getValue(z));
                 }
             }
 
@@ -82,7 +90,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //parse in input data
 
-                String log_username = login_username.getText().toString().trim();
+                final String log_username = login_username.getText().toString().trim();
+                checkSameLoginTry(log_username);
                 log_password = login_password.getText().toString().trim();
                 log_password = Encryption.encrypt(log_password);
                 DatabaseReference Ref = database.child(log_username);
@@ -104,17 +113,31 @@ public class LoginActivity extends AppCompatActivity {
                             if (dataSnapshot.hasChild("items")) {
                                 user.setItems(dataSnapshot.child("items").getValue(t));
                             }
-                            if (loginProcess(log_password, user)) {
+                            if (loginProcess(log_password, user) && !user.getIsLocked()) {
                                 goToMain();
                             } else {
-                                //display an alert while password is invalid
-                                AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
-                                dialog3.setTitle("Invalid Login Attempt");
-                                dialog3.setMessage("please enter correct combination ")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
-                                login_password.setText("");
+                                // check the tries times
+                                if (tries >= 4) {
+                                    UserDetails.addBanList(log_username);
+                                    Toast.makeText(LoginActivity.this,
+                                            "Your account has been banned", Toast.LENGTH_SHORT).show();
+                                    tries = 0;
+                                    DatabaseReference df =FirebaseDatabase.getInstance().getReference("banList");
+                                    df.setValue(UserDetails.getBanList());
+                                    user.setIsLocked(true);
+                                    DatabaseReference df_2 =FirebaseDatabase.getInstance().getReference("user").child(log_username);
+                                    df_2.setValue(user);
+                                } else {
+                                    //display an alert while password is invalid
+                                    AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
+                                    dialog3.setTitle("Invalid Login Attempt");
+                                    dialog3.setMessage("You have " + (4 - tries) + " more chances")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
+                                    login_password.setText("");
+                                    tries++;
+                                }
                             }
                         } else {
                             //display an alert while password is invalid
@@ -200,5 +223,16 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+    /**
+     * check if same login tries
+     * @param current current login user
+     */
+    private void checkSameLoginTry(String current) {
+        if (!preUser.equals(current)) {
+            tries = 0;
+        }
+        preUser = current;
     }
 }
