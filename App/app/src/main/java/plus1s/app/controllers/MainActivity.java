@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import plus1s.app.R;
+import plus1s.app.model.Encryption;
 import plus1s.app.model.FoundItem;
 import plus1s.app.model.LostItem;
 import plus1s.app.model.UserDetails;
