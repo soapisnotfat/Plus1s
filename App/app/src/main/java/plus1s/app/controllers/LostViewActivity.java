@@ -20,9 +20,6 @@ import plus1s.app.model.ItemType;
 
 import plus1s.app.model.LostItem;
 
-import plus1s.app.model.UserDetails;
-
-
 public class LostViewActivity extends AppCompatActivity {
     ListView lost_view_list;
     @Override
@@ -34,7 +31,6 @@ public class LostViewActivity extends AppCompatActivity {
         lost_view_list = (ListView) findViewById(R.id.lost_view_list);
         final Animation fade_in_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         lost_view_list.setAnimation(fade_in_anim);
-
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayLostItem());
         lost_view_list.setAdapter(adapter);
         lost_view_back.setOnClickListener(new View.OnClickListener() {
