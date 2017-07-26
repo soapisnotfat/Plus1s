@@ -17,7 +17,6 @@ import plus1s.app.model.Item;
 import plus1s.app.model.ItemType;
 
 import plus1s.app.model.LostItem;
-import plus1s.app.model.UserDetails;
 
 public class LostViewActivity extends AppCompatActivity {
 
