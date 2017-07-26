@@ -1,7 +1,7 @@
 package plus1s.app.model;
 
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
 /**
  * Created by Ivorycandy on 6/14/17.
@@ -10,7 +10,7 @@ import java.util.HashMap;
  */
 
 public class UserDetails {
-    private static final HashMap<String, Account> localDetails = new HashMap<>();
+//    private static final HashMap<String, Account> localDetails = new HashMap<>();
     private static Account currentUser;
     private static Account registerUser;
 
@@ -20,7 +20,7 @@ public class UserDetails {
      * @param newUser user to be registered
      */
     public static void register(Account newUser) {
-        localDetails.put(newUser.getUsername(), newUser);
+//        localDetails.put(newUser.getUsername(), newUser);
         registerUser = newUser;
     }
 
@@ -57,24 +57,24 @@ public class UserDetails {
     public static void logout() {
         currentUser = null;
     }
+//
+//    /**
+//     * getter of localDetails
+//     *
+//     * @return localDetails
+//     */
+//    public static HashMap<String, Account> getLocalDetails() {
+//        return localDetails;
+//    }
 
-    /**
-     * getter of localDetails
-     *
-     * @return localDetails
-     */
-    public static HashMap<String, Account> getLocalDetails() {
-        return localDetails;
-    }
-
-    /**
-     * add a single user to local user storage
-     *
-     * @param username the username of user
-     * @param user the data structure of user
-     */
-    public static void addLocalDetails(String username, Account user) {
-        localDetails.put(username, user);
-    }
+//    /**
+//     * add a single user to local user storage
+//     *
+//     * @param username the username of user
+//     * @param user the data structure of user
+//     */
+//    public static void addLocalDetails(String username, Account user) {
+//        localDetails.put(username, user);
+//    }
 
 }

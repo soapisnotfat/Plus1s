@@ -113,4 +113,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_lost_view" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="210dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/lost_and_found"
+        tools:layout_constraintTop_creator="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_welcome"
+        />
+
 </android.support.constraint.ConstraintLayout>

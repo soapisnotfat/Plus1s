@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,9 +20,11 @@ import plus1s.app.model.LostItem;
 import plus1s.app.model.UserDetails;
 
 public class MainActivity extends AppCompatActivity {
+    ImageView img;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //random variable instantiations
         final Button main_logout = (Button)findViewById(R.id.main_logout);
@@ -30,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         final Button main_search = (Button) findViewById(R.id.main_search);
         final TextView main_welcome = (TextView) findViewById(R.id.main_welcome);
         final TextView main_role = (TextView) findViewById(R.id.main_role);
+        img = (ImageView) findViewById(R.id.imageView);
+        final Animation fade_in_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        img.setAnimation(fade_in_anim);
         main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
         main_go_to_map.setText("Click here to map");
         main_role.setText("Mode: " + UserDetails.getCurrentUser().returnType());

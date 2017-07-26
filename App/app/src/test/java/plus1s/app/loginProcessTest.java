@@ -1,5 +1,5 @@
 package plus1s.app;
-import android.util.Log;
+//import android.util.Log;
 
 import org.junit.Before;
 import org.junit.Test;

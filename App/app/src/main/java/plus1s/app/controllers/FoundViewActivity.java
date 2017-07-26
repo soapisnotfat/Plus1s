@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,9 +27,12 @@ public class FoundViewActivity extends AppCompatActivity {
 
         final TextView found_view_back = (TextView) findViewById(R.id.found_view_back);
         final ListView found_view_list = (ListView) findViewById(R.id.found_view_list);
+//        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, displayFoundItem());
         found_view_list.setAdapter(adapter);
+        final Animation fade_in_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        found_view_list.setAnimation(fade_in_anim);
         found_view_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
