@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         img = (ImageView) findViewById(R.id.imageView);
         final Animation fade_in_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
         img.setAnimation(fade_in_anim);
-        main_welcome.setText("Welcome," + UserDetails.getCurrentUser().getName());
-        main_go_to_map.setText("Click here to map");
+        main_welcome.setText("Welcome, " + UserDetails.getCurrentUser().getName());
         main_role.setText("Mode: " + UserDetails.getCurrentUser().returnType());
 
         //logout action on clocking logout button
