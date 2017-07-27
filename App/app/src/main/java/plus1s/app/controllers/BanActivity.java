@@ -34,15 +34,13 @@ public class BanActivity extends AppCompatActivity {
                 final String username = adapter.getItem(i);
                 AlertDialog.Builder dialog3 = new AlertDialog.Builder(BanActivity.this);
                 dialog3.setTitle("Unban User");
-                dialog3.setMessage("Are you sure to unban the user?")
+                dialog3.setMessage("Are you sure to unban " + username + " ?")
                         .setNegativeButton("No", null)
                         .setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 unBanUser(username);
-                                adapter.clear();
-                                adapter.addAll(UserDetails.getBanList());
-                                adapter.notifyDataSetChanged();
+                                goToMain();
                             }
                         })
                         .create()
@@ -100,3 +98,4 @@ public class BanActivity extends AppCompatActivity {
         df_2.setValue(UserDetails.getBanList());
     }
 }
+ 

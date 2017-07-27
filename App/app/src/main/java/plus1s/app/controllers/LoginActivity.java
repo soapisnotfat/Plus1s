@@ -110,34 +110,40 @@ public class LoginActivity extends AppCompatActivity {
                             user.setEmail(dataSnapshot.child("email").getValue(String.class));
                             user.setIsLocked(dataSnapshot.child("isLocked").getValue(boolean.class));
                             GenericTypeIndicator<HashMap<String, Item>> t = new GenericTypeIndicator<HashMap<String, Item>>() {};
+
                             if (dataSnapshot.hasChild("items")) {
                                 user.setItems(dataSnapshot.child("items").getValue(t));
                             }
-                            if (loginProcess(log_password, user) && !user.getIsLocked()) {
-                                goToMain();
-                            } else {
-                                // check the tries times
-                                if (tries >= 4) {
-                                    UserDetails.addBanList(log_username);
-                                    Toast.makeText(LoginActivity.this,
-                                            "Your account has been banned", Toast.LENGTH_SHORT).show();
-                                    tries = 0;
-                                    DatabaseReference df =FirebaseDatabase.getInstance().getReference("banList");
-                                    df.setValue(UserDetails.getBanList());
-                                    user.setIsLocked(true);
-                                    DatabaseReference df_2 =FirebaseDatabase.getInstance().getReference("user").child(log_username);
-                                    df_2.setValue(user);
+                            if (!user.getIsLocked()) {
+                                if (loginProcess(log_password, user)) {
+                                    goToMain();
                                 } else {
-                                    //display an alert while password is invalid
-                                    AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
-                                    dialog3.setTitle("Invalid Login Attempt");
-                                    dialog3.setMessage("You have " + (4 - tries) + " more chances")
-                                            .setNegativeButton("Retry", null)
-                                            .create()
-                                            .show();
-                                    login_password.setText("");
-                                    tries++;
+                                    // check the tries times
+                                    if (tries >= 2) {
+                                        UserDetails.addBanList(log_username);
+                                        Toast.makeText(LoginActivity.this,
+                                                "Your account has been banned", Toast.LENGTH_SHORT).show();
+                                        tries = 0;
+                                        DatabaseReference df = FirebaseDatabase.getInstance().getReference("banList");
+                                        df.setValue(UserDetails.getBanList());
+                                        user.setIsLocked(true);
+                                        DatabaseReference df_2 = FirebaseDatabase.getInstance().getReference("user").child(log_username);
+                                        df_2.setValue(user);
+                                    } else {
+                                        //display an alert while password is invalid
+                                        AlertDialog.Builder dialog3 = new AlertDialog.Builder(LoginActivity.this);
+                                        dialog3.setTitle("Invalid Login Attempt");
+                                        dialog3.setMessage("You have " + (4 - tries) + " more chances")
+                                                .setNegativeButton("Retry", null)
+                                                .create()
+                                                .show();
+                                        login_password.setText("");
+                                        tries++;
+                                    }
                                 }
+                            } else {
+                                Toast.makeText(LoginActivity.this,
+                                        "Your account has been banned", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             //display an alert while password is invalid
