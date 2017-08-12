@@ -5,7 +5,3 @@
  Zijin Luo<br />
  Zhu Zhuang<br />
  Jinghua Zhang<br />
-
-#### TODO
- Design Pattern<br />
- Singleton<br />
