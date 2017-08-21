@@ -98,4 +98,3 @@ public class BanActivity extends AppCompatActivity {
         df_2.setValue(UserDetails.getBanList());
     }
 }
- 
